@@ -74,6 +74,129 @@
 #     The function decides whether or not the given number is inside the list and returns (then prints) an appropriate boolean.
 #     Extras:
 #     Use binary search.
-# 19. Read A File
-#     Given a .txt file that has a list of a bunch of names,
-#     count how many of each name there are in the file, and print out the results to the screen.
+# 19. File Overlap
+#     Given two .txt files that have lists of numbers in them, find the numbers that are overlapping.
+#     One .txt file has a list of all prime numbers under 1000,
+#     and the other .txt file has a list of happy numbers up to 1000.
+# 20. Draw A Game Board
+#     Time for some fake graphics! Let’s say we want to draw game boards that look like this:
+#     --- --- ---
+#     |   |   |   |
+#     --- --- ---
+#     |   |   |   |
+#     --- --- ---
+#     |   |   |   |
+#     --- --- ---
+#     This one is 3x3 (like in tic tac toe). Obviously, they come in many other sizes (8x8 for chess, 19x19 for Go, and many more).
+#     Ask the user what size game board they want to draw, and draw it for them to the screen using Python’s print statement.
+# def draw_board(size):
+#     for i in range(size):
+#         print(" ---" * size)
+#         print("|   " * (size+1))
+#     print(" ---" * size)
+#
+# 21. Guessing Game Two
+#     In a previous exercise, we’ve written a program that “knows” a number and asks a user to guess it.
+#     This time, we’re going to do exactly the opposite. You, the user, will have in your head a number between 0 and 100.
+#     The program will guess a number, and you, the user, will say whether it is too high, too low, or your number.
+#     At the end of this exchange, your program should print out how many guesses it took to get your number.
+#     As the writer of this program, you will have to choose how your program will strategically guess.
+#     A naive strategy can be to simply start the guessing at 1, and keep going (2, 3, 4, etc.) until you hit the number.
+#     But that’s not an optimal guessing strategy. An alternate strategy might be to guess 50 (right in the middle of the range),
+#     and then increase / decrease by 1 as needed. After you’ve written the program, try to find the optimal strategy!
+# def guessing_game_two():
+#     print("Think of a number between 0 and 100")
+#     low = 0
+#     high = 100
+#     guess = 50
+#     while True:
+#         print(f"Is your number {guess}?")
+#         answer = input(
+#             "Enter 'h' if the guess is too high, 'l' if too low, or 'c' if correct: ")
+#         if answer == 'h':
+#             high = guess
+#             guess = (low + high) // 2
+#         elif answer == 'l':
+#             low = guess
+#             guess = (low + high) // 2
+#         elif answer == 'c':
+#             print("I guessed your number in {} tries!".format(guess))
+#             break
+#         else:
+#             print("Invalid input. Please enter 'h', 'l', or 'c'.")
+# 22. Check Tic Tac Toe
+#     Given a 3 by 3 list of lists that represents a Tic Tac Toe game board, tell me whether anyone has won,
+#     and tell me which player won, if any. A Tic Tac Toe win is 3 in a row - either in a row, a column, or a diagonal.
+#     Don’t worry about the case where TWO people have won - assume that in every board there will only be one winner.
+# def check_tic_tac_toe(board):
+#     for i in range(3):
+#         if board[i][0] == board[i][1] == board[i][2]:
+#             return board[i][0]
+#         elif board[0][i] == board[1][i] == board[2][i]:
+#             return board[0][i]
+#     if board[0][0] == board[1][1] == board[2][2]:
+#         return board[0][0]
+#     elif board[0][2] == board[1][1] == board[2][0]:
+#         return board[0][2]
+#     return False
+# 23. Max Of Three
+#     Implement a function that takes as input three variables, and returns the largest of the three.
+#     Do this without using the Python max() function!
+#     The goal of this exercise is to think about some internals that Python normally takes care of for us.
+#     All you need is some variables and if statements!
+# 24. Pick Word
+#     In this exercise, the task is to write a function that picks a random word from a list of words from the SOWPODS dictionary.
+#     Download this file and save it in the same directory as your Python code. This file is Peter
+#     Norvig’s compilation of the dictionary of words used in professional Scrabble tournaments.
+#     Each line in the file contains a single word.
+#     Hint: use the Python random library for picking a random word.
+# import random
+# def pick_word():
+#     with open("sowpods.txt", "r") as f:
+#         words = f.readlines()
+#     return random.choice(words).strip()
+
+# 25. Guess Letters
+# Let’s continue building Hangman. In the game of Hangman, a clue word is given by the program that the player has to guess,
+# letter by letter. The player guesses one letter at a time until the entire word has been guessed. (In the actual game,
+# the player can only guess 6 letters incorrectly before losing).
+
+# Let’s say the word the player has to guess is “EVAPORATE”. For this exercise, write the logic that asks a
+# player to guess a letter and displays letters in the clue word that were guessed correctly. For now, let the
+# player guess an infinite number of times until they get the entire word. As a bonus, keep track of the letters
+# the player guessed and display a different message if the player tries to guess that letter again. Remember to
+# stop the game when all the letters have been guessed correctly! Don’t worry about choosing a word randomly or
+# keeping track of the number of guesses the player has remaining - we will deal with those in a future exercise.
+
+# An example interaction can look like this:
+
+# >>> Welcome to Hangman!
+# _ _ _ _ _ _ _ _ _
+# >>> Guess your letter: S
+# Incorrect!
+# >>> Guess your letter: E
+# E _ _ _ _ _ _ _ E
+# ...
+# def guess_letters():
+#     word = "EVAPORATE"
+#     guessed = "_" * len(word)
+#     word = list(word)
+#     guessed = list(guessed)
+#     lstGuessed = []
+#     letter = input("guess letter: ")
+#     while True:
+#         if letter.upper() in lstGuessed:
+#             letter = ''
+#             print("Already guessed!!")
+#         elif letter.upper() in word:
+#             index = word.index(letter.upper())
+#             guessed[index] = letter.upper()
+#             word[index] = '_'
+#         else:
+#             print(''.join(guessed))
+#             if letter is not '':
+#                 lstGuessed.append(letter.upper())
+#             letter = input("guess letter: ")
+#         if '_' not in guessed:
+#             print("You won!!")
+#             break
