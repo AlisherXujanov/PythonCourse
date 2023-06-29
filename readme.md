@@ -1,4 +1,4 @@
-# 👇️🎯 Here are some resources to help you get started with Python and exercise 💪
+# 🎯 Here are some resources to help you get started with Python and exercise 💪👇️
 
 ### Practice Python (https://www.practicepython.org/)
 ### HackerRank (https://www.hackerrank.com/domains/python)
@@ -15,8 +15,10 @@
 
 ## or 
 #### python -m pip install pipenv 
+
+###### If you however get 
 ```
-    If you however get 'pipenv' is not recognized as an internal or external command, 
+    'pipenv' is not recognized as an internal or external command, 
     operable program or batch file, get the Python>- path to the base directory for the user site-packages by running:
     Mine is C:\Users\drgabrielharris\AppData\Roaming\Python\Python37\site-packages
     Replace site-packages in the path with Scripts then add to your system PATH 
@@ -26,5 +28,5 @@
 
 
 # 🎯 To create requirements.txt file
-**pipenv lock -r > requirements.txt**  - is outdated
-New version is: **pipenv run pip freeze  > requirements.txt**
+1. ``` **pipenv lock -r > requirements.txt** ```  - is outdated
+2. New version is: ``` **pipenv run pip freeze  > requirements.txt** ```
