@@ -18,15 +18,15 @@
 
 ###### If you however get 
 ```
-    'pipenv' is not recognized as an internal or external command, 
-    operable program or batch file, get the Python>- path to the base directory for the user site-packages by running:
-    Mine is C:\Users\drgabrielharris\AppData\Roaming\Python\Python37\site-packages
-    Replace site-packages in the path with Scripts then add to your system PATH 
-    (on Windows: Edit environment variables for your  
-    account > in the User variables select Path > Edit > New > C:\Users\drgabrielharris\AppData\Roaming\Python\Python37\Scripts )
+    'pipenv' is not recognized as an internal or external command, operable program or batch file 
 ```
+###### get the Python>- path to the base directory for the user site-packages by running:
+###### Mine is C:\Users\drgabrielharris\AppData\Roaming\Python\Python37\site-packages
+###### Replace site-packages in the path with Scripts then add to your system PATH 
+###### (on Windows: Edit environment variables for your account > in the User variables select 
+###### Path > Edit > New > C:\Users\drgabrielharris\AppData\Roaming\Python\Python37\Scripts )
 
 
 # 🎯 To create requirements.txt file
-1. ``` **pipenv lock -r > requirements.txt** ```  - is outdated
-2. New version is: ``` **pipenv run pip freeze  > requirements.txt** ```
+1. ```pipenv lock -r > requirements.txt```  - is outdated
+2. New version is: ```pipenv run pip freeze  > requirements.txt```
