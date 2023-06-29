@@ -1,8 +1,8 @@
 # INITIAL SETS
 
-odds    = {1, 3, 5}
-evens   = {0, 2, 5, 6, 7}
-primes  = {2, 3, 5, 7, 11}
+odds = {1, 3, 5}
+evens = {0, 2, 5, 6, 7}
+primes = {2, 3, 5, 7, 11}
 fibonacci = {1, 1, 2, 3, 5, 8, 13}
 
 
@@ -13,7 +13,6 @@ fibonacci = {1, 1, 2, 3, 5, 8, 13}
 # RU: Создайте два множества и объедините их в одно множество.
 set3 = odds.union(evens)
 # print(set3)
-
 
 
 # =====================================================================================================
@@ -44,12 +43,12 @@ set6 = odds.intersection({1, 3, 5})
 # =====================================================================================================
 # =====================================================================================================
 
-# 5. The students of District College have subscriptions to English and 
-# French newspapers. Some students have subscribed only to English, some 
+# 5. The students of District College have subscriptions to English and
+# French newspapers. Some students have subscribed only to English, some
 # have subscribed to only French and some have subscribed to both newspapers.
-# You are given two sets of student roll numbers. One set has subscribed to 
-# the English newspaper, and the other set is subscribed to the French newspaper. 
-# The same student could be in both sets. Your task is to find the total number of 
+# You are given two sets of student roll numbers. One set has subscribed to
+# the English newspaper, and the other set is subscribed to the French newspaper.
+# The same student could be in both sets. Your task is to find the total number of
 # students who have subscribed to at least one newspaper.
 # ------------------------------------------------------
 # RU: У студентов District College есть подписки на английские и французские газеты.
@@ -71,8 +70,8 @@ def total_subscriptions(set1, set2):
 # → A Captain.
 # → An unknown group of families consisting of K members per group where K ≠ 1.
 # The Captain was given a separate room, and the rest were given one room per group.
-# Mr. Anant has an unordered list of randomly arranged room entries. The list consists of 
-# the room numbers for all of the tourists. The room numbers will appear K times per group 
+# Mr. Anant has an unordered list of randomly arranged room entries. The list consists of
+# the room numbers for all of the tourists. The room numbers will appear K times per group
 # except for the Captain's room.
 # Mr. Anant needs you to help him find the Captain's room number.
 # The total number of tourists or the total number of groups of families is not known to you.
@@ -91,7 +90,7 @@ def total_subscriptions(set1, set2):
 # Общее количество туристов или общее количество групп семей вам неизвестно.
 # Вы знаете только значение K и список номеров комнат.
 # ------------------------------------------------------
-# 
+#
 
 def captain_room(rooms, k):
     # With the help of for loop
@@ -102,20 +101,22 @@ def captain_room(rooms, k):
     # With the help of comprehension
     # return ((sum(set(rooms)) * k) - (sum(rooms))) // (k - 1)
 
+
 # EXPLANATION:
     # input:
     # k = 5
-    # rooms = 1 2 3 6 5 4 4 2 5 3 6 1 6 5 3 2 4 1 2 5 1 4 3 6 8 4 3 1 5 6 2 
+    # rooms = 1 2 3 6 5 4 4 2 5 3 6 1 6 5 3 2 4 1 2 5 1 4 3 6 8 4 3 1 5 6 2
 # OUTPUT:
     # 8
-rooms = [1, 2, 3, 6, 5, 4, 4, 2, 5, 3, 6, 1, 6, 5, 3, 2, 4, 1, 2, 5, 1, 4, 3, 6, 8, 4, 3, 1, 5, 6, 2]
+rooms = [1, 2, 3, 6, 5, 4, 4, 2, 5, 3, 6, 1, 6, 5, 3,
+         2, 4, 1, 2, 5, 1, 4, 3, 6, 8, 4, 3, 1, 5, 6, 2]
 k = 5
 # print(captain_room(rooms, k))
 
 # Список номеров комнат содержит 31 элемент. Поскольку K равно 5, должно быть 6 групп семей.
 # В данном списке все числа повторяются 5 раз, кроме номера комнаты 8.
 # Следовательно, 8 - это номер комнаты капитана.
-    
+
 # =====================================================================================================
 # =====================================================================================================
 
@@ -136,6 +137,8 @@ def add_member(set1, *args):
 
 # 8. Write a Python program to remove item(s) from set
 # RU: Напишите программу на Python, чтобы удалить элемент(ы) из набора.
+
+
 def remove_item(set1, *args):
     # for i in args:
     #     set1.remove(i)
@@ -144,7 +147,8 @@ def remove_item(set1, *args):
     # Comprehension
     return set1.difference(args)
 
-print(remove_item({'a','b','c'}, 'c', 'b'))
+
+print(remove_item({'a', 'b', 'c'}, 'c', 'b'))
 
 # =====================================================================================================
 # 9. Create a function that takes a list as an argument and creates a set from it
@@ -153,6 +157,8 @@ print(remove_item({'a','b','c'}, 'c', 'b'))
 # Результат должен содержать только уникальные значения из списка, которые удваиваются.
 # Input [1, 3, 4, 1, 2, 4, 5, 3, 2, 4, 1, 'a', 'b', 'c', 'a', 'b', 'c']
 # Output {2, 4, 6, 8, 10, 'aa', 'bb', 'cc'}
+
+
 def set_from_list(list1):
     # Comprehension
     # return {i*2 for i in set(list1)}
@@ -164,13 +170,15 @@ def set_from_list(list1):
     return result_set
 # =====================================================================================================
 # 10. Create a function that takes a dict as an arg and gets all values from it and
-# converts them into set. Then, plus them all together and return the result by 
+# converts them into set. Then, plus them all together and return the result by
 # saying "The sum is: {sum} and it is {even/odd} number"
-# RU: Создайте функцию, которая принимает словарь в качестве аргумента и получает 
-# все значения из него и преобразует их в набор. Затем сложите их все вместе и 
+# RU: Создайте функцию, которая принимает словарь в качестве аргумента и получает
+# все значения из него и преобразует их в набор. Затем сложите их все вместе и
 # верните результат, сказав "Сумма равна: {сумма} и это {четное/нечетное} число"
 # Input {'a': 1, 'b': 2, 'c': 3, 'd': 4, 'g': 3}
 # Output The sum is: 10 and it is even number
+
+
 def sum_of_values(dict1):
     # Comprehension
     # return f"The sum is: {sum({i for i in dict1.values()})} and it is {'even' if sum({i for i in dict1.values()})%2 == 0 else 'odd'} number"
@@ -180,7 +188,7 @@ def sum_of_values(dict1):
     for i in dict1.values():
         sum += i
     return f"The sum is: {sum} and it is {'even' if sum%2 == 0 else 'odd'} number"
-    
+
 
 # =====================================================================================================
 # 11. Create a function that takes a list and a number as a target.
@@ -190,14 +198,17 @@ def sum_of_values(dict1):
 x = [1, 4, 11, 114, 12, 24, 55]
 target = 23
 [2, 4]
+
+
 def find_target(arr, target):
     for item in arr:
         for item2 in arr:
             item1_index = arr.index(item)
             item2_index = arr.index(item2)
             sum = item + item2
-            if item!=item2  and  item1_index!=item2_index  and  sum == target:
+            if item != item2 and item1_index != item2_index and sum == target:
                 print(item1_index, item2_index)
                 return
+
 
 find_target(x, target)

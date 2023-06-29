@@ -37,7 +37,7 @@ def _send_local_file(update, context):
             photo   - Photo to send
             caption - Photo caption, 0-1024 characters after entities parsing
         """
-        update.message.reply_photo(f)
+        update.message.reply_photo(f, caption="Hello world! This is me!")
 
 
 def help(update, context):

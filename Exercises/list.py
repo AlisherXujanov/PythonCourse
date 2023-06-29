@@ -1,17 +1,17 @@
 # LIST EXERCISES
 
-# 1. Write a Python function that takes a list of words and returns the length 
+# 1. Write a Python function that takes a list of words and returns the length
 # of the longest one.
-# RU: Напишите функцию Python, которая принимает список слов и возвращает 
+# RU: Напишите функцию Python, которая принимает список слов и возвращает
 # длину самого длинного слова.
-def longest_word(words): # самое_длинное_слово
+def longest_word(words):  # самое_длинное_слово
     print(max(words, key=len))
     # return max(words, key=lambda x: len(x))
 
 
 # 2. Write a Python program to count the occurrences of each word in a given sentence.
 # RU: Напишите программу Python, чтобы подсчитать количество вхождений каждого слова в заданном предложении.
-def count_occurences(string): # подсчитать_вхождения
+def count_occurences(string):  # подсчитать_вхождения
     dict = {}
     for i in string.split():
         dict[i] = string.count(i)
@@ -20,13 +20,15 @@ def count_occurences(string): # подсчитать_вхождения
 
 # 3. Write a Python program to sum all the items in a list.
 # RU: Напишите программу Python, чтобы сложить все элементы в списке.
-def sum_list(list): # сложить_список
+
+
+def sum_list(list):  # сложить_список
     return sum(list)
 
 
 # 4. Write a Python program to multiplies all the items in a list.
 # RU: Напишите программу Python, чтобы умножить все элементы в списке.
-def multiply_list(list): # умножить_список
+def multiply_list(list):  # умножить_список
     result = 1
     for i in list:
         result *= i
@@ -59,18 +61,19 @@ def smallest_greatest_sum(arr):
         print(f'{sum} is even')
     else:
         print(f'{sum} is odd')
-        
+
 # test_arr = [2, 123, 3, 32, 22, 15]
 # smallest_greatest_sum(test_arr)
 # ==========================================================================
 
-# 7.  Write a Python program to count the number of strings from a given 
-# list of strings. The string length is 2 or more and the first 
+# 7.  Write a Python program to count the number of strings from a given
+# list of strings. The string length is 2 or more and the first
 # and last characters are the same.
 # RU: Напишите программу Python, чтобы подсчитать количество строк из заданного
 # список строк. Длина строки 2 или более, а первые 2 и последние 2 символы одинаковы.
 # ['abc', 'xyz', 'aba', '1212381923128321']
 # Expected Result : 2
+
 
 def count_strings(arr):
     result = 0
@@ -101,6 +104,8 @@ def remove_duplicates(arr):
 linked_list = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 # 9. Merge two singly linked lists without creating new nodes.
 # RU: Объедините два односвязных списка без создания новых узлов.
+
+
 def merge_linked_lists(list1, list2):
     list1.extend(list2)
     return list1
@@ -108,6 +113,8 @@ def merge_linked_lists(list1, list2):
 # ==========================================================================
 # 10. Find the middle element of the linked list in a single pass.
 # RU: Найдите средний элемент связанного списка за один проход.
+
+
 def middle_element(list):
     return list[len(list) // 2]
 
@@ -115,6 +122,8 @@ def middle_element(list):
 
 # 11. Insert a node in a linked list.
 # RU: Вставьте узел в связанный список.
+
+
 def insert_node(list, node):
     list.append(node)
     return list
@@ -128,24 +137,24 @@ def second_last(list):
     return list[-2]
 
 
-
 # ==========================================================================
 
 # 13. Create a function that takes a list of numbers and returns the max value
 # using list comprehension
-# RU: Создайте функцию, которая принимает список чисел и возвращает максимальное 
+# RU: Создайте функцию, которая принимает список чисел и возвращает максимальное
 # значение с использованием генератора списка
 def get_max_using_comprehensio(arr):
     pass
 
 # ==========================================================================
-# 14. Create a function that takes a list of names and returns the 
+# 14. Create a function that takes a list of names and returns the
 # ones that start with a vowel.
 # RU: Создайте функцию, которая принимает список имен и возвращает те,
 # которые начинаются с гласной буквы.
+
+
 def get_names_starting_with_vowel(arr):
     return [name for name in arr if name[0].lower() in 'aieuo']
-
 
 
 # ==========================================================================
