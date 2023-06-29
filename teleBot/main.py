@@ -15,7 +15,29 @@ dispatcher = updater.dispatcher
 
 
 def start(update, context):
-    update.message.reply_text("Hello there! I'm bot. Nice to see you!")
+    # SENDING HELLO MESSAGE
+    # .reply_text(message, reply_markup=None, **kwargs)
+    # update.message.reply_text("Hello there! I'm bot. Nice to see you!")
+    # ###################################################################
+    # SENDING PHOTO
+    _send_local_file(update, context)
+
+
+def _send_local_file(update, context):
+    """
+        We must open the file in binary mode, 
+        otherwise Telegram will not be able to process it correctly
+        ------------------------------------------------------------
+        RU: Мы должны открыть файл в двоичном режиме,
+        иначе Telegram не сможет обработать его правильно
+    """
+    with open("me.jpg", "rb") as f:
+        """
+                update.message.reply_photo(photo, caption=None)
+            photo   - Photo to send
+            caption - Photo caption, 0-1024 characters after entities parsing
+        """
+        update.message.reply_photo(f)
 
 
 def help(update, context):
