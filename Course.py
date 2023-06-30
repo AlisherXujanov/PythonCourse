@@ -1146,6 +1146,60 @@ lesson = "LOOPS"
 # ex:
 #   for index, item in enumerate(list):
 #       print(index, item)
+
+# ==============================================================================
+# break     => breaks up the current loop
+# RU: прерывает текущий цикл
+# continue  => skips the current iteration of the loop
+# RU: пропускает текущую итерацию цикла
+# ---------
+# fruits = ["apple", "banana", "kiwi", "disgusting cherry", "mango"]
+# for fruit in fruits:
+#     if 'disgusting' in fruit:
+#         break
+#     elif 'kiwi' == fruit:
+#         continue
+#     else:
+#         print(fruit)
+# ==================================================================
+# round((time.time() - start_time), 2)
+# ------------
+# round   => rounds the number to the specified number of digits
+# RU: округляет число до указанного количества цифр
+# EX: print(round(3.454, 2)) => 3.45
+# ------------
+# import time
+# time.time() => returns the number of seconds passed since epoch
+# EX: start_time = time.time()
+#     end_time = time.time()
+#     difference = end_time - start_time
+# 
+# from datetime import datetime as dt
+# start_time = dt.now()
+# for n in range(100):
+#     print(n)
+#     for n2 in range(100):
+#         print(n2)
+
+# end_time = dt.now()
+# print("Execution time: ", end_time - start_time)
+# ==================================================================
+# import random
+# letters = "abcdefghijklmnopqrstuvwxyz"
+# letters_ru = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя"
+# numbers = "1234567890"
+# symbols = "@#$%^&*"
+
+# total_symbols_for_password = 20
+# everything_included = letters + numbers + symbols
+
+# created_password = ""
+# for i in range(total_symbols_for_password):
+#     random_int = random.randint(0, len(everything_included)-1)
+#     created_password += everything_included[random_int]
+
+# print(created_password)
+# ==================================================================
 """
 
 
@@ -1205,6 +1259,12 @@ lesson = "File handling"
 # "x" - Create - Creates the specified file, returns an error if the file exists
 # "t" - Text - Default value. Text mode
 # "b" - Binary - Binary mode (e.g. images)
+
+# Combinations of modes:
+"a+" - Read and Append - Opens a file for reading and appending, creates the file if it does not exist
+"w+" - Write and Read - Opens a file for writing and reading, creates the file if it does not exist
+"r+" - Read and Write - Opens a file for reading and writing, error if the file does not exist
+
 # ===========================================================
 # WORKING WITH DIRECTORIES and os
 # import os
@@ -1221,6 +1281,8 @@ lesson = "File handling"
 
 
 lesson = "Class  &&  OOP"
+_1 = 'Abstract and Inheritance'
+"""
 # Abstract
 # Inheritance
 
@@ -1313,23 +1375,43 @@ lesson = "Class  &&  OOP"
 #         print("Hello world from child")
 
 #     def __repr__(self) -> str:
-#         """
+#         '''
 #             Is used to represent the object with a string.
 #             It is used for debugging and logging.
-#         """
+#         '''
 #         return f"{self.name} is {self.age} years old"
 
 #     def __str__(self) -> str:
-#         """
+#         '''
 #             Is used to represent the object with a string.
 #             It is used for the end user.
-#         """
+#         '''
 #         return f"{self.name} is {self.age} years old"
 
 
 # child = Child("John", 20)
 # print(child)
 # print(child.test())
+"""
+
+_2 = 'Polymorphism and Encapsulation and Decorators'
+"""
+################ Polymorphism
+# Polymorphism allows you define one interface and have multiple implementations.
+# Polymorphism means "many forms", and it occurs when we have many classes that are related to each other by inheritance.
+# class Animal:
+#     def __init__(self, name):
+#         self.name = name
+#     def speak(self):
+#         raise NotImplementedError("Subclass must implement abstract method")
+#
+# class Dog(Animal):
+#     def speak(self):
+#         return self.name+' says Woof!'
+#
+# class Cat(Animal):
+#     def speak(self):
+#         return self.name+' says Meow!'
 
 
 #############################################################################################
@@ -1381,6 +1463,8 @@ lesson = "Class  &&  OOP"
 
 # print(student1.age)
 # print(student2.age)
+"""
 
 
+_3 = 'Dunder methods'
 
