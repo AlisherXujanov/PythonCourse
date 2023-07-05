@@ -34,8 +34,6 @@
 # ==================================
 # 2. min()         Works the same way as max(), but returns the smallest value
 
-
-
 # ===========================================================================================
 # 3. map()         Returns a map object (which is an iterator) of the results after applying the 
 #               given function to each item of a given iterable (list, tuple etc.)
@@ -95,7 +93,7 @@
 # all()  ==  and  ==  &&
 # any()  ==  or   ==  ||
 
-# mylist = [True, True, True]
+# mylist = [True, True, False]
 # x = all(mylist)  # =>  True
 # print(x)
 # ------------------------------------------------------------------------------
@@ -129,20 +127,21 @@
 # 14 = 1110
 # 15 = 1111
 """
-
-
 # ------------------------------------------------------------------------------
 # 10. bin()	        Returns the binary version of a number
 #           RU: Возвращает двоичную версию числа
 #           EX:
 #               x = bin(36)  =>  0b100100
+# vice versa is =>  int('0b100100', 2)  =>  36
+
 # ------------------------------------------------------------------------------
 # 11. bool()	    Returns the boolean value of the specified object
 #               Anything that is not empty, or 0, or None is True
 #           RU: Возвращает логическое значение указанного объекта
 #               Любое значение, которое не является пустым, или 0, или None, является True
 #           EX:
-#               x = bool(5)  =>  True,   x = bool(0)  =>  False,   ...
+
+#               x = bool(5) => True,     x = bool(0) => False,   ...
 # ------------------------------------------------------------------------------
 # 12. bytes()	    Returns a bytes object
 #           RU: Возвращает объект байтов
@@ -154,7 +153,9 @@
 #          EX:
 # def x():
 #     return 5
+# z = 0
 # print(callable(x))  # =>  True
+# print(callable(z))  # =>  False
 # ------------------------------------------------------------------------------
 # Unicode codes:  They are used to represent text in computer and other devices,
 #                 such as phones and tablets. You can also use them in HTML.
@@ -238,6 +239,11 @@
 # ------------------------------------------------------------------------------
 # 24. globals()	    Returns the current global symbol table as a dictionary
 #           RU: Возвращает текущую глобальную таблицу символов в виде словаря
+# ex: 
+#   x = 10
+#   y = 5
+#   globals = globals()  =>  []
+#   print(globals['x'])  =>  10
 # ------------------------------------------------------------------------------
 # 25. hasattr()	    Returns True if the specified object has the specified attribute (property/method)
 #           RU: Возвращает True, если указанный объект имеет указанный атрибут (свойство / метод)
@@ -259,6 +265,7 @@
 # The get the value from the hash object we can use special id for saving the hashed 
 # version of the object
 # By using id we can get the value from the hash object back from DB
+
 # -------------------
 # Когда мы хотим сохранить объект в базу данных, мы можем использовать хеш-значение
 # Если мы хотим получить значение из объекта хеша, мы можем использовать 
@@ -273,19 +280,18 @@
 #               print(help('modules'))
 #               print(help('print'))
 #               ...
+
 # ------------------------------------------------------------------------------
 # 28. hex()	        Converts a number into a hexadecimal value
 #           RU: Преобразует число в шестнадцатеричное значение
 #           EX:
 # x = hex()  # =>  0xff
-
 # ------------------------------------------------------------------------------
 # 29. id()	        Returns the id of an object
 #           RU: Возвращает идентификатор объекта
 #           EX:
-#               x = ('apple', 'banana', 'cherry')
-#               y = id(x)
-#               print(y)  =>  140714640543488
+# x = ('apple', 'banana', 'cherry')
+# print(id(x))  # =>  140714640543488
 # print(id(list))
 
 # ------------------------------------------------------------------------------
@@ -343,6 +349,8 @@
 #               x = ord('h')  =>  104
 # ------------------------------------------------------------------------------
 # 41. pow()	        Returns the value of x to the power of y
+# pow(3, 4) # 81   ==>   3 ** 4    ==>   3 * 3 * 3 * 3
+
 # ------------------------------------------------------------------------------
 # 42. print()	    Prints to the standard output device
 # ------------------------------------------------------------------------------
@@ -430,6 +438,11 @@
 #           EX:
 #               x = zip(['apple', 'banana', 'cherry'], ['orange', 'lemon', 'pineapple'])
 #               print(next(x))  =>  ('apple', 'orange') 
+# fruits = ['apple', 'banana', 'cherry', 'orange', 'lemon', 'pineapple']
+# cars = ['BMW', 'Volvo', 'Ford', 'Mazda']
+# z = zip(fruits, cars)
+# for (fruit, car) in z:
+#     print(fruit, car)
 # ------------------------------------------------------------------------------
 # 60. format()	    Formats a specified value
 # my_name = 'Alisher'

@@ -159,6 +159,8 @@ def capitalized_words():
 # RU: Напишите программу, которая принимает список чисел в качестве входных данных и возвращает
 # самое большое число.
 from functools import reduce
+
+
 def largest_number():
     numbers = input("Enter numbers separated by comma ',': ").split(',')
     print(max(numbers))
@@ -210,11 +212,11 @@ def get_as_nums(arr:list) -> list:
         else:
             return len(str(val))
             
-    return map(get_as_num, arr)
+    return list(map(get_as_num, arr))
     
 test_arr = ["www", "12345", "qwe", 124, '54321', 'aaaaa']
 total = get_as_nums(test_arr)
-print(list(total))
+print(total)
 
 
 # =======================================================================================
@@ -239,11 +241,11 @@ def map_and_filter(arr:list) -> list:
         else:
             return len(str(val))
             
-    return filter(lambda x: x%2==0,  map(get_as_num, arr))
+    return list(filter(lambda x: x%2==0,  list(map(get_as_num, arr))))
     
     
 test_arr = [22, "wwww", "12345", "qwe", 124, '54321', 'aaaaa']
-# print(list(map_and_filter(test_arr)))
+# print(map_and_filter(test_arr))
 
 
 

@@ -1468,3 +1468,36 @@ _2 = 'Polymorphism and Encapsulation and Decorators'
 
 _3 = 'Dunder methods'
 
+
+
+lesson = "Decorators & Wrappers"
+# Decorators are functions that take another function as an argument, add some kind of functionality,
+# and then return another function. All of this without altering the source code of the original 
+# function that we passed in. In Python, functions are first-class objects, which means that we can
+# pass them as arguments to other functions. We can also return them as the values from other functions.
+# This is the basis of decorators.
+
+####################################################################################
+# BASIC DECORATOR
+def decorator_function(original_function):
+    def wrapper_function(*args, **kwargs):
+        print("Wrapper executed this before {}".format(original_function.__name__))
+        return original_function(*args, **kwargs)
+    return wrapper_function
+
+@decorator_function
+def original_function():
+    print("Original function ran")
+    
+####################################################################################
+# Practical example 1
+def my_logger(original_function):
+    import logging
+    logging.basicConfig(filename='{}.log'.format(original_function.__name__), level=logging.INFO)
+    
+    def wrapper(*args, **kwargs):
+        logging.info("Ran with args: {}, and kwargs: {}".format(args, kwargs))
+        return original_function(*args, **kwargs)
+    
+    return wrapper
+    
