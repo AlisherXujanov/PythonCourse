@@ -1,3 +1,109 @@
+# BEGINNER LEVEL
+# ==========================================================================================
+
+# 1. Create a function that gets only numbers from given sentence and 
+# separates them into two lists: evens and odds 
+# RU: Создайте функцию, которая получает только числа из данного предложения и
+# разделяет их на два списка: четные и нечетные
+# Use at least one built-in function 
+# RU: Используйте по крайней мере одну встроенную функцию
+
+# INPUT: "Hello 7th World in 2023 year 2nd time"
+# [7, 3] [2, 0, 2]
+def even_odd(sentence):
+    numbers = [int(x) for x in sentence.split() if x.isdigit()]
+    odds = []
+    evens = []
+    for num in numbers:
+        if num%2==0:
+            evens.append(num)
+        else:
+            odds.append(num)
+    return evens, odds
+
+# =======================================================================================
+
+# 2. Create a function that accepts a string and counts the number of 
+# upper and lower case letters.
+# Sample String : 'The quick Brow Fox'
+# Expected Output :
+# No. of Upper case characters : 3
+# No. of Lower case Characters : 12
+# ---------------------------------
+# RU: Создайте функцию, которая принимает строку и подсчитывает количество
+# прописных и строчных букв.
+# Пример строки: 'The quick Brow Fox'
+# Ожидаемый результат:
+# Количество прописных букв: 3
+# Количество строчных букв: 12
+def upper_lower(sentence):
+    upper = 0
+    lower = 0
+    for letter in sentence:
+        if letter.isupper():
+            upper += 1
+        elif letter.islower():
+            lower += 1
+    return f"Upper: {upper}, Lower: {lower}"
+
+
+# =======================================================================================
+
+# 3. Create a function that counts vowel and consonant letters in a string.
+# RU: Создайте функцию, которая подсчитывает гласные и согласные буквы в строке.
+def vowels_and_constants(sentence):
+    vowels = 0
+    constants = 0
+    for letter in sentence:
+        if letter in 'aeiou':
+            vowels += 1
+        elif letter.isalpha():
+            constants += 1
+    return f"Vowels: {vowels}, Constants: {constants}"
+
+# =======================================================================================
+# 4. Write a program that takes a list of numbers as input and 
+# returns the sum of the even numbers.
+# RU: Напишите программу, которая принимает список чисел в качестве входных 
+# данных и возвращает сумму четных чисел.
+def sum_even_nums():
+    numbers_as_str = input("Enter numbers separated by comma ',': ").split(',')
+    total = []
+    for num in numbers_as_str:
+        num = num.strip()
+        if num.isnumeric():
+            if int(num)%2==0:
+                total.append(int(num))
+    # total_list_of_numbers = [x.strip() for x in numbers_as_str if x.strip().isnumeric()]
+    # total = filter(lambda x: total.append(x) if x%2==0 else 0, total_list_of_numbers)
+    return sum(total)
+
+
+# ==========================================================================================
+# 5. Write a Python program to find those numbers which are 
+# divisible by 7 and multiples of 5, between 1500 and 2700 
+# (both included).
+# RU: Напишите программу на Python для поиска тех чисел, 
+# которые делятся на 7 и кратны 5, в диапазоне от 1500 до 2700 
+# (включительно).
+
+# 7 and 5 
+# 1500 and 2700
+def find_numbers():
+    for i in range(1500, 2700):
+        if i % 7 == 0 and i % 5 == 0:
+            print(i)
+
+
+# =======================================================================================
+# =======================================================================================
+# =======================================================================================
+# =======================================================================================
+
+# INTERMEDIATE LEVEL
+
+
+
 # 1. Find an average number of given numbers of the list 
 # and return nearest integer from given list
 # RU: Найти среднее число данного списка и вернуть ближайшее 
@@ -20,7 +126,6 @@ def nearest_average(arr):
 
 
 # ==========================================================================================
-# ==========================================================================================
 # 2. Print stars (*) in the shape of a pyramid with N number of steps.
 # pyramid(4) =>
 #    *
@@ -32,23 +137,7 @@ def pyramid(n):
         print(' '*(n-i-1)   +   '*'*(i * 2 + 1))
 
 
-# ==========================================================================================
-# ==========================================================================================
-# 3. Write a Python program to find those numbers which are 
-# divisible by 7 and multiples of 5, between 1500 and 2700 
-# (both included).
-# RU: Напишите программу на Python для поиска тех чисел, 
-# которые делятся на 7 и кратны 5, в диапазоне от 1500 до 2700 
-# (включительно).
 
-# 7 and 5 
-# 1500 and 2700
-def find_numbers():
-    for i in range(1500, 2700):
-        if i % 7 == 0 and i % 5 == 0:
-            print(i)
-
-# ==========================================================================================
 # ==========================================================================================
 # 4. Write a Python program to guess a number between 1 and 9.
 # Note : User is prompted to enter a guess. If the user guesses wrong 
@@ -75,8 +164,7 @@ def guess_number():
 
 # guess_number()
 # ==========================================================================================
-# ==========================================================================================
-# 5. Write a Python program to construct the following pattern, 
+# 4. Write a Python program to construct the following pattern, 
 # using a nested for loop.
 # RU: Напишите программу на Python для построения следующего узора,
 # используя вложенный цикл for.
@@ -97,8 +185,7 @@ def pattern(n):
 
     
 # ==========================================================================================
-# ==========================================================================================
-# 6. Write a program that takes a range of 100 numbers 
+# 5. Write a program that takes a range of 100 numbers 
 # and checks if the number is dividible to 3, 5 or both.
 # Then takes these numbers and sums them all together
 # ----------------------------------------------------
@@ -114,9 +201,8 @@ def сумма_кратных_чисел():
     print("Сумма кратных чисел равна: " + str(сумма_кратных))
 
 # ==========================================================================================
-# ==========================================================================================
 
-# 7. Write a program that prints out the first 100 prime numbers.
+# 6. Write a program that prints out the first 100 prime numbers.
 # RU: Напишите программу, которая выводит первые 100 простых чисел.
 prime_numbers = 2, 3, 5, 7, 11, 13, 17, 19, 23, 29
 def n_prime_numbers(n):
@@ -144,9 +230,8 @@ def n_prime_numbers(n):
 # Цикл while продолжается до тех пор, пока длина списка простых чисел не будет равна n. На этом этапе
 # функция возвращает список простых чисел.
 # ==========================================================================================
-# ==========================================================================================
 
-# 8. Write a program that calculates the sum of the first 1000 Fibonacci numbers.
+# 7. Write a program that calculates the sum of the first 1000 Fibonacci numbers.
 # RU: Напишите программу, которая вычисляет сумму первых 1000 чисел Фибоначчи.
 def sum_fibonacci(n):
     сумма = 0
@@ -167,9 +252,8 @@ def sum_fibonacci(n):
 # Цикл for продолжается до тех пор, пока он не сгенерирует n чисел Фибоначчи. На этом этапе функция 
 # возвращает сумму чисел Фибоначчи.
 # ==========================================================================================
-# ==========================================================================================
 
-# 9. Write a program that generates a random password of length 20.
+# 8. Write a program that generates a random password of length 20.
 import random
 
 
@@ -192,7 +276,6 @@ def create_password_of_length(length):
     print(created_password)
     return created_password
 
-# ==========================================================================================
 # ==========================================================================================
 
 # 10. Guessing Game Two
@@ -229,9 +312,8 @@ def guessing_game_two():
             print("Invalid input. Please enter 'h', 'l', or 'c'.")
 
 # ==========================================================================================
-# ==========================================================================================
 
-# 11. Draw A Game Board
+# 9. Draw A Game Board
 #     Time for some fake graphics! Let’s say we want to draw game boards that look like this:
 #     --- --- ---
 #     |   |   |   |
@@ -248,9 +330,8 @@ def draw_board(size):
         print("|   " * (size+1))
     print(" ---" * size)
 # ==========================================================================================
-# ==========================================================================================
 
-# MAGIC LAND GAME  => ПОЛЕ ЧУДЕС
+# 10. MAGIC LAND GAME  => ПОЛЕ ЧУДЕС
 import random
 
 
@@ -295,5 +376,4 @@ def guess_letters():
             break
 
 guess_letters()
-# ==========================================================================================
 # ==========================================================================================

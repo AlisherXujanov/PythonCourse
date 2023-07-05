@@ -136,9 +136,9 @@ def add_tags(tag, string):  # добавить_теги
 
 # 15. Write a Python function to insert a string in the middle of a string.
 # RU: Напишите функцию Python для вставки строки посередине строки.
-
-
 # вставить_строку_посередине
+
+
 def insert_string_middle(string, string_to_insert):
     return string[:len(string)//2] + string_to_insert + string[len(string)//2:]
 
@@ -242,11 +242,33 @@ def repeat_first_l_of_last_word(sentence):
     return first_l*5 + sentence + first_l*5
 # ====================================================================================================
 
-# 26. Write a code in Python to create a Morse code translator. You can take a string with alphanumeric characters in lower or upper case. The string can also have any special characters as a part of the Morse code. Special characters can include commas, colons, apostrophes, exclamation marks, periods, and question marks. The code should return the Morse code that is equivalent to the string.
-# 27. Write a function to detect 13th Friday. The function can accept two parameters, and both will be numbers. The first parameter will be the number indicating the month, and the second will be the year in four digits. Your function should parse the parameters, and it must return True when the month contains a Friday with the 13th, else return False.
-# 28. Write a function to find the domain name from the IP address. The function will accept an IP address, make a DNS request, and return the domain name that maps to that IP address while using records of PTR DNS. You can import the Python socket library.
-# 29. Write a function in Python to convert a decimal to a hex. It must accept a string of ASCII characters as input. The function should return the value of each character as a hexadecimal string. You have to separate each byte by a space and return all alpha hexadecimal characters as lowercase.
-# 30. Write a function in Python to parse a string such that it accepts a parameter- an encoded string. This encoded string will contain a first name, last name, and an id. You can separate the values in the string by any number of zeros. The id will not contain any zeros. The function should return a Python dictionary with the first name, last name, and id values. For example, if the input would be "John000Doe000123". Then the function should return: { "first_name": "John", "last_name": "Doe", "id": "123" }
+# 26. Write a code in Python to create a Morse code translator.
+# You can take a string with alphanumeric characters in lower or upper case.
+# The string can also have any special characters as a part of the Morse code.
+# Special characters can include commas, colons, apostrophes, exclamation marks,
+# periods, and question marks. The code should return the Morse code that is equivalent to the string.
+
+
+# 27. Write a function to detect 13th Friday. The function can accept two parameters,
+# and both will be numbers. The first parameter will be the number indicating the month,
+# and the second will be the year in four digits. Your function should parse the parameters,
+# and it must return True when the month contains a Friday with the 13th, else return False.
+
+# 28. Write a function to find the domain name from the IP address. The function will accept an
+# IP address, make a DNS request, and return the domain name that maps to that IP address while
+# using records of PTR DNS. You can import the Python socket library.
+
+# 29. Write a function in Python to convert a decimal to a hex. It must accept a string of ASCII
+# characters as input. The function should return the value of each character as a hexadecimal string.
+# You have to separate each byte by a space and return all alpha hexadecimal characters as lowercase.
+
+# 30. Write a function in Python to parse a string such that it accepts a parameter- an encoded string.
+# This encoded string will contain a first name, last name, and an id. You can separate the values
+# in the string by any number of zeros. The id will not contain any zeros. The function should return
+# a Python dictionary with the first name, last name, and id values. For example, if the input would
+# be "John000Doe000123". Then the function should return:
+# { "first_name": "John", "last_name": "Doe", "id": "123" }
+
 # 31. Write a code in Python to find out whether a given string S is a valid regex or not.
 
 # =================================================================
