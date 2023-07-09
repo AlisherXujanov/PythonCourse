@@ -204,21 +204,22 @@ def сумма_кратных_чисел():
 
 # 6. Write a program that prints out the first 100 prime numbers.
 # RU: Напишите программу, которая выводит первые 100 простых чисел.
-prime_numbers = 2, 3, 5, 7, 11, 13, 17, 19, 23, 29
+# prime_numbers = 2, 3, 5, 7, 11, 13, 17, 19, 23, 29 ...
+
 def n_prime_numbers(n):
     """Эта функция принимает целое число n в качестве входных данных и возвращает список первых n простых чисел"""
-    простые_числа = []
-    текущее_число = 2
-    while len(простые_числа) < n:
-        является_простым = True
-        for делитель in range(2, текущее_число):
-            if текущее_число % делитель == 0:
-                является_простым = False
+    prime_numbers = []
+    current_num = 2
+    while len(prime_numbers) < n:
+        is_prime = True
+        for devider in range(2, current_num):
+            if current_num % devider == 0:
+                is_prime = False
                 break
-        if является_простым:
-            простые_числа.append(текущее_число)
-        текущее_число += 1
-    return простые_числа
+        if is_prime:
+            prime_numbers.append(current_num)
+        current_num += 1
+    return prime_numbers
 
 # RU: Код выше - определяет функцию с именем n_prime_numbers, которая
 # принимает целое число n в качестве входных данных и возвращает список первых n простых чисел.

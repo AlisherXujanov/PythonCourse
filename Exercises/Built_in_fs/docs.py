@@ -14,20 +14,20 @@
 # RU: Есть два необязательных аргумента только ключевых слов.
 
 # key- key function where the iterables are passed and comparison is performed based on its return value
-# RU: key- ключевая функция, в которой передаются итерируемые объекты, 
+# RU: key- ключевая функция, в которой передаются итерируемые объекты,
 # и сравнение выполняется на основе возвращаемого значения
-# EX: 
+# EX:
 #   iterable = ['geeks', 'code', 'python', 'java']
 #   max(iterable, key=len)  =>  'python'
 # iterable = [30, 15, 20, 25, 30]
-# print(max(iterable, key=lambda x: x%15))  # => 25 
-#   => here the remainder after dividing each element by 
+# print(max(iterable, key=lambda x: x%15))  # => 25
+#   => here the remainder after dividing each element by
 #      15 is calculated and the maximum of those values is returned
-#      ex:  10%15 = 10,  15%15 = 0,  20%15 = 5,  25%15 = 10,  30%15 = 0 
+#      ex:  10%15 = 10,  15%15 = 0,  20%15 = 5,  25%15 = 10,  30%15 = 0
 
-# The default argument specifies an object to return if the provided iterable is empty. 
+# The default argument specifies an object to return if the provided iterable is empty.
 # If the iterable is empty and the default is not provided, a ValueErroris raised.
-# EX: 
+# EX:
 #   iterable = []
 #   max(iterable, default=100)  =>  100
 #   max(iterable)  =>  ValueError: max() arg is an empty sequence
@@ -35,7 +35,7 @@
 # 2. min()         Works the same way as max(), but returns the smallest value
 
 # ===========================================================================================
-# 3. map()         Returns a map object (which is an iterator) of the results after applying the 
+# 3. map()         Returns a map object (which is an iterator) of the results after applying the
 #               given function to each item of a given iterable (list, tuple etc.)
 #           RU: Возвращает объект отображения (который является итератором) результатов после применения
 #               заданной функции к каждому элементу заданного итерируемого объекта (список, кортеж и т. Д.)
@@ -70,21 +70,24 @@
 #         acc  - accumulator
 #         next - next value
 #         NOTE: the initial value of the accumulator is the first value of the iterable
+#               if not given as last argument
 #     """
 #     return acc + next
 #     # return acc if acc > next else next
-    
+
 # x = reduce(myFunc, (1, 2, 3, 4))
 # print(x)  # =>  10
-
-
 
 # ------------------------------------------------------------------------------
 # 6. abs()	        Returns the absolute value of a number
 #           RU: Возвращает абсолютное значение числа
-#           EX: 
+#           EX:
 #               x = -2   ==   abs(x) == 2
 #               z = 2    ==   abs(z) == 2
+#               c = complex(2)
+#               print(c)
+#               x = abs(c)
+#               print(x)
 # ------------------------------------------------------------------------------
 # 7. all()	        Returns True if all items in an iterable object are true
 #           RU: Возвращает True, если все элементы в итерируемом объекте истинны
@@ -105,10 +108,12 @@
 # print(x)
 # ------------------------------------------------------------------------------
 # 9. ascii()	    Returns a readable version of an object. Replaces none-ascii characters with escape character
+#       American Standard Code for Information Interchange
 #           RU: Возвращает читаемую версию объекта. Заменяет символы, не являющиеся ASCII-символами, символом экранирования
 #           EX:
 # x = ascii("My name is Ståle")  # => 'My name is St\xe5le'
 
+# ------------------------------------------------------------------------------
 """
 # 0 = 0
 # 1 = 1
@@ -127,12 +132,11 @@
 # 14 = 1110
 # 15 = 1111
 """
-# ------------------------------------------------------------------------------
 # 10. bin()	        Returns the binary version of a number
 #           RU: Возвращает двоичную версию числа
 #           EX:
 #               x = bin(36)  =>  0b100100
-# vice versa is =>  int('0b100100', 2)  =>  36
+# vice versa is =>  int(0b100100)  =>  36
 
 # ------------------------------------------------------------------------------
 # 11. bool()	    Returns the boolean value of the specified object
@@ -143,7 +147,7 @@
 
 #               x = bool(5) => True,     x = bool(0) => False,   ...
 # ------------------------------------------------------------------------------
-# 12. bytes()	    Returns a bytes object
+# 12. bytes()   Returns a bytes object
 #           RU: Возвращает объект байтов
 #           EX:
 #               x = bytes(5)  =>  b'\x00\x00\x00\x00\x00'
@@ -159,7 +163,7 @@
 # ------------------------------------------------------------------------------
 # Unicode codes:  They are used to represent text in computer and other devices,
 #                 such as phones and tablets. You can also use them in HTML.
-#                 More info: https://www.w3schools.com/charsets/ref_html_ascii.asp  
+#                 More info: https://www.w3schools.com/charsets/ref_html_ascii.asp
 #   0 - 31	    Control codes
 #   32 - 126	Printable characters
 #   127	        Delete
@@ -208,6 +212,7 @@
 #           RU: Возвращает список свойств и методов указанного объекта
 #           EX:
 # x = dir(bool)
+
 # [print(z) for z in x]
 # ------------------------------------------------------------------------------
 # 20. enumerate()	Takes a collection (e.g. a tuple) and returns it as an enumerate object
@@ -239,13 +244,13 @@
 # ------------------------------------------------------------------------------
 # 24. globals()	    Returns the current global symbol table as a dictionary
 #           RU: Возвращает текущую глобальную таблицу символов в виде словаря
-# ex: 
+# ex:
 #   x = 10
 #   y = 5
 #   globals = globals()  =>  []
 #   print(globals['x'])  =>  10
 # ------------------------------------------------------------------------------
-# 25. hasattr()	    Returns True if the specified object has the specified attribute (property/method)
+# 25. hasattr()	 dictmethod    Returns True if the specified object has the specified attribute (property/method)
 #           RU: Возвращает True, если указанный объект имеет указанный атрибут (свойство / метод)
 #           EX:
 # class Person:
@@ -262,15 +267,15 @@
 #               print(x)  =>  8317319708700421212
 # -------------------
 # The hash value is used to uniquely identify a specific object
-# The get the value from the hash object we can use special id for saving the hashed 
+# The get the value from the hash object we can use special id for saving the hashed
 # version of the object
 # By using id we can get the value from the hash object back from DB
 
 # -------------------
 # Когда мы хотим сохранить объект в базу данных, мы можем использовать хеш-значение
-# Если мы хотим получить значение из объекта хеша, мы можем использовать 
+# Если мы хотим получить значение из объекта хеша, мы можем использовать
 # специальный идентификатор для сохранения хешированной версии объекта
-# Используя идентификатор, мы можем получить значение из объекта хеша 
+# Используя идентификатор, мы можем получить значение из объекта хеша
 # обратно из базы данных
 
 # ------------------------------------------------------------------------------
@@ -310,7 +315,7 @@
 #               class Person:
 #                   name = 'John'
 #                   age = 36
-#               
+#
 #               class Student(Person):
 #                   grade = 9
 #
@@ -437,12 +442,19 @@
 #           RU: Возвращает итератор из двух или более итераторов
 #           EX:
 #               x = zip(['apple', 'banana', 'cherry'], ['orange', 'lemon', 'pineapple'])
-#               print(next(x))  =>  ('apple', 'orange') 
+#               print(next(x))  =>  ('apple', 'orange')
 # fruits = ['apple', 'banana', 'cherry', 'orange', 'lemon', 'pineapple']
 # cars = ['BMW', 'Volvo', 'Ford', 'Mazda']
 # z = zip(fruits, cars)
 # for (fruit, car) in z:
 #     print(fruit, car)
+
+# x = [1, 2, 3, 4, 5]
+# z = ['a', 'b', 'c']
+
+# for num, letter in zip(x, z):
+#     print(num, letter)
+
 # ------------------------------------------------------------------------------
 # 60. format()	    Formats a specified value
 # my_name = 'Alisher'
@@ -452,6 +464,6 @@
 
 
 #! for more info visit sites:
-#* 1. Programmiz  =  https://www.programiz.com/python-programming/methods/built-in
-#* 2. w3schools   =  https://www.w3schools.com/python/python_ref_functions.asp
-#* 3. python.org  =  https://docs.python.org/3/library/functions.html
+# * 1. Programmiz  =  https://www.programiz.com/python-programming/methods/built-in
+# * 2. w3schools   =  https://www.w3schools.com/python/python_ref_functions.asp
+# * 3. python.org  =  https://docs.python.org/3/library/functions.html
