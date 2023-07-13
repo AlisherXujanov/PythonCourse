@@ -27,7 +27,7 @@
 # 10. List Overlap Comprehensions
 #     Revisiting an old exercise (see Exercise 5),
 #     Take two lists, say for example these two:
-#     and write a program that returns a list that contains only the elements that are common between the lists (without duplicates).
+#     and write a program that returns a list that do not contain only the elements that are common between the lists (without duplicates).
 # 11. Check Primality Functions
 #     Ask the user for a number and determine whether the number is prime or not.
 # 12. List Ends
@@ -39,8 +39,10 @@
 #     (Hint: The Fibonnaci seqence is a sequence of numbers where the next number in the sequence is the sum of the previous two numbers in the sequence.
 #     The sequence looks like this: 1, 1, 2, 3, 5, 8, 13, …)
 # 14. List Remove Duplicates
-#     Write a program (function!) that takes a list and returns a new list that contains all the elements of the first list minus all the duplicates.
-#     Write two different functions to do this - one using a loop and constructing a list, and another using sets.
+#     Write a program (function!) that takes a list and returns a new list
+#     that contains all the elements of the first list minus all the duplicates.
+#     Write two different functions to do this - one using a loop
+#     and constructing a list, and another using sets.
 # 15. Reverse Word Order
 #     Write a program (using functions!) that asks the user for a long string containing multiple words.
 #     Print back to the user the same string, except with the words in backwards order.
@@ -79,7 +81,8 @@
 #     One .txt file has a list of all prime numbers under 1000,
 #     and the other .txt file has a list of happy numbers up to 1000.
 # 20. Draw A Game Board
-#     Time for some fake graphics! Let’s say we want to draw game boards that look like this:
+#     Time for some fake graphics! Let’s say we want to draw game
+#     boards that look like this:
 #     --- --- ---
 #     |   |   |   |
 #     --- --- ---
@@ -104,26 +107,7 @@
 #     A naive strategy can be to simply start the guessing at 1, and keep going (2, 3, 4, etc.) until you hit the number.
 #     But that’s not an optimal guessing strategy. An alternate strategy might be to guess 50 (right in the middle of the range),
 #     and then increase / decrease by 1 as needed. After you’ve written the program, try to find the optimal strategy!
-# def guessing_game_two():
-#     print("Think of a number between 0 and 100")
-#     low = 0
-#     high = 100
-#     guess = 50
-#     while True:
-#         print(f"Is your number {guess}?")
-#         answer = input(
-#             "Enter 'h' if the guess is too high, 'l' if too low, or 'c' if correct: ")
-#         if answer == 'h':
-#             high = guess
-#             guess = (low + high) // 2
-#         elif answer == 'l':
-#             low = guess
-#             guess = (low + high) // 2
-#         elif answer == 'c':
-#             print("I guessed your number in {} tries!".format(guess))
-#             break
-#         else:
-#             print("Invalid input. Please enter 'h', 'l', or 'c'.")
+#
 # 22. Check Tic Tac Toe
 #     Given a 3 by 3 list of lists that represents a Tic Tac Toe game board, tell me whether anyone has won,
 #     and tell me which player won, if any. A Tic Tac Toe win is 3 in a row - either in a row, a column, or a diagonal.

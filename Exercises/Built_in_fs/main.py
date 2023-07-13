@@ -58,6 +58,7 @@ def letters_in_string():
 # returns the average of the numbers.
 # RU: Напишите программу, которая принимает список чисел в качестве
 # входных данных и возвращает среднее значение чисел.
+# [13, 22, 35, 41, 52]   => 13+24+35+41+52+5+2 = 170 / 7 = 24.28
 
 
 def average_of_numbers():
@@ -210,8 +211,40 @@ def map_and_filter(arr: list) -> list:
 test_arr = [22, "wwww", "12345", "qwe", 124, '54321', 'aaaaa']
 # print(map_and_filter(test_arr))
 
+# =======================================================================================
+# 14. Write a function that takes an input from user and deletes all duplicate
+# letters using filter or map somehow. Then, count each letter within the original str
+# RU: Напишите функцию, которая принимает ввод от пользователя и удаляет все дублирующиеся
+# буквы с помощью filter() или map() каким-то образом. Затем подсчитайте каждую букву в исходной строке
 
-if __name__ == "__main__":
-    """
-    This is the main function that calls other functions.
-    """
+
+def remove_duplicates_and_count_letters():
+    sentence = input("Enter a sentence: ")
+    total = {}
+    letters = []
+
+    def del_duplicates(letter):
+        if letter not in letters and not letter.isspace():
+            return letters.append(letter.lower())
+
+    list(filter(del_duplicates, list(sentence)))
+
+    print(letters)
+    for letter in letters:
+        total[letter] = sentence.count(letter)
+
+    print(total)
+
+
+remove_duplicates_and_count_letters()
+
+# =======================================================================================
+
+# 15. Create a function that can take a list of positive or negative numbers
+# and get the difference between smallest positive and largest negative numbers
+# Do this with the help of filter or map or reduce.
+# Then find nearest number to this difference
+# EX:
+#   l = [1, -2, 10, 4, 5, -6, 7, 8, 9]
+#   distance = 3
+#   result = 3nd index that is 4
