@@ -1,3 +1,4 @@
+
 lesson = 'Introduction'
 """
 # print(..., end=’’, sep=’’)
@@ -1433,6 +1434,13 @@ _2 = 'Polymorphism and Encapsulation and Decorators'
 #               modify object state nor class state. Static methods are restricted in what data they can
 #               access - and they’re primarily a way to namespace your methods.
 
+# -- Static method knows nothing about the class and just deals with the parameters.
+# -- Class method works with the class since its parameter is always the class itself.
+
+# Link that is about difference of two decorators:
+# https://sparkbyexamples.com/python/python-difference-between-staticmethod-and-classmethod/#h-1-what-is-staticmethod
+
+
 # class Student:
 #     def __init__(self, name, age):
 #         self.name = name
@@ -1451,46 +1459,104 @@ _2 = 'Polymorphism and Encapsulation and Decorators'
 
 # print(student1.age)
 # print(student2.age)
-"""
 
 
+####################################################################################
+####################################################################################
 _3 = 'Dunder methods'
 
-
-lesson = "Decorators & Wrappers"
-# Decorators are functions that take another function as an argument, add some kind of functionality,
-# and then return another function. All of this without altering the source code of the original
-# function that we passed in. In Python, functions are first-class objects, which means that we can
-# pass them as arguments to other functions. We can also return them as the values from other functions.
-# This is the basis of decorators.
-
-####################################################################################
-# BASIC DECORATOR
+from abc import ABC, abstractmethod
 
 
-def decorator_function(original_function):
-    def wrapper_function(*args, **kwargs):
-        print("Wrapper executed this before {}".format(
-            original_function.__name__))
-        return original_function(*args, **kwargs)
-    return wrapper_function
+class AbstractUserClass(ABC):
+    name: str
+    surname: str
+    age: int
+    email: str
+
+    @abstractmethod
+    def get_info(self):
+        raise NotImplementedError(
+            "This is an abstract method and needs to be implemented in the child class.")
 
 
-@decorator_function
-def original_function():
-    print("Original function ran")
+class User(AbstractUserClass):
+    def __init__(self, name: str, surname: str, age: int = 0, email: str = '') -> None:
+        self.name = name
+        self.surname = surname
+        self.age = age
+        self.email = email
 
-####################################################################################
-# Practical example 1
+    def __str__(self) -> str:
+        return f'{self.name} {self.surname} is {self.age} years old.\nEmail: {self.email}'
+
+    def __repr__(self) -> str:
+        return f'{self.name} {self.surname} is {self.age} years old.\nEmail: {self.email}'
+
+    def __call__(self, *args, **kwargs):
+        print(f"This is call fn from __call__")
+        for i in args:
+            print(i)
+        return ''
+        # ex:
+        # user1("test1", "test2", "test3")  => This is call fn from __call__
+
+    def __add__(self, other):
+        return "This user has $" + str(other.budget)
+
+    def get_info(self):
+        print(f'{self.name} {self.surname}')
+        return ''
+
+    @classmethod
+    def from_string(cls, string):
+        if not string.count(',') == 3:
+            raise Exception("String must have 4 values separated by comma.")
+
+        # string  =>  "John, Doe, 25, test@gmail.com"
+        splitted_str = string.split(",")
+        name, surname, age, email = splitted_str
+        # name = splitted_str[0]
+        # surname = splitted_str[1]
+        # age = splitted_str[2]
+        # email = splitted_str[3]
+        return cls(name, surname, int(age), email)
+
+    @staticmethod
+    def is_adult(age):
+        return age > 18
 
 
-def my_logger(original_function):
-    import logging
-    logging.basicConfig(filename='{}.log'.format(
-        original_function.__name__), level=logging.INFO)
+class Client(User):
+    def __init__(self, name: str, surname: str, budget: float) -> None:
+        super().__init__(name, surname)
+        self.budget = budget
 
-    def wrapper(*args, **kwargs):
-        logging.info("Ran with args: {}, and kwargs: {}".format(args, kwargs))
-        return original_function(*args, **kwargs)
+    def __str__(self) -> str:
+        return f'{self.name} {self.surname} has ${self.budget} budget.'
 
-    return wrapper
+    def __repr__(self) -> str:
+        return f'{self.name} {self.surname} has ${self.budget} budget.'
+
+    def get_info(self):
+        print(f'{self.name} {self.surname} has ${self.budget} budget.')
+        return ''
+
+
+# # =================================================
+# user1 = User('John', 'Doe', 25, 'test@gmail.com')
+# print(user1.get_info())
+# # =================================================
+# client1 = Client("Cathrine", "Mackwold", 10000)
+# print(client1.get_info())
+# # =================================================
+# result = user1 + client1
+# print(result)
+# =================================================
+# user1 = User.from_string("John, Doe, 25, test@gmail.com")  # classmethod
+# print(user1)
+# print(User.is_adult(user1.age))  # staticmethod
+"""
+
+# EXERCISES
+# https://pynative.com/python-object-oriented-programming-oop-exercise/

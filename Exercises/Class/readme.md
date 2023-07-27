@@ -36,8 +36,42 @@ class Employee:
     def __add__(self, other):
         return self.age + other.age
 
+        ex: 
+        emp1 = Employee('John', 25)
+        emp2 = Employee('Jane', 30)
+
+        print(emp1 + emp2) # 55
+
     def __len__(self):
         return len(self.name)
+
+        ex:
+        emp1 = Employee('John', 25)
+        print(len(emp1)) # 4 (len of 'John')
+
+    def __call__(self, *args, **kwargs):
+        print(f"Employee name: {self.name}, age: {self.age}")
+
+        ex:
+        emp1 = Employee('John', 25)
+        emp1() # Employee name: John, age: 25
+
+    def __getitem__(self, item):
+        if isinstance(item, int):
+            # This is for index access (ex: emp1[0])
+            return self.name[item]
+        elif isinstance(item, slice):
+            # This is for slicing (ex: emp1[1:3])
+            return self.name[item.start:item.stop:item.step]
+        elif isinstance(item, str):
+            # This is for key access (ex: emp1['name'])
+            return self.__dict__[item]
+
+        emp1 = Employee('John', 25)
+        print(emp1[0]) # J
+        print(emp1[1:3]) # oh
+        print(emp1['name']) # John
+
 ```
 
 ---

@@ -162,9 +162,22 @@ def get_names_starting_with_vowel(arr):
 # only numbers that come after counting the strings that have the letter 'w' in it.
 # RU: Создайте функцию, которая принимает список строк и возвращает список с
 # только числа, которые идут после подсчета строк, в которых есть буква «w».
-def check_w_and_get_length(arr):
-    pass
+def check_w_and_get_length(arr: list[str], letter: str = 'w'):
+    # total = []
+    # for word in arr:
+    #     if letter in word:
+    #         total.append(word)
+    # return sum([len(x) for x in total])
+    # return sum([len(x) for x in [word for word in arr if letter in word]])
+    return sum([len(x) for x in list(filter(lambda x: letter in x, arr))])
 
+
+x = ["hello", "world", "whats", "up", "my", "friend"]
+print(check_w_and_get_length(x))
+
+
+# EX: ['waffle', 'wonderful', 'water', 'phone', 'tree', 'wonderland']
+#      => [waffle,  wonderful,  water,  wonderland]  => [6, 9, 5, 10]  =>  30
 
 # ==========================================================================
 # 16. Create a function that takes a list of strings and returns a list with

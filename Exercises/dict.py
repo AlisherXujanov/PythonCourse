@@ -108,15 +108,29 @@ def get_max_min(dict):
 
 
 # 11. Write a Python program to remove duplicates from the dictionary.
+# First, leave at least one item from duplicates
+# Second, delete all duplicates
 # RU: Напишите программу Python для удаления дубликатов из словаря.
+# Во-первых, оставьте хотя бы один элемент из дубликатов
+# Во-вторых, удалите все дубликаты
 def remove_duplicates(dict):
     # Using Loop
     for key, val in dict.items():
         if dict.values().count(val) > 1:
             del dict[key]
     return dict
+    # =================================
     # return {key: val for key, val in dict.items() if dict.values().count(val) == 1}
+    # =================================
+    # total = {}
+    # for key, value in dict.items():
+    #     if value not in total.values():
+    #         total[key] = value
+    # return total
 
+
+# ex: {'x':1, 'y':2, 'z':2, 'a':3, 'b':1, 'c':3}
+# =>  {x':1, 'y':2, 'a':3}
 
 # 12. Write a function that takes a dict as first argument and number as second argument.
 # Return a list of all the keys that have values greater than the number passed as second argument.
@@ -125,6 +139,8 @@ def remove_duplicates(dict):
 # переданное в качестве второго аргумента.
 # Input:   {'a': 100, 'b': 200, 'c': 300, 'd': "Hello world", 'e': True},    150
 # Output:  {'b': 200, 'c': 300}
+
+
 def get_keys_greater_than(dict, num):
     # return {key: val for key, val in dict.items() if val > num}
     # Using Loop
@@ -138,8 +154,10 @@ def get_keys_greater_than(dict, num):
 # =============================================================================
 # =============================================================================
 
-# 14. Write a function that takes a dictionary as an argument and returns a new dictionary with the keys and values reversed.
-# RU: Напишите функцию, которая принимает словарь в качестве аргумента и возвращает новый словарь с обратными ключами и значениями.
+# 14. Write a function that takes a dictionary as an argument and returns
+# a new dictionary with the keys and values reversed.
+# RU: Напишите функцию, которая принимает словарь в качестве аргумента
+# и возвращает новый словарь с обратными ключами и значениями.
 def reverse_dict(d):
     return {value: key for key, value in d.items()}
 
@@ -224,8 +242,12 @@ def get_not_identicals(dict1: dict, dict2: dict) -> dict:
 
 # =============================================================================
 # =============================================================================
-# 20. Write a function that takes a dictionary as an argument and returns a new dictionary that contains the same key-value pairs as the original dictionary, but with any duplicate values removed.
-# RU: Напишите функцию, которая принимает словарь в качестве аргумента и возвращает новый словарь, который содержит те же пары ключ-значение, что и исходный словарь, но с удаленными дубликатами значений.
+# 20. Write a function that takes a dictionary as an argument and returns
+# a new dictionary that contains the same key-value pairs as the original
+# dictionary, but with any duplicate values removed.
+# RU: Напишите функцию, которая принимает словарь в качестве аргумента и
+# возвращает новый словарь, который содержит те же пары ключ-значение, что
+# и исходный словарь, но с удаленными дубликатами значений.
 
 def del_identical_vals(dict):
     dict_set = []

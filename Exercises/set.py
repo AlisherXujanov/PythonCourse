@@ -120,22 +120,7 @@ k = 5
 # =====================================================================================================
 # =====================================================================================================
 
-# 7. Write a Python program to add member(s) to a set.
-# RU: Напишите программу на Python, чтобы добавить элемент(ы) в набор.
-
-
-def add_member(set1, *args):
-    # for i in args:
-    #     set1.add(i)
-    # return set1
-    # --------------------
-    # Comprehension
-    return set1.union(args)
-
-# =====================================================================================================
-# =====================================================================================================
-
-# 8. Write a Python program to remove item(s) from set
+# 7. Write a Python program to remove item(s) from set
 # RU: Напишите программу на Python, чтобы удалить элемент(ы) из набора.
 
 
@@ -151,12 +136,14 @@ def remove_item(set1, *args):
 print(remove_item({'a', 'b', 'c'}, 'c', 'b'))
 
 # =====================================================================================================
-# 9. Create a function that takes a list as an argument and creates a set from it
+# 8. Create a function that takes a list as an argument and creates a set from it
 # The result must contain only unique values from the list that are doubled.
-# RU: Создайте функцию, которая принимает список в качестве аргумента и создает из него набор.
+# RU: Создайте функцию, которая принимает список в качестве аргумента и с
+# оздает из него набор.
 # Результат должен содержать только уникальные значения из списка, которые удваиваются.
 # Input [1, 3, 4, 1, 2, 4, 5, 3, 2, 4, 1, 'a', 'b', 'c', 'a', 'b', 'c']
 # Output {2, 4, 6, 8, 10, 'aa', 'bb', 'cc'}
+# {... for ... in {} if ...}
 
 
 def set_from_list(list1):
@@ -169,7 +156,7 @@ def set_from_list(list1):
         result_set.add(i*2)
     return result_set
 # =====================================================================================================
-# 10. Create a function that takes a dict as an arg and gets all values from it and
+# 9. Create a function that takes a dict as an arg and gets all values from it and
 # converts them into set. Then, plus them all together and return the result by
 # saying "The sum is: {sum} and it is {even/odd} number"
 # RU: Создайте функцию, которая принимает словарь в качестве аргумента и получает
@@ -191,13 +178,12 @@ def sum_of_values(dict1):
 
 
 # =====================================================================================================
-# 11. Create a function that takes a list and a number as a target.
+# 10. Create a function that takes a list and a number as a target.
 # Find two numbers from that list that when summed up are equal to target.
 # RU: Создайте функцию, которая принимает список и число в качестве цели.
 # Найдите два числа из этого списка, которые в сумме равны цели.
 x = [1, 4, 11, 114, 12, 24, 55]
 target = 23
-[2, 4]
 
 
 def find_target(arr, target):
@@ -212,3 +198,17 @@ def find_target(arr, target):
 
 
 find_target(x, target)
+
+# =============================================================
+
+
+def del_duplicate_vals_from_dict(dict: dict) -> dict:
+    """
+        We should use set() to remove duplicate values from dictionary
+    """
+    result = {}
+    set_vals = set(dict.values())
+    for key, val in dict.items():
+        if val in set_vals and val not in result.values():
+            result[key] = val
+    return result

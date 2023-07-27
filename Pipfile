@@ -5,6 +5,7 @@ name = "pypi"
 
 [packages]
 faker = "*"
+requests = "*"
 
 [dev-packages]
 

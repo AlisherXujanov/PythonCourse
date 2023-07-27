@@ -1,21 +1,24 @@
 # BEGINNER LEVEL
 # ==========================================================================================
 
-# 1. Create a function that gets only numbers from given sentence and 
-# separates them into two lists: evens and odds 
+# 1. Create a function that gets only numbers from given sentence and
+# separates them into two lists: evens and odds
 # RU: Создайте функцию, которая получает только числа из данного предложения и
 # разделяет их на два списка: четные и нечетные
-# Use at least one built-in function 
+# Use at least one built-in function
 # RU: Используйте по крайней мере одну встроенную функцию
 
 # INPUT: "Hello 7th World in 2023 year 2nd time"
 # [7, 3] [2, 0, 2]
+import random
+
+
 def even_odd(sentence):
     numbers = [int(x) for x in sentence.split() if x.isdigit()]
     odds = []
     evens = []
     for num in numbers:
-        if num%2==0:
+        if num % 2 == 0:
             evens.append(num)
         else:
             odds.append(num)
@@ -23,7 +26,7 @@ def even_odd(sentence):
 
 # =======================================================================================
 
-# 2. Create a function that accepts a string and counts the number of 
+# 2. Create a function that accepts a string and counts the number of
 # upper and lower case letters.
 # Sample String : 'The quick Brow Fox'
 # Expected Output :
@@ -36,6 +39,8 @@ def even_odd(sentence):
 # Ожидаемый результат:
 # Количество прописных букв: 3
 # Количество строчных букв: 12
+
+
 def upper_lower(sentence):
     upper = 0
     lower = 0
@@ -62,17 +67,19 @@ def vowels_and_constants(sentence):
     return f"Vowels: {vowels}, Constants: {constants}"
 
 # =======================================================================================
-# 4. Write a program that takes a list of numbers as input and 
+# 4. Write a program that takes a list of numbers as input and
 # returns the sum of the even numbers.
-# RU: Напишите программу, которая принимает список чисел в качестве входных 
+# RU: Напишите программу, которая принимает список чисел в качестве входных
 # данных и возвращает сумму четных чисел.
+
+
 def sum_even_nums():
     numbers_as_str = input("Enter numbers separated by comma ',': ").split(',')
     total = []
     for num in numbers_as_str:
         num = num.strip()
         if num.isnumeric():
-            if int(num)%2==0:
+            if int(num) % 2 == 0:
                 total.append(int(num))
     # total_list_of_numbers = [x.strip() for x in numbers_as_str if x.strip().isnumeric()]
     # total = filter(lambda x: total.append(x) if x%2==0 else 0, total_list_of_numbers)
@@ -80,14 +87,14 @@ def sum_even_nums():
 
 
 # ==========================================================================================
-# 5. Write a Python program to find those numbers which are 
-# divisible by 7 and multiples of 5, between 1500 and 2700 
+# 5. Write a Python program to find those numbers which are
+# divisible by 7 and multiples of 5, between 1500 and 2700
 # (both included).
-# RU: Напишите программу на Python для поиска тех чисел, 
-# которые делятся на 7 и кратны 5, в диапазоне от 1500 до 2700 
+# RU: Напишите программу на Python для поиска тех чисел,
+# которые делятся на 7 и кратны 5, в диапазоне от 1500 до 2700
 # (включительно).
 
-# 7 and 5 
+# 7 and 5
 # 1500 and 2700
 def find_numbers():
     for i in range(1500, 2700):
@@ -103,10 +110,9 @@ def find_numbers():
 # INTERMEDIATE LEVEL
 
 
-
-# 1. Find an average number of given numbers of the list 
+# 1. Find an average number of given numbers of the list
 # and return nearest integer from given list
-# RU: Найти среднее число данного списка и вернуть ближайшее 
+# RU: Найти среднее число данного списка и вернуть ближайшее
 # целое число из данного списка.
 # INPUT:  [1, 10, 40, 35, 20, 30, 50, 60, 70]
 # OUTPUT: 37.777...  =>  35  =>  index-3
@@ -134,14 +140,13 @@ def nearest_average(arr):
 # *******
 def pyramid(n):
     for i in range(n):
-        print(' '*(n-i-1)   +   '*'*(i * 2 + 1))
-
+        print(' '*(n-i-1) + '*'*(i * 2 + 1))
 
 
 # ==========================================================================================
 # 4. Write a Python program to guess a number between 1 and 9.
-# Note : User is prompted to enter a guess. If the user guesses wrong 
-# then the prompt appears again until the guess is correct, on successful 
+# Note : User is prompted to enter a guess. If the user guesses wrong
+# then the prompt appears again until the guess is correct, on successful
 # guess, user will get a "Well guessed!" message, and the program will exit.
 # ---------------------------------------------------------------
 # RU: Напишите программу на Python, чтобы угадать число от 1 до 9.
@@ -149,7 +154,6 @@ def pyramid(n):
 # угадывает неправильно, то подсказка появляется снова, пока догадка не будет
 # правильной, при успешном угадывании пользователь получит сообщение «Хорошо
 # угадано!» и программа выйдет.
-import random
 
 
 def guess_number():
@@ -164,28 +168,30 @@ def guess_number():
 
 # guess_number()
 # ==========================================================================================
-# 4. Write a Python program to construct the following pattern, 
+# 4. Write a Python program to construct the following pattern,
 # using a nested for loop.
 # RU: Напишите программу на Python для построения следующего узора,
 # используя вложенный цикл for.
-# * 
-# * * 
-# * * * 
-# * * * * 
-# * * * * * 
-# * * * * 
-# * * * 
-# * * 
 # *
+# * *
+# * * *
+# * * * *
+# * * * * *
+# * * * *
+# * * *
+# * *
+# *
+
+
 def pattern(n):
     for i in range(n):
         print('*' * i)
     for i in range(n, 0, -1):
         print('*' * i)
 
-    
+
 # ==========================================================================================
-# 5. Write a program that takes a range of 100 numbers 
+# 5. Write a program that takes a range of 100 numbers
 # and checks if the number is dividible to 3, 5 or both.
 # Then takes these numbers and sums them all together
 # ----------------------------------------------------
@@ -205,6 +211,7 @@ def сумма_кратных_чисел():
 # 6. Write a program that prints out the first 100 prime numbers.
 # RU: Напишите программу, которая выводит первые 100 простых чисел.
 # prime_numbers = 2, 3, 5, 7, 11, 13, 17, 19, 23, 29 ...
+
 
 def n_prime_numbers(n):
     """Эта функция принимает целое число n в качестве входных данных и возвращает список первых n простых чисел"""
@@ -234,36 +241,40 @@ def n_prime_numbers(n):
 
 # 7. Write a program that calculates the sum of the first 1000 Fibonacci numbers.
 # RU: Напишите программу, которая вычисляет сумму первых 1000 чисел Фибоначчи.
+
+
 def sum_fibonacci(n):
     сумма = 0
     предыдущее_число = 0
     текущее_число = 1
     for i in range(n):
         сумма += текущее_число
-        предыдущее_число = текущее_число 
+        предыдущее_число = текущее_число
         текущее_число = предыдущее_число + текущее_число
     return сумма
-    
-# RU: Код выше - определяет функцию с именем sum_fibonacci, которая принимает целое число n в 
-# качестве входных данных и возвращает сумму первых n чисел Фибоначчи. Функция использует цикл 
+
+# RU: Код выше - определяет функцию с именем sum_fibonacci, которая принимает целое число n в
+# качестве входных данных и возвращает сумму первых n чисел Фибоначчи. Функция использует цикл
 # for для генерации последовательности Фибоначчи, начиная с первых  двух чисел 0 и 1.
-# Внутри цикла for код вычисляет сумму текущего числа Фибоначчи, которая является суммой двух 
-# предыдущих чисел Фибоначчи. Затем код обновляет значения предыдущего и текущего чисел Фибоначчи 
+# Внутри цикла for код вычисляет сумму текущего числа Фибоначчи, которая является суммой двух
+# предыдущих чисел Фибоначчи. Затем код обновляет значения предыдущего и текущего чисел Фибоначчи
 # для подготовки к следующей итерации цикла.
-# Цикл for продолжается до тех пор, пока он не сгенерирует n чисел Фибоначчи. На этом этапе функция 
+# Цикл for продолжается до тех пор, пока он не сгенерирует n чисел Фибоначчи. На этом этапе функция
 # возвращает сумму чисел Фибоначчи.
 # ==========================================================================================
 
+
 # 8. Write a program that generates a random password of length 20.
-import random
 
 
 def create_password_of_length(length):
     letters = "abcdefghijklmnopqrstuvwxyz"
-    letters_upper = letters.upper()     # NOTE:  Can be included for making the password more secure
+    # NOTE:  Can be included for making the password more secure
+    letters_upper = letters.upper()
 
     letters_ru = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя"
-    letters_ru_upper = letters_ru.upper()  # NOTE:  Can be included for making the password more secure
+    # NOTE:  Can be included for making the password more secure
+    letters_ru_upper = letters_ru.upper()
 
     numbers = "1234567890"
     symbols = "@#$%^&*"
@@ -288,6 +299,8 @@ def create_password_of_length(length):
 #     A naive strategy can be to simply start the guessing at 1, and keep going (2, 3, 4, etc.) until you hit the number.
 #     But that’s not an optimal guessing strategy. An alternate strategy might be to guess 50 (right in the middle of the range),
 #     and then increase / decrease by 1 as needed. After you’ve written the program, try to find the optimal strategy!
+
+
 def guessing_game_two():
     print("Think of a number between 0 and 100")
     low = 0
@@ -325,6 +338,8 @@ def guessing_game_two():
 #     --- --- ---
 #     This one is 3x3 (like in tic tac toe). Obviously, they come in many other sizes (8x8 for chess, 19x19 for Go, and many more).
 #     Ask the user what size game board they want to draw, and draw it for them to the screen using Python’s print statement.
+
+
 def draw_board(size):
     for i in range(size):
         print(" ---" * size)
@@ -332,8 +347,8 @@ def draw_board(size):
     print(" ---" * size)
 # ==========================================================================================
 
+
 # 10. MAGIC LAND GAME  => ПОЛЕ ЧУДЕС
-import random
 
 
 def pick_word():
@@ -375,6 +390,7 @@ def guess_letters():
         elif tries == 6:
             print("You lost!!")
             break
+
 
 guess_letters()
 # ==========================================================================================

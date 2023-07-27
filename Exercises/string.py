@@ -249,19 +249,57 @@ def repeat_first_l_of_last_word(sentence):
 # periods, and question marks. The code should return the Morse code that is equivalent to the string.
 
 
+def morse_code(string):
+    morse_code_dict = {
+        'A': '.-', 'B': '-...', 'C': '-.-.', 'D': '-..', 'E': '.',
+        'F': '..-.', 'G': '--.', 'H': '....', 'I': '..', 'J': '.---',
+        'K': '-.-', 'L': '.-..', 'M': '--', 'N': '-.', 'O': '---',
+        'P': '.--.', 'Q': '--.-', 'R': '.-.', 'S': '...', 'T': '-',
+        'U': '..-', 'V': '...-', 'W': '.--', 'X': '-..-', 'Y': '-.--',
+        'Z': '--..', '1': '.----', '2': '..---', '3': '...--',
+        '4': '....-', '5': '.....', '6': '-....', '7': '--...',
+        '8': '---..', '9': '----.', '0': '-----', ', ': '--..--',
+        '.': '.-.-.-', '?': '..--..', '/': '-..-.', '-': '-....-',
+        '(': '-.--.', ')': '-.--.-'
+    }
+    return ' '.join(morse_code_dict[i.upper()] for i in string)
+
+# ====================================================================================================
+
+
 # 27. Write a function to detect 13th Friday. The function can accept two parameters,
 # and both will be numbers. The first parameter will be the number indicating the month,
 # and the second will be the year in four digits. Your function should parse the parameters,
 # and it must return True when the month contains a Friday with the 13th, else return False.
+def detect_13th_friday(month, year):
+    import datetime
+    return datetime.datetime(year, month, 13).weekday() == 4
+
+
+# ====================================================================================================
 
 # 28. Write a function to find the domain name from the IP address. The function will accept an
 # IP address, make a DNS request, and return the domain name that maps to that IP address while
 # using records of PTR DNS. You can import the Python socket library.
 
+def find_domain_name(ip_address):
+    import socket
+    return socket.gethostbyaddr(ip_address)[0]
+
+
+random_ip = "198.71.233.138"  # www.w3schools.com
+print(find_domain_name(random_ip))
+
+
+# ====================================================================================================
 # 29. Write a function in Python to convert a decimal to a hex. It must accept a string of ASCII
 # characters as input. The function should return the value of each character as a hexadecimal string.
 # You have to separate each byte by a space and return all alpha hexadecimal characters as lowercase.
 
+def convert_to_hex(string):
+    return ' '.join(hex(ord(char))[2:] for char in string)
+
+# ====================================================================================================
 # 30. Write a function in Python to parse a string such that it accepts a parameter- an encoded string.
 # This encoded string will contain a first name, last name, and an id. You can separate the values
 # in the string by any number of zeros. The id will not contain any zeros. The function should return
@@ -269,9 +307,23 @@ def repeat_first_l_of_last_word(sentence):
 # be "John000Doe000123". Then the function should return:
 # { "first_name": "John", "last_name": "Doe", "id": "123" }
 
+
+def encoded_string(string):
+    first_name, last_name, id = string.split("000")
+    return {"first_name": first_name, "last_name": last_name, "id": id}
+
+# ====================================================================================================
 # 31. Write a code in Python to find out whether a given string S is a valid regex or not.
 
-# =================================================================
+
+def is_valid_regex(string):
+    import re
+    try:
+        re.compile(string)
+        return True
+    except re.error:
+        return False
+# ====================================================================================================
 
 # 32. Create a function that takes a text and repeats the middle
 # letter three times
@@ -281,12 +333,12 @@ def repeat_first_l_of_last_word(sentence):
 
 
 def repeat_middle(sentence):
-    middle = int(len(sentence) / 2)  # 3.5 => 3
+    middle = len(sentence) // 2  # 3.5 => 3
     start = sentence[:middle]
     end = sentence[middle+1:]
     print(start + sentence[middle]*3 + end)
 
-# =================================================================
+# =======================================================================================c=============
 
 # 33. Create a function that repeats first and last half of the text n times
 # RU: Создайте функцию, которая повторяет первую и вторую половину текста n раз
@@ -295,3 +347,4 @@ def repeat_middle(sentence):
 
 def repeat_half_n_times(sentence, n):
     pass
+# =======================================================================================c=============
