@@ -75,12 +75,101 @@ def get_text(string):
 
 
 # ###################################################################################
-# 4. Write a Python program that implements a decorator to retry a function 3 times in case of failure.
+# 4. Write a Python program that implements a decorator to retry a function
+# 3 times in case of failure.
+# RU: Напишите программу на Python, которая реализует декоратор для повторного
+# вызова функции 3 раза в случае сбоя.
+def retry(fn):
+    def wrapper(*args, **kwargs):
+        for i in range(3):
+            try:
+                return fn(*args, **kwargs)
+            except:
+                print("Retrying...")
+    return wrapper
 
-# 5. Write a Python program that implements a decorator that records time when the function has been called
 
-# 6. Write a Python program that implements a decorator to handle exceptions raised by a function and provide a default response.
+@retry
+def test_fn3(string):
+    print("Inside the original function")
+    raise Exception("Test exception")
 
+
+# ###################################################################################
+# 5. Write a Python program that implements a decorator that records time when
+# the function has been called
+def record_time(fn):
+    def wrapper(*args, **kwargs):
+        import time
+        start = time.time()
+        result = fn(*args, **kwargs)
+        end = time.time()
+        print(f"Execution time: {end - start}")
+        return result
+    return wrapper
+
+
+@record_time
+def test_fn4(string):
+    print("Inside the original function")
+    return string
+
+# ###################################################################################
+# 6. Write a Python program that implements a decorator to handle exceptions raised
+# by a function and provide a default response.
+
+
+def handle_exception(fn):
+    def wrapper(*args, **kwargs):
+        try:
+            return fn(*args, **kwargs)
+        except:
+            print("Exception handled")
+            return "Default response"
+    return wrapper
+
+
+@handle_exception
+def test_fn5(string):
+    print("Inside the original function")
+    raise Exception("Test exception")
+
+# ###################################################################################
 # 7. Write a Python program that implements a decorator to measure the memory usage of a function.
 
-# 8. Write a Python program that implements a decorator to provide caching with expiration time for a function.
+
+def measure_memory(fn):
+    def wrapper(*args, **kwargs):
+        import memory_profiler
+
+        # install memory_profiler with pip install memory_profiler
+        result = memory_profiler.memory_usage()
+        # memory usage shows the memory usage of the current process in kilobytes
+        return result
+    return wrapper
+
+
+@measure_memory
+def test_fn6(string):
+    print("Inside the original function")
+    return string
+
+# ###################################################################################
+
+
+# 8. Write a Python program that implements a decorator to provide caching
+cache = {}
+
+
+def cache(fn):
+    def wrapper(*args, **kwargs):
+        cache[args] = fn(*args, **kwargs)
+        return cache[args]
+    return wrapper
+
+
+@cache
+def test_fn7(string):
+    print("Inside the original function")
+    return string
+# ###################################################################################

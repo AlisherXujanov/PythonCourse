@@ -1,78 +1,146 @@
-1. random
-2. math
-3. time / datetime / calendar
-4. os
-5. sys
-6. json
-7. csv
-8. re
-9. requests
-10. faker
+# 🎯 Here are some resources to help you get started with Python and exercise 💪👇️
+
+### Practice Python (https://www.practicepython.org/)
+### HackerRank (https://www.hackerrank.com/domains/python)
+### Project Euler (https://projecteuler.net/archives)
+### Codewars (https://www.codewars.com/kata/search/python)
 
 
-# 1. random
+# 👇️ Install pipenv
+1. python -m pip uninstall virtualenv pipenv -y
+2. py -m pip uninstall virtualenv pipenv -y
+3. python3 -m pip uninstall virtualenv pipenv -y
+4. python -m pip install --upgrade setuptools wheel
+5. python -m pip install --user pipenv
+
+## or 
+#### python -m pip install pipenv 
+
+###### If you however get 
+```
+    'pipenv' is not recognized as an internal or external command, operable program or batch file 
+```
+###### get the Python>- path to the base directory for the user site-packages by running:
+###### Mine is C:\Users\drgabrielharris\AppData\Roaming\Python\Python37\site-packages
+###### Replace site-packages in the path with Scripts then add to your system PATH 
+###### (on Windows: Edit environment variables for your account > in the User variables select 
+###### Path > Edit > New > C:\Users\drgabrielharris\AppData\Roaming\Python\Python37\Scripts )
+
+
+# 🎯 To create requirements.txt file
+1. ```pipenv lock -r > requirements.txt```  - is outdated
+2. New version is: ```pipenv run pip freeze  > requirements.txt```
+
+
+___
+# Modules
+
+<!--* https://codete.com/blog/10-built-in-modules-in-python-you-should-know#overview -->
+<!--* https://levelup.gitconnected.com/11-most-useful-built-in-python-modules-you-might-not-know-yet-eff3e0e6f586 -->
+
+1. random (https://docs.python.org/3/library/random.html)
+2. math 
+3. - time (https://docs.python.org/3/library/time.html)
+   - datetime (https://www.pythoncheatsheet.org/modules/datetime-module)
+   - timedelta (https://www.pythoncheatsheet.org/modules/datetime-module)
+4. json (https://medium.com/analytics-vidhya/json-in-python-163857b00415)
+5. logging  (https://medium.com/pythoneers/master-logging-in-python-73cd2ff4a7cb)
+6. re (https://medium.com/analytics-vidhya/regular-expression-in-python-5ab2e8b707f1)
+7. requests
+8.  faker
+9.  googletranslate
+10. collections
+
+
+## 1. random
 -  RU: Модуль random предоставляет доступ к функциям, которые поддерживают множество операций.
    Возможно, самое важное - это то, что он позволяет генерировать случайные числа.
 
-## random.random() : 
+#### random.random() : 
 - Return the next random floating point number in the range [0.0, 1.0).
 - RU: Возвращает следующее случайное число с плавающей запятой в диапазоне [0.0, 1.0).
-## random.randint(a, b) : 
+#### random.randint(a, b) : 
 - Return a random integer N such that a <= N <= b.
 - RU: Возвращает случайное целое число N такое, что a <= N <= b.
-## random.choice(seq) : 
+- ex:
+  ```python
+   import random
+   print(random.randint(0, 10))
+  ```
+#### random.choice(seq) : 
 - Return a random element from the non-empty sequence seq. If seq is empty, raises IndexError.
 - RU: Возвращает случайный элемент из непустой последовательности seq. Если seq пуст, возникает IndexError.
-## random.shuffle(x[, random]) : 
+- ex:
+  ```python
+   import random
+   x = [i for i in range(10)]
+   print(x)
+   print(random.choice(x))
+  ```
+#### random.shuffle(x[, random]) : 
 - Shuffle the sequence x in place.
 - RU: Перемешивает последовательность x на месте.
+- ex:
+  ```python
+   import random
+   x = [[i] for i in range(10)]
+   print(x)
+   random.shuffle(x)
+   print(x)
+  ```
 ---
-# 2. math
+## 2. math
 - RU: Этот модуль предоставляет доступ к математическим функциям, определенным стандартом C.
 (Стандартная библиотека C - это набор заголовочных файлов, которые определяют различные библиотечные функции и макросы.
 Большинство функций стандартной библиотеки C также включены в стандартную библиотеку C ++, хотя и в разных заголовочных файлах.)
 
-## math.ceil(x) : 
+#### math.ceil(x) : 
 - Return the ceiling of x as a float, the smallest integer value greater than or equal to x.
 - RU: Возвращает потолок x в виде плавающего числа, наименьшее целое значение, большее или равное x.
-## math.floor(x) : 
+#### math.floor(x) : 
 - Return the floor of x as a float, the largest integer value less than or equal to x.
 - RU: Возвращает пол x в виде плавающего числа, наибольшее целое значение, меньшее или равное x.
-## math.trunc(x) : 
+#### math.trunc(x) : 
 - Return the Real value x truncated to an Integral (usually an integer). 
 - RUL Возвращает действительное значение x, усеченное до целого (обычно целое число). 
-## math.factorial(x) : 
+#### math.factorial(x) : 
 - Return x factorial as an integer. Raises ValueError if x is not integral or is negative.
 - RU: Возвращает факториал x в виде целого числа. Выдает ValueError, если x не является целым или отрицательным.  
-## math.gcd(a, b) : 
+#### math.gcd(a, b) : 
 - Return the greatest common divisor of the specified integer arguments. If any argument is nonzero, 
    then the absolute value of the greatest common divisor is smaller than or equal to the smallest absolute value of the arguments.
 - RU: Возвращает наибольший общий делитель указанных целых аргументов. Если любой аргумент отличен от нуля, 
    то абсолютное значение наибольшего общего делителя меньше или равно наименьшему абсолютному значению аргументов.
-## math.pow(x, y) : 
+ex:
+```python
+import math
+print(math.gcd(10, 20))
+```
+
+#### math.pow(x, y) : 
 - Return x raised to the power y. Exceptional cases follow Annex ‘F’ of the C99 standard as far as possible. 
    In particular, pow(1.0, x) and pow(x, 0.0) always return 1.0, even when x is a zero or a NaN. If both x and y are finite, 
    x is negative, and y is not an integer then pow(x, y) is undefined, and raises ValueError.
 - RU: Возвращает x, возведенный в степень y. Исключительные случаи следуют Приложению «F» стандарта C99 насколько это возможно. 
    В частности, pow(1.0, x) и pow(x, 0.0) всегда возвращают 1.0, даже когда x является нулем или NaN. Если x и y конечны, 
    x отрицателен, а y не является целым числом, то pow(x, y) не определен и вызывает ValueError.
-## math.sqrt(x) : 
+#### math.sqrt(x) : 
 - Return the square root of x.
 - RU: Возвращает квадратный корень из x.
-## math.pi : 
+#### math.pi : 
 - The mathematical constant π = 3.141592…, to available precision.
 - RU: Математическая константа π = 3.141592…, до доступной точности.
 ---
-# 3. time / datetime / calendar
+## 3. time / datetime / timedelta
 
-## time.time() :
+#### time.time() :
 - Return the time in seconds since the epoch as a floating point number.
 - RU: Возвращает время в секундах с начала эпохи в виде числа с плавающей запятой.
 ```python
 import time
 print(time.time())
 ```
-## time.sleep(secs) :
+#### time.sleep(secs) :
 - Suspend execution of the calling thread for the given number of seconds. 
    The argument may be a floating point number to indicate a more precise sleep time. 
    The actual suspension time may be less than that requested because any caught signal will terminate the sleep() following execution of that signal’s catching routine. 
@@ -85,7 +153,7 @@ print(time.time())
 time.sleep(1) # sleep for 1 second
 ```
 
-## time.localtime([secs]) :
+#### time.localtime([secs]) :
 - Convert a time expressed in seconds since the epoch to a struct_time in time. 
    If secs is not provided or None, the current time as returned by time() is used. 
    Fractions of a second are ignored. 
@@ -99,20 +167,31 @@ time.sleep(1) # sleep for 1 second
 print(time.localtime(UNIX-time))
 ```
 
-## time.strftime(format[, t]) :
+#### time.strftime(format[, t]) :
 - Convert a tuple or struct_time representing a time as returned by gmtime() or localtime() to a string as specified by the format argument. 
    If t is not provided, the current time as returned by localtime() is used. 
    format must be a string. 
-- RU: Преобразует кортеж или struct_time, представляющий время, возвращаемое gmtim() или localtime(), в строку, указанную аргументом format.
+- RU: Преобразует кортеж или struct_time, представляющий время, возвращаемое gmtime() или localtime(), в строку, указанную аргументом format.
    Если t не предоставляется, используется текущее время, возвращаемое localtime().
    Формат должен быть строкой.
 ```python
 print(time.strftime("%y-%m-%d %H:%M:%S", time.localtime()))
+
+1. %y  => is year in short version  =>  Годы в краткой версии
+2. %Y  => is year in full version  =>  Годы в полной версии
+3. %m  => is month in number =>  Месяцы в числовом формате
+4. %M  => is minute in number =>  Минуты в числовом формате
+5. %d  => is day in number =>  Дни в числовом формате
+6. %D  => is Date (full date) =>  Дата (полная дата)
+7. %h  => is month in short version =>  Месяцы в краткой версии
+8. %H  => is hour in number =>  Часы в числовом формате
+9. %s  => DOES NOT EXIST =>  НЕ СУЩЕСТВУЕТ
+10. %S => is second in number =>  Секунды в числовом формате
 ```
 
 
 
-## datetime.datetime.now() :
+#### datetime.datetime.now() :
 - Return the current local date and time.
 - RU: Возвращает текущую локальную дату и время.
 ```python
@@ -120,7 +199,7 @@ import datetime
 print(datetime.datetime.now())
 ```
 
-## datetime.datetime(year, month, day[, hour[, minute[, second[, microsecond[, tzinfo]]]]]) :
+#### datetime.datetime(year, month, day[, hour[, minute[, second[, microsecond[, tzinfo]]]]]) :
 - The year, month and day arguments are required. tzinfo may be None, or an instance of a tzinfo subclass. 
    The remaining arguments may be ints, longs, or floats, and may be positive or negative.
 - RU: Требуются аргументы год, месяц и день. tzinfo может быть None или экземпляром подкласса tzinfo.
@@ -129,93 +208,27 @@ print(datetime.datetime.now())
 print(datetime.datetime(2020, 5, 17, 12, 30, 0, 0))
 ```
 
-
-## calendar.month(year, month, w=0, l=0) :
-- Returns a month’s calendar in a multi-line string using the formatmonth() of the TextCalendar class.
-- RU: Возвращает календарь месяца в нескольких строках, используя formatmonth() класса TextCalendar.
+### Timedelta
+- EN: The timedelta class is used to represent the `difference` between two dates or times.
+- RU: Класс timedelta используется для представления `разницы` между двумя датами или временем.
 ```python
-print(calendar.month(2020, 5))
-print(calendar.calendar(2020))
-print(calendar.isleap(2020))
-# isleap is a function that returns True or False based on
-# whether the year is a leap year or not
-# example: print(calendar.isleap(2020)) will return True because 2020 is a leap year
-# example: print(calendar.isleap(2021)) will return False because 2021 is not a leap year
-# leap or not leap year is important because it affects the number of days in February (28 or 29)
+import datetime
+print(datetime.timedelta(days=365, hours=5, minutes=1))
 ```
 
-## calendar.weekday(year, month, day) :
-- Returns the day of the week (0 is Monday) for year (1970–…), month (1–12), day (1–31).
-- RU: Возвращает день недели (0 - понедельник) для года (1970-...), месяца (1-12), дня (1-31).
+- timedelta can add `days`, `seconds` and `microseconds` to a datetime object
+- RU: timedelta может добавлять `дни`, `секунды` и `микросекунды` к объекту datetime
 ```python
-print(calendar.weekday(2020, 5, 17))
+import datetime
+now = datetime.now()
+print(now)
+>>> datetime.datetime(2023, 7, 31, 12, 30, 10, 999999)
+
+print(now + datetime.timedelta(days=365))
+>>> datetime.datetime(*2024*, 7, 30, 12, 30, 10, 999999)
 ```
 
-## calendar.day_name[0-6]:
-- An array that represents the days of the week in the current locale.
-- RU: Массив, который представляет дни недели в текущей локали.
-```python
-print(calendar.day_name[calendar.weekday(2020, 5, 17)])
-```
-
-
-## calendar.month_name[0-12]:
-- An array that represents the months of the year in the current locale. 
-   This follows normal convention of January being month number 1, so it has a length of 13 and month_name[0] is the empty string.
-- RU: Массив, который представляет месяцы года в текущей локали.
-   Это следует обычной конвенции, что январь является месяцем номер 1, поэтому он имеет длину 13, а month_name[0] - пустая строка.
-```python
-print(calendar.month_name[5])
-```
-# 4. os module
-- The OS module in Python provides functions for interacting with the operating system. 
-   OS comes under Python’s standard utility modules. 
-   This module provides a portable way of using operating system-dependent functionality. 
-   The *os* and *os.path* modules include many functions to interact with the file system.
-- RU: Модуль OS в Python предоставляет функции для взаимодействия с операционной системой.
-   OS входит в стандартные служебные модули Python.
-   Этот модуль обеспечивает переносимый способ использования зависимой от операционной системы функциональности.
-   Модули *os* и *os.path* включают множество функций для взаимодействия с файловой системой.
-
-## os.getcwd() :
-- Return a string representing the current working directory.
-- RU: Возвращает строку, представляющую текущий рабочий каталог.
-```python
-print(os.getcwd())
-```
-## os.chdir(path) :
-- Change the current working directory to path.
-- RU: Изменяет текущий рабочий каталог на path.
-```python
-os.chdir("C:\\Users\\User\\Desktop")
-print(os.getcwd())
-```
-## os.listdir(path='.') :
-- Return a list containing the names of the entries in the directory given by path. 
-   The list is in arbitrary order, and does not include the special entries '.' and '..' even if they are present in the directory.
-- RU: Возвращает список, содержащий имена записей в каталоге, заданном путем.
-   Список в произвольном порядке и не включает специальные записи "." и "..", даже если они присутствуют в каталоге.
-```python
-print(os.listdir())
-```
-# 5. sys module
-- This module provides access to some variables used or maintained by the interpreter and to functions that interact strongly with the interpreter. 
-- RU: Этот модуль предоставляет доступ к некоторым переменным, используемым или поддерживаемым интерпретатором, и к функциям, которые сильно взаимодействуют с интерпретатором.
-
-## sys.argv :
-- The list of command line arguments passed to a Python script. argv[0] is the script name (it is operating system dependent whether this is a full pathname or not). 
-   If the command was executed using the -c command line option to the interpreter, argv[0] is set to the string '-c'. 
-   If no script name was passed to the Python interpreter, argv[0] is the empty string.
-- RU: Список аргументов командной строки, переданных сценарию Python. argv[0] - это имя сценария (это зависит от операционной системы, является ли это полным именем пути или нет).
-   Если команда была выполнена с использованием параметра командной строки -c для интерпретатора, argv[0] устанавливается в строку "-c".
-   Если сценарию Python не было передано имя сценария, argv[0] - пустая строка.
-```python
-print(sys.argv)
-# sys.argv[0] is the name of the script
-# output: [daily.py]
-```
-
-# 6. json
+# 4. json
 
 
 
