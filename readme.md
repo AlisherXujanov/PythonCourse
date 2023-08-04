@@ -365,38 +365,38 @@ print(x)
 ```
 
 # 10. collections
-
-#### collections
-#### 1. collections.deque
-#### ex:
-#### queue = collections.deque()
-#### queue.append(5)
-#### queue.append("Mine")
-#### queue.append(True)
-#### # DIFFERENCES FROM LIST
-#### queue.appendleft(10)
-#### print(queue)
-#### queue.rotate(2)
-#### print(queue)
-#### ====================================================================
-#### ====================================================================
-#### 2. collections.Counter()
-#### ex:
-#### arr = [1, 1, 1, 2, 2, 3, 3, 3, 3, 3]
-#### word = "Hello World"
-#### lc = collections.Counter(arr)
-#### wc = collections.Counter(word)
-#### print(lc)
-#### print(wc)
-#### print(lc.most_common(2))  # 2 most common elements
-#### print(wc.total())         # total number of elements (==  len(wc))
-#### ====================================================================
-#### ====================================================================
-#### 3. collections.defaultdict()
-#### ex:
-#### d = collections.defaultdict(int)  =>  gives default value of 0 if the key is not present
-#### d['a'] = 1
-#### d['b'] = 2
-#### print(d['c'])  =>  is 0
-
+```python 
+# collections
+# 1. collections.deque
+# ex:
+queue = collections.deque()
+queue.append(5)
+queue.append("Mine")
+queue.append(True)
+# DIFFERENCES FROM LIST
+queue.appendleft(10)
+>>> print(queue)
+queue.rotate(2)
+>>> print(queue)
+# ====================================================================
+# ====================================================================
+# 2. collections.Counter()
+# ex:
+arr = [1, 1, 1, 2, 2, 3, 3, 3, 3, 3]
+word = "Hello World"
+lc = collections.Counter(arr)
+wc = collections.Counter(word)
+>>> print(lc)
+>>> print(wc)
+>>> print(lc.most_common(2))  # 2 most common elements
+>>> print(wc.total())         # total number of elements (==  len(wc))
+# ====================================================================
+# ====================================================================
+# 3. collections.defaultdict()
+# ex:
+d = collections.defaultdict(int)  =>  gives default value of 0 if the key is not present
+d['a'] = 1
+d['b'] = 2
+>>> print(d['c'])  =>  is 0
+```
 
