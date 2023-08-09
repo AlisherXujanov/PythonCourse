@@ -6,7 +6,7 @@ import requests  # to install: pip install requests
 
 def find_person_by_ip(ip_address):
     url = "http://ip-api.com/json/"
-    response = requests.get(url + ip_address)
+    response = requests.get(url, ip_address)
     data = json.loads(response.content)
     return data
 
