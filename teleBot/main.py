@@ -1,17 +1,25 @@
 # pip install python-telegram-bot==13.7
-import telegram.ext as tg_ext
+from requests import *
+from telegram import *
+from telegram.ext import *
 
 TOKEN = "6069762613:AAEf6C36OQl7j8-HqKmCt-FQdcyUT6P7l2s"
 
+RANDOM_IMAGE = "Random image"
+GET_MP3 = "Get mp3"
+RANDOM_IMG_URL = "https://picsum.photos/1200"
+
+# Declare IMAGE_COUNTER as a global variable
+global IMAGE_COUNTER
+IMAGE_COUNTER = 0
+
+
 print("Running up the bot...")
 
-updater = tg_ext.Updater(TOKEN, use_context=True)
 # This command is used to register the commands
 # that the bot will be able to recognize and execute.
 # use_context=True is used to tell the bot to use the new context based callbacks
 # instead of the old deprecated ones.
-
-dispatcher = updater.dispatcher
 
 
 def start(update, context):
@@ -31,32 +39,57 @@ def _send_local_file(update, context):
         RU: Мы должны открыть файл в двоичном режиме,
         иначе Telegram не сможет обработать его правильно
     """
-    with open("me.jpg", "rb") as f:
+    with open("teleBot/me.jpg", "rb") as f:
         """
                 update.message.reply_photo(photo, caption=None)
             photo   - Photo to send
-            caption - Photo caption, 0-1024 characters after entities parsing
+            caption - Photo caption, 0-1024 characters
         """
         update.message.reply_photo(f, caption="Hello world! This is me!")
 
 
-def help(update, context):
-    update.message.reply_text(
-        """
-        /start   - Start the bot
-        /help    - Help
-        /content - Get content
-        """
+def get_buttons(update: Updater, context: CallbackContext):
+    buttons = [
+        [KeyboardButton(RANDOM_IMAGE)],
+        [KeyboardButton(GET_MP3)]
+    ]
+    context.bot.send_message(
+        chat_id=update.effective_chat.id,
+        text="Choose option:",
+        reply_markup=ReplyKeyboardMarkup(buttons)
     )
 
 
-def content(update, context):
-    update.message.reply_text("This is a custom command!")
+def message_handler(update: Updater, context: CallbackContext):
+    # Use the global keyword to modify IMAGE_COUNTER
+    global IMAGE_COUNTER
+    IMAGE_COUNTER += 1
+    if update.message.text == RANDOM_IMAGE:
+        image = get(RANDOM_IMG_URL).content
+        context.bot.sendMediaGroup(
+            chat_id=update.effective_chat.id,
+            media=[InputMediaPhoto(image, caption=f"Random {IMAGE_COUNTER}")]
+        )
+    elif update.message.text == GET_MP3:
+        _send_mp3(update, context)
 
 
-dispatcher.add_handler(tg_ext.CommandHandler("start", start))
-dispatcher.add_handler(tg_ext.CommandHandler("help", help))
-dispatcher.add_handler(tg_ext.CommandHandler("content", content))
+def help(update, context):
+    update.message.reply_text("""/start   - Start the bot
+                                /help    - Help
+                                /content - Get content
+                                /buttons
+                                """
+                              )
+
+
+updater = Updater(TOKEN, use_context=True)
+dispatcher = updater.dispatcher
+dispatcher.add_handler(CommandHandler("start", start))
+dispatcher.add_handler(CommandHandler("help", help))
+dispatcher.add_handler(CommandHandler('buttons', get_buttons))
+dispatcher.add_handler(MessageHandler(Filters.text, message_handler))
+
 
 updater.start_polling()
 updater.idle()
