@@ -48,7 +48,12 @@ def _send_local_file(update, context):
         update.message.reply_photo(f, caption="Hello world! This is me!")
 
 
-def get_buttons(update: Updater, context: CallbackContext):
+def _send_mp3(update: Update, context: CallbackContext):
+    with open("teleBot/music.mp3", "rb") as f:
+        update.message.reply_audio(f, caption="This is mp3")
+
+
+def get_buttons(update: Update, context: CallbackContext):
     buttons = [
         [KeyboardButton(RANDOM_IMAGE)],
         [KeyboardButton(GET_MP3)]
@@ -60,7 +65,7 @@ def get_buttons(update: Updater, context: CallbackContext):
     )
 
 
-def message_handler(update: Updater, context: CallbackContext):
+def message_handler(update: Update, context: CallbackContext):
     # Use the global keyword to modify IMAGE_COUNTER
     global IMAGE_COUNTER
     IMAGE_COUNTER += 1
@@ -76,10 +81,10 @@ def message_handler(update: Updater, context: CallbackContext):
 
 def help(update, context):
     update.message.reply_text("""/start   - Start the bot
-                                /help    - Help
-                                /content - Get content
-                                /buttons
-                                """
+/help    - Help
+/content - Get content
+/buttons
+"""
                               )
 
 
