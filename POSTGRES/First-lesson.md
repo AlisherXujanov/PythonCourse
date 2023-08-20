@@ -1,3 +1,5 @@
+1. Introduction and Creating first table
+
 # Create table
 ```sql
 CREATE TABLE users (
@@ -35,14 +37,13 @@ DELETE FROM users WHERE id = 1
 ```
 ___
 # 
-
-
 ```sql
     VARCHAR     => is used to store strings and text
     INT         => is used to store integers
     SERIAL      => is used to auto increment the value
-    PRIMARY KEY => is used to set the primary key
+    PRIMARY KEY => is used to set the primary key (it is identical to normal id)
+    NULL        => is used to set the field as empty
     NOT NULL    => is used to set the field as required
     UNIQUE      => is used to set the field as unique
-    DEFAULT     => is used to set the default value
+    DEFAULT     => is used to set the default value (ex: DEFAULT '...')
 ```
