@@ -1,6 +1,10 @@
 2. Data types and constraints and operators
+   RU: Типы данных и ограничения и операторы
+   UZ: Ma'lumot turlari va cheklovlar va operatorlar
 
-# Data types
+# Data types 
+<!-- https://www.educative.io/answers/what-are-the-data-types-in-postgresql -->
+
 In total there are 49 data types in PostgreSQL. The most common ones in count are 10
 They are: 
 > - Boolean                 (TRUE/FALSE)
@@ -8,6 +12,9 @@ They are:
 > - Character types         (CHAR, VARCHAR, TEXT)
     The main difference between CHAR and VARCHAR is that CHAR is fixed length and VARCHAR is variable length.
     The TEXT type is used for storing longer strings. It has no fixed length.
+
+    The difference between fixed length and variable length is that fixed length is faster to process than variable length. And it takes less space.
+    The similarity between fixed length and variable length is that they both store strings of any length.
 
 >       CHAR (Fixed length)          maximum characters 255
 >           ex: CHAR(10) 'Hello'
@@ -66,6 +73,8 @@ They are:
 >                                                                   we want to track where they are coming from.
 > ------------------------------------------------------------
 > - UUID                    (stores Universally Unique Identifiers)
+      [8 digits]-[4 digits]-[4 digits]-[4 digits]-[12 digits]
+
     The difference between SERIAL and UUID is that SERIAL is a sequential number and UUID is a random number.
     For example, if we have a table of customers and we want to assign a unique ID to each customer, we can use SERIAL.
     If we want to assign a unique ID to each customer and we don't want to expose the number of customers we have, we can use UUID.
@@ -147,3 +156,38 @@ They are:
 > --------------------
 > - NOT	      Makes a negative result e.g. NOT LIKE, NOT IN, NOT BETWEEN
 >         ex: SELECT * FROM customers WHERE age NOT BETWEEN 18 AND 30
+
+
+# Distinct and Limit and their variations
+> - DISTINCT	  Select only distinct (different) values
+>        ex: SELECT DISTINCT name FROM customers  
+>            => this will return all distinct names from the customers table
+>               which means that if there are two customers with the same name
+>              only one of them will be returned
+> --------------------
+> - COUNT	  Count number of rows returned
+>       ex: SELECT COUNT(DISTINCT age) FROM customers
+>          => this will return the number of distinct ages from the customers table
+> --------------------
+> - LIMIT	  Limit number of rows returned
+>       ex: SELECT * FROM customers LIMIT 10
+>           => this will return only 10 rows from the customers table
+> --------------------
+> - OFFSET	  Skip number of rows before starting to return the rows
+>      ex: SELECT * FROM customers LIMIT 10 OFFSET 10
+>         => this will return 10 rows from the customers table starting from the 10th row
+> --------------------
+> - PERCENT      Limit number of rows returned as a percentage of the total number of rows
+>     ex: SELECT * FROM customers LIMIT 10 PERCENT
+>       => this will return only 10% of the rows from the customers table
+>          if the customers table has 100 rows, this will return 10 rows
+> --------------------
+> - FETCH	  Limit number of rows returned
+>          FETCH vs LIMIT
+>          FETCH is the same as LIMIT but it is more flexible
+>          FETCH can be used with OFFSET but LIMIT cannot 
+>          FETCH can be used with PERCENT but LIMIT cannot 
+> 
+>     ex: SELECT * FROM customers FETCH FIRST 10 ROWS ONLY
+>        => this will return only 10 rows from the customers table
+> --------------------
