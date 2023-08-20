@@ -7,6 +7,7 @@
 
 In total there are 49 data types in PostgreSQL. The most common ones in count are 10
 They are: 
+> ------------------------------------------------------------
 > - Boolean                 (TRUE/FALSE)
 > ------------------------------------------------------------
 > - Character types         (CHAR, VARCHAR, TEXT)
@@ -43,10 +44,26 @@ They are:
 >       TIMESTAMP (Stores date and time) maximum characters 26
 >           ex: TIMESTAMP '2018-01-01 12:00:00'
 > ------------------------------------------------------------
-> - Interval                (stores periods of time)
->       INTERVAL (Stores periods of time) maximum characters 49
->           ex: INTERVAL '1 year 2 months 3 days 4 hours 5 minutes 6 seconds'
->               CREATE TABLE customers (name TEXT, order_frequency INTERVAL)
+> - INTERVAL                (stores periods of time)
+>       SYNTAX:  INTERVAL 'value' unit
+>       UNITS:   year, month, day, hour, minute, second, week, decade, century, millennium
+>
+> ex:
+>       SELECT * FROM orders WHERE order_date < NOW() - INTERVAL '30 days';
+>
+> ex 2:
+>       CREATE TABLE events (
+>          id SERIAL PRIMARY KEY,
+>          event_name VARCHAR(255) NOT NULL,
+>          start_time TIMESTAMP NOT NULL,
+>          duration INTERVAL NOT NULL
+>       );
+>       INSERT INTO events (event_name, start_time, duration)
+>       VALUES (
+>               'Birthday Party', 
+>               TIMESTAMP '2024-01-01 12:00:00', 
+>               INTERVAL '2 hours'
+>              );
 > ------------------------------------------------------------
 > - Arrays                  (stores arrays of data)
 >       ARRAY (Stores arrays of data) maximum characters 131072
