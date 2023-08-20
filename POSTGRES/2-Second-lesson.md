@@ -8,9 +8,10 @@
 In total there are 49 data types in PostgreSQL. The most common ones in count are 10
 They are: 
 > ------------------------------------------------------------
-> - Boolean                 (TRUE/FALSE)
+> - **Boolean**                 (TRUE/FALSE)
+>   ex:     CREATE TABLE customers (name TEXT, is_active BOOLEAN)
 > ------------------------------------------------------------
-> - Character types         (CHAR, VARCHAR, TEXT)
+> - **Character types**         (CHAR, VARCHAR, TEXT)
     The main difference between CHAR and VARCHAR is that CHAR is fixed length and VARCHAR is variable length.
     The TEXT type is used for storing longer strings. It has no fixed length.
 
@@ -26,7 +27,7 @@ They are:
 >           ex: TEXT 'Hello'
 >               CREATE TABLE customers (name TEXT, address TEXT)
 > ------------------------------------------------------------
-> - Numeric types           (INTEGER, BIGINT, DECIMAL, NUMERIC)
+> - **Numeric types**           (INTEGER, BIGINT, DECIMAL, NUMERIC)
 >       INTEGER (Whole numbers)       maximum characters 10
 >           ex: INTEGER 2147483647
 >       BIGINT  (Large whole numbers) maximum characters 19
@@ -36,7 +37,7 @@ They are:
 >       NUMERIC (Variable precision)  maximum characters 131072
 >           ex: NUMERIC(5,2) 999.99
 > ------------------------------------------------------------
-> - Date/time types         (DATE, TIME, TIMESTAMP)
+> - **Date/time types**         (DATE, TIME, TIMESTAMP)
 >       DATE (Stores date only)       maximum characters 10
 >           ex: DATE '2018-01-01'
 >       TIME (Stores time only)       maximum characters 8
@@ -44,34 +45,40 @@ They are:
 >       TIMESTAMP (Stores date and time) maximum characters 26
 >           ex: TIMESTAMP '2018-01-01 12:00:00'
 > ------------------------------------------------------------
-> - INTERVAL                (stores periods of time)
+> - **INTERVAL**                (stores periods of time)
 >       SYNTAX:  INTERVAL 'value' unit
 >       UNITS:   year, month, day, hour, minute, second, week, decade, century, millennium
 >
-> ex:
->       SELECT * FROM orders WHERE order_date < NOW() - INTERVAL '30 days';
->
-> ex 2:
->       CREATE TABLE events (
->          id SERIAL PRIMARY KEY,
->          event_name VARCHAR(255) NOT NULL,
->          start_time TIMESTAMP NOT NULL,
->          duration INTERVAL NOT NULL
->       );
->       INSERT INTO events (event_name, start_time, duration)
->       VALUES (
->               'Birthday Party', 
->               TIMESTAMP '2024-01-01 12:00:00', 
->               INTERVAL '2 hours'
->              );
+> - ex 1:
+```sql
+SELECT * FROM orders WHERE order_date < NOW() - INTERVAL '30 days';
+```
+
+> - ex 2:
+```sql
+CREATE TABLE events (
+   id SERIAL PRIMARY KEY,
+   event_name VARCHAR(255) NOT NULL,
+   start_time TIMESTAMP NOT NULL,
+   duration INTERVAL NOT NULL
+);
+
+
+INSERT INTO events (event_name, start_time, duration)
+VALUES (
+         'Birthday Party', 
+         TIMESTAMP '2024-01-01 12:00:00', 
+         INTERVAL '2 hours'
+      );
+```
 > ------------------------------------------------------------
-> - Arrays                  (stores arrays of data)
+> - **Arrays**                  (stores arrays of data)
 >       ARRAY (Stores arrays of data) maximum characters 131072
 >           ex: ARRAY[1,2,3]
 >               ARRAY['John', 'Jane']
 >               CREATE TABLE customers (name TEXT, address TEXT['123 Main St.', 'Pittsburgh', '15237'])
 > ------------------------------------------------------------
-> - Composite types         (stores groups of columns)
+> - **Composite types**         (stores groups of columns)
     This is used to store groups of columns.
     In python we have tuples. In PostgreSQL we have composite types.
 >       Composite types (stores groups of columns) maximum characters 131072
@@ -81,15 +88,16 @@ They are:
 >                      INSERT INTO customers VALUES ('John Doe', ('123 Main St.', 'Pittsburgh', 15237))
 >           ex: CREATE TABLE customers (name TEXT, address address)
 > ------------------------------------------------------------
-> - Network address types   (INET, CIDR, MACADDR)
+> - **Network address types**   (INET, CIDR, MACADDR)
     This is used to store network IP addresses and MAC addresses.
->           ex: CREATE TABLE customers (name TEXT, ip_address INET)  =>  INET here is the type of the column ip_address
->                                                                        and it can store IPv4 and IPv6 addresses
->                                                                   This is recognized as needed because there could be cases
->                                                                   where we need to store the IP address of a customer because
->                                                                   we want to track where they are coming from.
+>           ex: CREATE TABLE customers (name TEXT, ip_address INET)  =>  
+>               INET here is the type of the column ip_address
+>               and it can store IPv4 and IPv6 addresses
+>               This is recognized as needed because there could be cases
+>               where we need to store the IP address of a customer because
+>               we want to track where they are coming from.
 > ------------------------------------------------------------
-> - UUID                    (stores Universally Unique Identifiers)
+> - **UUID**                    (stores Universally Unique Identifiers)
       [8 digits]-[4 digits]-[4 digits]-[4 digits]-[12 digits]
 
     The difference between SERIAL and UUID is that SERIAL is a sequential number and UUID is a random number.
@@ -97,7 +105,7 @@ They are:
     If we want to assign a unique ID to each customer and we don't want to expose the number of customers we have, we can use UUID.
 >           ex: CREATE TABLE customers (name TEXT, id UUID)
 > ------------------------------------------------------------
-> - XML                     (stores XML data)
+> - **XML**                     (stores XML data)
     XML looks like HTML but it is not the same. XML is used to store data and HTML is used to display data.
     HTML is designed to be read by humans, while XML is designed to be read by machines.
 >           ex: CREATE TABLE customers (name TEXT, info XML)
@@ -113,17 +121,17 @@ They are:
     уровня таблицы применяются ко всей таблице.
     
     In total there are 6 constraints in PostgreSQL.
-> - NOT NULL    => CREATE TABLE customers (name TEXT NOT NULL)
-> - UNIQUE      => CREATE TABLE customers (name TEXT UNIQUE)
-> - PRIMARY KEY => CREATE TABLE customers (id SERIAL PRIMARY KEY, name TEXT)
-> - FOREIGN KEY => CREATE TABLE customers (id SERIAL PRIMARY KEY, name TEXT)
+> - **NOT NULL**    => CREATE TABLE customers (name TEXT NOT NULL)
+> - **UNIQUE**      => CREATE TABLE customers (name TEXT UNIQUE)
+> - **PRIMARY KEY** => CREATE TABLE customers (id SERIAL PRIMARY KEY, name TEXT)
+> - **FOREIGN KEY** => CREATE TABLE customers (id SERIAL PRIMARY KEY, name TEXT)
     The difference between PRIMARY KEY and FOREIGN KEY is that 
     PRIMARY KEY is used to uniquely identify a row in a table.
     FOREIGN KEY is used to reference a column in ANOTHER TABLE.
     
 
-> - CHECK       => CREATE TABLE customers (name TEXT, age INTEGER CHECK (age >= 18))
-> - EXCLUDE     => CREATE TABLE customers (name TEXT, age INTEGER, EXCLUDE USING gist (name WITH =, age WITH <>))
+> - **CHECK**       => CREATE TABLE customers (name TEXT, age INTEGER CHECK (age >= 18))
+> - **EXCLUDE**     => CREATE TABLE customers (name TEXT, age INTEGER, EXCLUDE USING gist (name WITH =, age WITH <>))
 >                  =>   This constraint is used to exclude data from a table.
 >                       For example, if we have a table of customers and we want to exclude customers with the same name and age.
 >                       We can use this constraint to exclude them.
@@ -176,30 +184,30 @@ They are:
 
 
 # Distinct and Limit and their variations
-> - DISTINCT	  Select only distinct (different) values
+> - **DISTINCT**	  Select only distinct (different) values
 >        ex: SELECT DISTINCT name FROM customers  
 >            => this will return all distinct names from the customers table
 >               which means that if there are two customers with the same name
 >              only one of them will be returned
 > --------------------
-> - COUNT	  Count number of rows returned
+> - **COUNT**	  Count number of rows returned
 >       ex: SELECT COUNT(DISTINCT age) FROM customers
 >          => this will return the number of distinct ages from the customers table
 > --------------------
-> - LIMIT	  Limit number of rows returned
+> - **LIMIT**	  Limit number of rows returned
 >       ex: SELECT * FROM customers LIMIT 10
 >           => this will return only 10 rows from the customers table
 > --------------------
-> - OFFSET	  Skip number of rows before starting to return the rows
+> - **OFFSET**	  Skip number of rows before starting to return the rows
 >      ex: SELECT * FROM customers LIMIT 10 OFFSET 10
 >         => this will return 10 rows from the customers table starting from the 10th row
 > --------------------
-> - PERCENT      Limit number of rows returned as a percentage of the total number of rows
+> - **PERCENT**      Limit number of rows returned as a percentage of the total number of rows
 >     ex: SELECT * FROM customers LIMIT 10 PERCENT
 >       => this will return only 10% of the rows from the customers table
 >          if the customers table has 100 rows, this will return 10 rows
 > --------------------
-> - FETCH	  Limit number of rows returned
+> - **FETCH**	  Limit number of rows returned
 >          FETCH vs LIMIT
 >          FETCH is the same as LIMIT but it is more flexible
 >          FETCH can be used with OFFSET but LIMIT cannot 
