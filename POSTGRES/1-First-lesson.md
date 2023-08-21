@@ -13,12 +13,12 @@ ___
 # Insert data
 ```sql
 INSERT INTO users (name, email, password) 
-VALUES ('John Doe', 'test@gmail.com', '12345')
+VALUES ('John Doe', 'test@gmail.com', '12345');
 ```
 ___
 # Select data
 ```sql
-SELECT * FROM users
+SELECT * FROM users;
 ```
 ___
 # Update data

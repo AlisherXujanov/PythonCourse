@@ -44,10 +44,15 @@ They are:
 >           ex: TIME '12:00:00'
 >       TIMESTAMP (Stores date and time) maximum characters 26
 >           ex: TIMESTAMP '2018-01-01 12:00:00'
+> 
+> CREATE TABLE users(last_login TIMESTAMP)
+> INSERT INTO ... (last_login) VALUES ('2018-01-01 12:00:00')  || (NOW())
 > ------------------------------------------------------------
 > - **INTERVAL**                (stores periods of time)
 >       SYNTAX:  INTERVAL 'value' unit
->       UNITS:   year, month, day, hour, minute, second, week, decade, century, millennium
+>       UNITS:   year, month, day, hour, minute, second, week, decade, century, 
+> millennium
+>          ex:  '1 year 2 months 2 days ...'
 >
 > - ex 1:
 ```sql
@@ -98,15 +103,16 @@ VALUES (
 >               we want to track where they are coming from.
 > ------------------------------------------------------------
 > - **UUID**                    (stores Universally Unique Identifiers)
-      [8 digits]-[4 digits]-[4 digits]-[4 digits]-[12 digits]
-
+    [8 digits]-[4 digits]-[4 digits]-[4 digits]-[12 digits]
+    
     The difference between SERIAL and UUID is that SERIAL is a sequential number and UUID is a random number.
     For example, if we have a table of customers and we want to assign a unique ID to each customer, we can use SERIAL.
     If we want to assign a unique ID to each customer and we don't want to expose the number of customers we have, we can use UUID.
->           ex: CREATE TABLE customers (name TEXT, id UUID)
+>           ex: CREATE TABLE customers (name TEXT, id UUID PRIMARY KEY)
 > ------------------------------------------------------------
 > - **XML**                     (stores XML data)
-    XML looks like HTML but it is not the same. XML is used to store data and HTML is used to display data.
+    XML looks like HTML but it is not the same. 
+    XML is used to store data and HTML is used to display data.
     HTML is designed to be read by humans, while XML is designed to be read by machines.
 >           ex: CREATE TABLE customers (name TEXT, info XML)
 > ------------------------------------------------------------
@@ -141,7 +147,7 @@ VALUES (
 > ------------------------------------------------------------
 
 # Operators in the WHERE clause
-> - =	      Equal to
+> - =	      Equal to   =>  in python we had   ===  or  ==
 > --------------------
 > - <	      Less than
 > --------------------
@@ -151,7 +157,7 @@ VALUES (
 > --------------------
 > - >=	      Greater than or equal to
 > --------------------
-> - <>	      Not equal to
+> - <>	      Not equal to    =>   in python we use  != 
 >         ex: SELECT * FROM customers WHERE name <> 'John'
 > --------------------
 > - !=	      Not equal to
@@ -188,7 +194,7 @@ VALUES (
 >        ex: SELECT DISTINCT name FROM customers  
 >            => this will return all distinct names from the customers table
 >               which means that if there are two customers with the same name
->              only one of them will be returned
+>               only one of them will be returned
 > --------------------
 > - **COUNT**	  Count number of rows returned
 >       ex: SELECT COUNT(DISTINCT age) FROM customers
@@ -209,9 +215,9 @@ VALUES (
 > --------------------
 > - **FETCH**	  Limit number of rows returned
 >          FETCH vs LIMIT
->          FETCH is the same as LIMIT but it is more flexible
->          FETCH can be used with OFFSET but LIMIT cannot 
->          FETCH can be used with PERCENT but LIMIT cannot 
+>          LIMIT is the same as FETCH but it is more flexible
+>          LIMIT can be used with OFFSET but FETCH cannot 
+>          LIMIT can be used with PERCENT but FETCH cannot 
 > 
 >     ex: SELECT * FROM customers FETCH FIRST 10 ROWS ONLY
 >        => this will return only 10 rows from the customers table
