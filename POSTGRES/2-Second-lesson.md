@@ -5,7 +5,8 @@
 # Data types 
 <!-- https://www.educative.io/answers/what-are-the-data-types-in-postgresql -->
 
-In total there are 49 data types in PostgreSQL. The most common ones in count are 10
+In total there are 49 data types in PostgreSQL. 
+The most common ones in count are 10
 They are: 
 > ------------------------------------------------------------
 > - **Boolean**                 (TRUE/FALSE)
@@ -33,7 +34,7 @@ They are:
 >       BIGINT  (Large whole numbers) maximum characters 19
 >           ex: BIGINT 9223372036854775807
 >       DECIMAL (Fixed precision)     maximum characters 131072
->           ex: DECIMAL(5,2) 999.99
+>           ex: DECIMAL(3,2) 999.99
 >       NUMERIC (Variable precision)  maximum characters 131072
 >           ex: NUMERIC(5,2) 999.99
 > ------------------------------------------------------------
@@ -56,7 +57,8 @@ They are:
 >
 > - ex 1:
 ```sql
-SELECT * FROM orders WHERE order_date < NOW() - INTERVAL '30 days';
+SELECT * FROM orders WHERE order_date > NOW() - INTERVAL '30 days';
+-- Заказы, сделанные за последние 30 дней
 ```
 
 > - ex 2:
@@ -67,8 +69,6 @@ CREATE TABLE events (
    start_time TIMESTAMP NOT NULL,
    duration INTERVAL NOT NULL
 );
-
-
 INSERT INTO events (event_name, start_time, duration)
 VALUES (
          'Birthday Party', 
@@ -76,12 +76,6 @@ VALUES (
          INTERVAL '2 hours'
       );
 ```
-> ------------------------------------------------------------
-> - **Arrays**                  (stores arrays of data)
->       ARRAY (Stores arrays of data) maximum characters 131072
->           ex: ARRAY[1,2,3]
->               ARRAY['John', 'Jane']
->               CREATE TABLE customers (name TEXT, address TEXT['123 Main St.', 'Pittsburgh', '15237'])
 > ------------------------------------------------------------
 > - **Composite types**         (stores groups of columns)
     This is used to store groups of columns.
@@ -92,6 +86,15 @@ VALUES (
 >                  ex: CREATE TABLE customers (name TEXT, address address)
 >                      INSERT INTO customers VALUES ('John Doe', ('123 Main St.', 'Pittsburgh', 15237))
 >           ex: CREATE TABLE customers (name TEXT, address address)
+> ------------------------------------------------------------
+> > - **Arrays**                  (stores arrays of data)
+>       ARRAY (Stores arrays of data) maximum characters 131072
+>           ex: ARRAY[1,2,3]
+>               ARRAY['John', 'Jane']
+>               CREATE TABLE customers (
+>                       name TEXT, 
+>                       address DEFAULT TEXT['123 Main St.', 'Pittsburgh', '15237']
+>               )
 > ------------------------------------------------------------
 > - **Network address types**   (INET, CIDR, MACADDR)
     This is used to store network IP addresses and MAC addresses.
@@ -137,17 +140,12 @@ VALUES (
     
 
 > - **CHECK**       => CREATE TABLE customers (name TEXT, age INTEGER CHECK (age >= 18))
-> - **EXCLUDE**     => CREATE TABLE customers (name TEXT, age INTEGER, EXCLUDE USING gist (name WITH =, age WITH <>))
+> - **EXCLUDE**     => SELECT * FROM users EXCLUDE age = 18;
 >                  =>   This constraint is used to exclude data from a table.
 >                       For example, if we have a table of customers and we want to exclude customers with the same name and age.
->                       We can use this constraint to exclude them.
->                   gist is a type of index in PostgreSQL.
->                   gist is used to index data that is not B-tree indexable.
-> 
 > ------------------------------------------------------------
-
 # Operators in the WHERE clause
-> - =	      Equal to   =>  in python we had   ===  or  ==
+> - =	      Equal to   =>  in python we had  == 
 > --------------------
 > - <	      Less than
 > --------------------
@@ -188,7 +186,6 @@ VALUES (
 > - NOT	      Makes a negative result e.g. NOT LIKE, NOT IN, NOT BETWEEN
 >         ex: SELECT * FROM customers WHERE age NOT BETWEEN 18 AND 30
 
-
 # Distinct and Limit and their variations
 > - **DISTINCT**	  Select only distinct (different) values
 >        ex: SELECT DISTINCT name FROM customers  
@@ -208,16 +205,10 @@ VALUES (
 >      ex: SELECT * FROM customers LIMIT 10 OFFSET 10
 >         => this will return 10 rows from the customers table starting from the 10th row
 > --------------------
-> - **PERCENT**      Limit number of rows returned as a percentage of the total number of rows
->     ex: SELECT * FROM customers LIMIT 10 PERCENT
->       => this will return only 10% of the rows from the customers table
->          if the customers table has 100 rows, this will return 10 rows
-> --------------------
 > - **FETCH**	  Limit number of rows returned
 >          FETCH vs LIMIT
 >          LIMIT is the same as FETCH but it is more flexible
 >          LIMIT can be used with OFFSET but FETCH cannot 
->          LIMIT can be used with PERCENT but FETCH cannot 
 > 
 >     ex: SELECT * FROM customers FETCH FIRST 10 ROWS ONLY
 >        => this will return only 10 rows from the customers table
