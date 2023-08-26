@@ -79,11 +79,17 @@ for i in range(10):
 # ========================================================
 # To write a code "pg_dump -U postgres -h localhost -p 5432 -F c -f база.psql postgres"
 # to create a backup of the database with the help of python
-# os.system('pg_dump -U postgres -h localhost -p 5432 -F c -f db.psql postgres')
+# def save_db_at_this_point():
+#     os.system('pg_dump -U postgres -h localhost -p 5432 -F c -f db.psql postgres')
 # ========================================================
-rows = cur.fetchall()
-for row in rows:
-    print(row) 
+# To print the table in the terminal
+cur.execute('''SELECT * FROM users;''')
+rows = cur.fetchone()
+
+if rows:
+    print(rows)
+else:
+    print("No rows returned.")
 # ========================================================
 # .com - commercial
 # .org - organization
