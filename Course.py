@@ -1,57 +1,89 @@
 # Alisher Company
-#   _    
-#  /_|  /  *   _ /_  _  __      
-# /  | /_  | _) / / (- /    
+#   _
+#  /_|  /  *   _ /_  _  __
+# /  | /_  | _) / / (- /
 # --------------------------
 
 
 lesson = 'Introduction'
 """
-# print(..., end=’’, sep=’’)
-# print("Hello world")
-# --------------------------------------
-# simple text is called string in python
-# RU: текст называется стринг в питоне
-# --------------------------------------
-# number is called integer in python
-# RU: число называется интеджер в питоне
-# --------------------------------------
-# "123" # string
-# 123   # integer
-# --------------------------------------
-# print(value, value, ..., sep="...", end="...")
-# sep => separator  => is used to separate values
-# end => end of line => is used to end the line
-# --------------------------------------
-# del name_of_variable
-# deletes the variable
-# --------------------------------------
-# type(...)  => shows the type of the value
-# --------------------------------------
-# int(...)   => converts to integer  => 123
-# str(...)   => converts to string   => "123"
-# float(...) => converts to float    => 123.01
-# --------------------------------------
-# Simple functions
-# def  (define)  =>  is used to create a function
-# def blender(fruit="Apple"):
-#     print(f"{fruit} juice is ready!")
-# blender()
-# blender("Banana")
-# --------------------------------------
-# GLOBAL VARIABLES
+# IN Python
+# ------------
+# String   ("...", '...')
+# triple "   =>   Multiline comment
+# '''...'''   =>   Multiple comment
+# "..."   =>   String (text)
+# '...'   =>   String (text)
+
+# String(123) => "123"  => in JS
+# str(123)    => "123"  => in Python
+# ----------------------------------------
+# int()   =>   parseInt()
+# type()  =>   typeof()
+# ----------------------------------------
+# print(int(123.5))
+# print(float("123"))
+
+# print(type("123"))      # <class 'str'>
+# print(type(int("123")))  # <class 'int'>
+# print(type(float("123")))  # <class 'float'>
+# ----------------------------------------
+# `${...}`  => String template   => JS
+# f'...'   =>  Formatted string  => Python
+# ----------------------------------------
+# print("This is", test,  end="!!!", sep="---")
+# ----------------------------------------
+# test = 'Hello world'       # Global variable
+# test = "Updated text"      # Update global variable
+# ----------------------------------------
+# x = [1, 2, 3]
+# a = x[0]
+# b = x[1]
+# c = x[2]
+# a, b, c = x
+# print(a, b, c, sep="-")
+# ----------------------------------------
+# x = [1, 2, 3, 4, 5, 6, '...']
+# first, *others, last = x
+# print(first)
+# print(others)
+# print(last)
+# ----------------------------------------
+# function ...() {}
+# def ...():   #  =>  def == define
+# ____...
 
 # def test():
-#     global x
-#     x =  10
-#     print("Hello world")
-# test()
+#     global x, y
+#     x = 10
+#     y = 20
+#     print("Hello world")  # this is inside function
+
+# test()                # This line calls function
+# print("Hello world")  # this line is out of function
+# print(x)              # This line calls global variable
+# -------------------------------------------------------
+# x = 10
 # print(x)
-# --------------------------------------
-# de + structuring
-# x = [1, 2, 3, 4, 5]     #  => list (structure)
-# *a, b, c = x            #  => destructuring
-# print(a, b, c, sep="|")
+# del x
+# print(x)
+
+# let x = {
+#     name: 'John',
+# }
+# delete x['name']
+# -------------------------------------------------------
+# input   =>  allows us to get input from user
+# answer = input("How are you? ")
+# print("You typed: " + answer)
+# -------------------------------------------------------
+# if ...:
+#     ...
+# elif ...:
+#     ...
+# else:
+#     ...
+
 """
 
 
@@ -169,6 +201,65 @@ lesson = 'numbers'
 
 # print(sum(1, 2, 3, 4, 5))
 # ----------------------------------------------------------------------
+"""
+
+
+lesson = 'if/elif/else  &&  match/case  &&  Exercises'
+"""
+# Bool   =>   bool()
+# ------------------------------------------------------------------
+# If / elif / else 
+# if 1==2:
+#     print(f'1 == 1 is => {1==2}')
+# elif 1==1:
+#     print(f'1 == 1 is => {1==1}')
+# else:
+#     print(1==2)
+# ------------------------------------------------------------------
+# match / case
+# HTTPS_status = 200
+# match HTTPS_status:
+#     case 200 | 201:
+#         print('OK')
+#     case 404:
+#         print('Not found')
+#     case 301 | 302:
+#         print('Redirect')
+#     case _:
+#         print('Unknown')
+# ------------------------------------------------------------------
+
+# EXERCISES
+# 1. Reverse and input from a user    &&    Reverse a number
+# RU: 
+#     Берите текст от клиента и выведите на терминале. 
+#     Найти зеркальное число.
+# inp = input("What is your name: ")
+# print(inp[::-1])
+# print(str(num)[::-1])
+# ----------------------------------------------------------
+# 2. Swap first and last digits of a number
+# RU: Поменяйте местами первую и последнюю цифры числа.
+# x = 123456789
+# x = str(x)
+# print(int(x[-1] + x[1:-1] + x[0]))
+# ----------------------------------------------------------
+# 3. check if a string is a palindrome
+
+def is_polindrome(arg) -> bool:
+    if type(arg) == int:
+        arg = str(arg)
+    # if isinstance(arg, int):
+    #     arg = str(arg)
+    return arg == arg[::-1]
+print(is_polindrome(input('Guess a polindrome: ')))
+# ----------------------------------------------------------
+
+# SOLUTIONS FOR PREVIOUS EXERCISES
+# print(str(num)[::-1])
+# print(input('Enter a number: ')[::-1])
+# print(str(num)[-1] + str(num)[1:-1] + str(num)[0])
+# print(str(num) == str(num)[::-1])
 """
 
 
@@ -478,65 +569,6 @@ lesson = 'try-except  &  Exceptions'
 # for num in range(10, 50, 2):
 #     print(num) if num%10==0 else print('Not devidible to 10')
 # =========================================================================
-"""
-
-
-lesson = 'if/elif/else  &&  match/case  &&  Exercises'
-"""
-# Bool   =>   bool()
-# ------------------------------------------------------------------
-# If / elif / else 
-# if 1==2:
-#     print(f'1 == 1 is => {1==2}')
-# elif 1==1:
-#     print(f'1 == 1 is => {1==1}')
-# else:
-#     print(1==2)
-# ------------------------------------------------------------------
-# match / case
-# HTTPS_status = 200
-# match HTTPS_status:
-#     case 200 | 201:
-#         print('OK')
-#     case 404:
-#         print('Not found')
-#     case 301 | 302:
-#         print('Redirect')
-#     case _:
-#         print('Unknown')
-# ------------------------------------------------------------------
-
-# EXERCISES
-# 1. Reverse and input from a user    &&    Reverse a number
-# RU: 
-#     Берите текст от клиента и выведите на терминале. 
-#     Найти зеркальное число.
-# inp = input("What is your name: ")
-# print(inp[::-1])
-# print(str(num)[::-1])
-# ----------------------------------------------------------
-# 2. Swap first and last digits of a number
-# RU: Поменяйте местами первую и последнюю цифры числа.
-# x = 123456789
-# x = str(x)
-# print(int(x[-1] + x[1:-1] + x[0]))
-# ----------------------------------------------------------
-# 3. check if a string is a palindrome
-
-def is_polindrome(arg) -> bool:
-    if type(arg) == int:
-        arg = str(arg)
-    # if isinstance(arg, int):
-    #     arg = str(arg)
-    return arg == arg[::-1]
-print(is_polindrome(input('Guess a polindrome: ')))
-# ----------------------------------------------------------
-
-# SOLUTIONS FOR PREVIOUS EXERCISES
-# print(str(num)[::-1])
-# print(input('Enter a number: ')[::-1])
-# print(str(num)[-1] + str(num)[1:-1] + str(num)[0])
-# print(str(num) == str(num)[::-1])
 """
 
 
