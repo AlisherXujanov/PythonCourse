@@ -496,7 +496,7 @@ lesson = 'strings'
 """
 
 
-lesson = 'try-except  &  Exceptions'
+lesson = 'try-except  &  Exceptions  &  Generators'
 """
 # number types  => int, float, complex
 # str
@@ -568,6 +568,78 @@ lesson = 'try-except  &  Exceptions'
 # =========================================================================
 # for num in range(10, 50, 2):
 #     print(num) if num%10==0 else print('Not devidible to 10')
+# =========================================================================
+
+# ERROR TYPES
+1. SyntaxError  =>  '...  => not closed string
+    - Forgetting to put a closing quote on a string.
+    - Forgetting to put a colon at the end of a def, while, for, or if statement.
+
+2. TypeError    =>  1 + '...'  =>  unsupported operand type(s) for +: 'int' and 'str'
+    - Trying to add a string to an integer or float.
+    - Trying to add a list or tuple to an integer or float.
+
+3. NameError    =>  x  =>  name 'x' is not defined
+    - Trying to use a variable that does not exist.
+    - Trying to use a function or method that does not exist.
+
+4. IndexError   =>  [1, 2, 3][3]  =>  list index out of range
+    - Trying to access an index in a list that does not exist.
+
+5. ValueError   =>  int('...')  =>  invalid literal for int() with base 10: '...'
+    - Converting a string to an integer or float, but the string is not a valid number.
+    - Converting a string to a boolean, but the string is not 'True' or 'False'.
+    - Using the datetime.datetime.strptime() function with a string that does not match the specified format string.
+    - Using the json.loads() function with a string that is not valid JSON.
+
+6. KeyError     =>  {'a': 1}['b']  =>  'b' =>  not in dictionary
+    - Trying to access a key in a dictionary that does not exist.
+
+7. AttributeError  =>  'Hello'.append('!')  =>  'str' object has no attribute 'append'
+    - Trying to use a method on a data type that does not have that method.
+    - Trying to access an attribute that does not exist.
+    
+8. ZeroDivisionError  =>  1 / 0  =>  division by zero
+    - Trying to divide a number by zero.
+    
+9. ImportError  =>  import math  =>  No module named 'math'
+    - Trying to import a module that does not exist.
+    
+10. IndentationError  =>  def func():  =>  expected an indented block
+    - Forgetting to indent the code inside a function, while, for, or if statement.
+    
+# ============================================================================
+# =============================================================================
+# Generators
+# Using a for loop to generate a list of even numbers up to 10^6
+import time
+def even_nums():
+    for i in range(1000000):
+        if i % 2 == 0:
+            yield i
+    # result = []
+    # for i in range(1000000):
+    #     if i % 2 == 0:
+    #         result.append(i)
+    # return result
+
+
+# Using a generator to generate a list of even numbers up to 10^6
+before = time.time()
+even_nums_gen = even_nums()
+after = time.time()
+print(list(even_nums_gen))
+print(round(after - before, 5))
+# =========================================================================
+def fibonacci():
+    a, b = 0, 1
+    while True:
+        yield a
+        a, b = b, a + b
+
+g = fibonacci()
+for i in range(10):
+    print(next(g))  # Output: 0 1 1 2 3 5 8 13 21 34
 # =========================================================================
 """
 
