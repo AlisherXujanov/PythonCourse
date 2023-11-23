@@ -42,6 +42,8 @@
 #           EX:
 #               def wordCount(n):
 #                   return len(n)
+#               # Or we could use:
+#               # wordCount = lambda n: len(n)
 #               x = map(wordCount, ('apple', 'banana', 'cherry'))
 #               print(list(x))  => [5, 6, 6]
 # ------------------------------------------------------------------------------
@@ -60,6 +62,10 @@
 
 #               x = filter(myFunc, (5, 7, 18, 25, 32))
 #               print(list(x))  =>  [25, 32]
+# NOTE: The callback function should return True/False 
+# depending on the value in the iterable
+# RU: Функция обратного вызова должна возвращать True / False 
+# в зависимости от значения в итерируемом объекте
 # ------------------------------------------------------------------------------
 # 5. reduce()      Use a function to reduce an iterable to a single value
 #           RU: Используйте функцию для сокращения итерируемого объекта до одного значения
@@ -77,6 +83,21 @@
 
 # x = reduce(myFunc, (1, 2, 3, 4))
 # print(x)  # =>  10
+
+# x = map(lambda x: x*2, arr)
+# print(list(x))
+
+
+# def myFunc(current, next):
+#     if current > next:
+#         print("current > next", current)
+#         return current
+#     else:
+#         print("current > next", next)
+#         return next
+# arr = [11, 22, 3, 4515, 56]
+# res = reduce(myFunc, arr)
+# print(res)
 
 # ------------------------------------------------------------------------------
 # 6. abs()	        Returns the absolute value of a number
@@ -175,6 +196,8 @@
 #          EX:
 # x = chr(97)  # =>  a
 # print(x)
+# with the help of <<alt+number>> we can get the unicode code
+# RU: с помощью <<alt + number>> мы можем получить код Unicode
 
 # ------------------------------------------------------------------------------
 # 15. classmethod()	Converts a method into a class method
@@ -212,7 +235,7 @@
 #           RU: Возвращает список свойств и методов указанного объекта
 #           EX:
 # x = dir(bool)
-
+# print(x)
 # [print(z) for z in x]
 # ------------------------------------------------------------------------------
 # 20. enumerate()	Takes a collection (e.g. a tuple) and returns it as an enumerate object
@@ -270,14 +293,12 @@
 # The get the value from the hash object we can use special id for saving the hashed
 # version of the object
 # By using id we can get the value from the hash object back from DB
-
 # -------------------
 # Когда мы хотим сохранить объект в базу данных, мы можем использовать хеш-значение
 # Если мы хотим получить значение из объекта хеша, мы можем использовать
 # специальный идентификатор для сохранения хешированной версии объекта
 # Используя идентификатор, мы можем получить значение из объекта хеша
 # обратно из базы данных
-
 # ------------------------------------------------------------------------------
 # 27. help()	    Executes the built-in help system
 #           RU: Выполняет встроенную систему справки
@@ -308,6 +329,8 @@
 #           RU: Возвращает True, если указанный объект является экземпляром указанного объекта
 #           EX:
 #               x = isinstance(5, int)
+# is almost similar as type(...)
+# RU: почти похоже как type (...)
 # ------------------------------------------------------------------------------
 # 33. issubclass()	Returns True if a specified class is a subclass of a specified object
 #           RU: Возвращает True, если указанный класс является подклассом указанного объекта

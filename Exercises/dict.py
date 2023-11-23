@@ -194,9 +194,10 @@ def sum_numeric_values(arr_of_dicts: list[dict]) -> int:
 # =============================================================================
 # =============================================================================
 
-# 17. Write a function that takes a dictionary as an argument and returns a new dictionary that contains only the key-value pairs where the key is a string.
-# RU: Напишите функцию, которая принимает словарь в качестве аргумента и возвращает новый словарь, который содержит только пары ключ-значение, где ключ - строка.
-
+# 17. Write a function that takes a dictionary as an argument and 
+# returns a new dictionary that contains only the key-value pairs where the key is a string.
+# RU: Напишите функцию, которая принимает словарь в качестве аргумента и 
+# возвращает новый словарь, который содержит только пары ключ-значение, где ключ - строка.
 def string_vals_of_dict(d: dict) -> dict:
     result = {}
     for key, val in d.items():
@@ -209,15 +210,14 @@ def string_vals_of_dict(d: dict) -> dict:
 # =============================================================================
 # =============================================================================
 
-# 18. Write a function that takes two dictionaries as arguments and returns a new dictionary that contains only the key-value pairs that are common to both dictionaries.
-# RU: Напишите функцию, которая принимает два словаря в качестве аргументов и возвращает новый словарь, который содержит только пары ключ-значение, которые присутствуют в обоих словарях.
-
-
+# 18. Write a function that takes two dictionaries as arguments and returns a 
+# new dictionary that contains only the key-value pairs that are common to both dictionaries.
+# RU: Напишите функцию, которая принимает два словаря в качестве аргументов и 
+# возвращает новый словарь, который содержит только пары ключ-значение, которые 
+# присутствуют в обоих словарях.
 a = {'a': 1, 'b': 2, 'c': 3}
 b = {'a': 1, 'b': 2, 'd': 4}
 result = {'a': 1, 'b': 2}
-
-
 def del_identical_pairs(dict1, dict2) -> dict:
     total = {}
     for key1, val1 in dict1.items():

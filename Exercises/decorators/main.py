@@ -1,5 +1,6 @@
 # 1. Write a Python program to create a decorator that logs the arguments and return value of a function.
-# RU: Напишите программу на Python для создания декоратора, который регистрирует аргументы и возвращаемое значение функции.
+# RU: Напишите программу для создания декоратора, 
+# который регистрирует аргументы и возвращаемое значение функции.
 def decorator_fn(fn):
     def wrapper(*args, **kwargs):
         print(
@@ -16,12 +17,15 @@ def test_fn2(string):
 
 
 test_fn2("Test-Sentence")
+# "Test-Sentence"  => from decorator
+# "Test-Sentence"  => in original function
+
 # ###################################################################################
 # ###################################################################################
 # ###################################################################################
 
 # 2. Write a Python program to create a decorator function to measure the execution time of a function.
-# RU: Напишите программу на Python для создания декоратора функции для измерения времени выполнения функции.
+# RU: Напишите программу для создания декоратора функции для измерения времени выполнения функции.
 
 
 def calculate_time_dec(fn):
@@ -70,8 +74,8 @@ def get_text(string):
     print("Inside the original function")
     return string
 
-# answer = input("Enter a alpha numeric value please: ")
-# print(get_text(answer))
+answer = input("Enter a alpha numeric value please: ")
+print(get_text(answer))
 
 
 # ###################################################################################
@@ -144,6 +148,9 @@ def measure_memory(fn):
 
         # install memory_profiler with pip install memory_profiler
         result = memory_profiler.memory_usage()
+        in_kilobytes = result[0]
+        print(f"Memory used before running {fn.__name__}: {in_kilobytes} kb")
+
         # memory usage shows the memory usage of the current process in kilobytes
         return result
     return wrapper
@@ -153,6 +160,7 @@ def measure_memory(fn):
 def test_fn6(string):
     print("Inside the original function")
     return string
+
 
 # ###################################################################################
 

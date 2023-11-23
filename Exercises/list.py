@@ -37,9 +37,6 @@ def multiply_list(list):  # умножить_список
 
 
 # arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-# result = 1
-# [result := result*num for num in arr]
-# print(result)
 
 
 # 5.  Write a Python program to get the largest number from a list.
@@ -160,8 +157,8 @@ def get_names_starting_with_vowel(arr):
 # ==========================================================================
 # 15. Create a function that takes a list of strings and returns a list with
 # only numbers that come after counting the strings that have the letter 'w' in it.
-# RU: Создайте функцию, которая принимает список строк и возвращает список с
-# только числа, которые идут после подсчета строк, в которых есть буква «w».
+# RU: Создайте функцию, которая принимает список строк и возвращает список
+# с только числами, которые идут после подсчета строк, в которых есть буква «w».
 def check_w_and_get_length(arr: list[str], letter: str = 'w'):
     # total = []
     # for word in arr:

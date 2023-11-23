@@ -1,23 +1,23 @@
 import math
 import time
 
-# def fn_1():
-#     print("Function first")
+def fn_1():
+    print("Function first")
 
 
-# def fn_2():
-#     print("Function Second")
+def fn_2():
+    print("Function Second")
 
 
-# def fn_3(fn):
-#     print('-----------------------------------')
-#     print("Befor calling {}".format(fn.__name__))
-#     fn()
-#     print("After calling {}".format(fn.__name__))
+def fn_3(fn):
+    print('-----------------------------------')
+    print("Befor calling {}".format(fn.__name__))
+    fn()
+    print("After calling {}".format(fn.__name__))
 
 
-# fn_3(fn_1)
-# fn_3(fn_2)
+fn_3(fn_1)
+fn_3(fn_2)
 # ====================================================================================================
 # ====================================================================================================
 # ====================================================================================================
@@ -29,58 +29,58 @@ lesson = "Decorators & Wrappers"
 # pass them as arguments to other functions. We can also return them as the values from other functions.
 # This is the basis of decorators.
 
+# SYNTAX
+# def decorator_function(original_function):
+#     def wrapper_function(): # RU: обертка => та функция которая покрывает оригинальную функцию
+#         return original_function()
+#     return wrapper_function
+
+# @decorator_function
+# def display():
+#     print("Display function ran")
+
+# display() == decorator_function(display)()
+
 ####################################################################################
 ####################################################################################
 ####################################################################################
 # BASIC DECORATOR
 
 
-# def decorator_function(original_function):
-#     def wrapper_function(*args, **kwargs):
-#         print("Wrapper executed this before {}".format(
-#             original_function.__name__))
-#         return original_function(*args, **kwargs)
-#     return wrapper_function
+def decorator_function(original_function):
+    def wrapper_function(*args, **kwargs):
+        print(f"Wrapper executed this before {original_function.__name__}")
+        return original_function(*args, **kwargs)
+    return wrapper_function
 
 
-# @decorator_function
-# def original_function():
-#     print("Original function ran")
+@decorator_function
+def original_function():
+    print("Original function ran")
 
 ####################################################################################
 # defining a decorator
 
 
-# def hello_decorator(func):
+def декоротивная_функция(func):
 
-#     # inner1 is a Wrapper function in
-#     # which the argument is called
-
-#     # inner function can access the outer local
-#     # functions like in this case "func"
-#     def inner1():
-#         print("Hello, this is before function execution")
-#         # calling the actual function now
-#         # inside the wrapper function.
-#         result = func()
-#         print("This is after function execution")
-#         return result
-
-#     return inner1
+    def покрывала_функции():
+        print("Это до выполнения функции")
+        result = func() # RU: вызов оригинальной функции
+        print("Это после выполнения функции")
+        return result
+    return покрывала_функции
 
 
-# # defining a function, to be called inside wrapper
-# def function_to_be_used():
-#     print("This is inside the function !!")
+# Создание оригинальной функции
+def оригинальная_функция():
+    print("Это призвано быть оригинальной функцией")
 
 
-# # # passing 'function_to_be_used' inside the
-# # # decorator to control its behaviour
-# function_to_be_used = hello_decorator(function_to_be_used)
+функция_для_использования = декоротивная_функция(оригинальная_функция)
 
-
-# # calling the function
-# function_to_be_used()
+# Призив оригинальной функции
+функция_для_использования()
 
 
 ####################################################################################
@@ -91,71 +91,71 @@ lesson = "Decorators & Wrappers"
 
 # decorator to calculate duration
 # taken by any function.
-# def calculate_time(func):
+def calculate_time(func):
 
-#     # added arguments inside the inner1,
-#     # if function takes any arguments,
-#     # can be added like this.
-#     def inner1(*args, **kwargs):
+    # added arguments inside the inner1,
+    # if function takes any arguments,
+    # can be added like this.
+    def inner1(*args, **kwargs):
 
-#         # storing time before function execution
-#         begin = time.time()
+        # storing time before function execution
+        begin = time.time()
 
-#         func(*args, **kwargs)
+        func(*args, **kwargs)
 
-#         # storing time after function execution
-#         end = time.time()
-#         print("Total time taken in : ", func.__name__, end - begin)
+        # storing time after function execution
+        end = time.time()
+        print("Total time taken in : ", func.__name__, end - begin)
 
-#     return inner1
-
-
-# # this can be added to any function present,
-# # in this case to calculate a factorial
-# @calculate_time
-# def factorial(num):
-
-#     # sleep 2 seconds because it takes very less time
-#     # so that you can see the actual difference
-#     time.sleep(2)
-#     print(math.factorial(num))
+    return inner1
 
 
-# # calling the function.
-# factorial(10)
+# this can be added to any function present,
+# in this case to calculate a factorial
+@calculate_time
+def factorial(num):
+
+    # sleep 2 seconds because it takes very less time
+    # so that you can see the actual difference
+    time.sleep(2)
+    print(math.factorial(num))
+
+
+# calling the function.
+factorial(10)
 
 ####################################################################################
 ####################################################################################
 ####################################################################################
 # RETURN A VALUE
 
-# def hello_decorator(func):
-#     def inner1(*args, **kwargs):
+def hello_decorator(func):
+    def inner1(*args, **kwargs):
 
-#         print("before Execution")
+        print("before Execution")
 
-#         # getting the returned value
-#         returned_value = func(*args, **kwargs)
-#         print("after Execution")
+        # getting the returned value
+        returned_value = func(*args, **kwargs)
+        print("after Execution")
 
-#         # returning the value to the original frame
-#         return returned_value
+        # returning the value to the original frame
+        return returned_value
 
-#     return inner1
-
-
-# # adding decorator to the function
-# @hello_decorator
-# def sum_two_numbers(a, b):
-#     print("Inside the function")
-#     return a + b
+    return inner1
 
 
-# a, b = 1, 2
+# adding decorator to the function
+@hello_decorator
+def sum_two_numbers(a, b):
+    print("Inside the function")
+    return a + b
 
-# # getting the value through return of the function
-# sum = sum_two_numbers(a, b)
-# print("Sum =", sum)
+
+a, b = 1, 2
+
+# getting the value through return of the function
+sum = sum_two_numbers(a, b)
+print("Sum =", sum)
 ####################################################################################
 ####################################################################################
 ####################################################################################
@@ -164,32 +164,56 @@ lesson = "Decorators & Wrappers"
 
 # A decorator function for function 'f' passed
 # as parameter
-# memory = {}
+memory = {}
 
 
-# def memoize_factorial(f):
+def memoize_factorial(f):
 
-#     # This inner function has access to memory
-#     # and 'f'
-#     def inner(num):
-#         if num not in memory:
-#             memory[num] = f(num)
-#             print('result saved in memory')
-#         else:
-#             print('returning result from saved memory')
-#         return memory[num]
+    # This inner function has access to memory
+    # and 'f'
+    def inner(num):
+        if num not in memory:
+            memory[num] = f(num)
+            print('result saved in memory')
+        else:
+            print('returning result from saved memory')
+        return memory[num]
 
-#     return inner
-
-
-# @memoize_factorial
-# def facto(num):
-#     if num == 1:
-#         return 1
-#     else:
-#         return num * facto(num-1)
+    return inner
 
 
-# print(facto(5))
-# print(facto(5))  # directly coming from saved memory
-# print(memory)
+@memoize_factorial
+def facto(num):
+    if num == 1:
+        return 1
+    else:
+        return num * facto(num-1)
+
+
+print(facto(5))
+print(facto(5))  # directly coming from saved memory
+print(memory)
+
+####################################################################################
+####################################################################################
+####################################################################################
+# MEMORY USAGE CHECK
+
+def measure_memory(fn):
+    def wrapper(*args, **kwargs):
+        import memory_profiler
+
+        # install memory_profiler with pip install memory_profiler
+        result = memory_profiler.memory_usage()
+        in_kilobytes = result[0]
+        print(f"Memory used before running {fn.__name__}: {in_kilobytes} kb")
+
+        # memory usage shows the memory usage of the current process in kilobytes
+        return result
+    return wrapper
+
+
+@measure_memory
+def test_fn6(string):
+    print("Inside the original function")
+    return string
