@@ -73,12 +73,15 @@ ___
 <span>
    <a  style="background:linear-gradient(to right, black, blue, black);  padding:10px;  border-radius:10px; color:snow;"
       href="https://codete.com/blog/10-built-in-modules-in-python-you-should-know#overview">
-      Codete
+      **Codete**
    </a>
+   - 10 Built-in Modules in Python You Should Know
+   <br>
    <a  style="background:linear-gradient(to right, black, blue, black);  padding:10px;  border-radius:10px; margin-left:10px; color:snow;"
       href="https://levelup.gitconnected.com/11-most-useful-built-in-python-modules-you-might-not-know-yet-eff3e0e6f586">
-      Levelup
+      **Levelup**
    </a>
+   - 11 Most Useful Built-in Python Modules You Might Not Know Yet
    <br>
    <br>
 </span>
