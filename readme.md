@@ -86,18 +86,18 @@ ___
    <br>
 </span>
 
-1. random      (https://docs.python.org/3/library/random.html)
-2. math 
-3. time        (https://docs.python.org/3/library/time.html)
+1. `random`      (https://docs.python.org/3/library/random.html)
+2. `math` 
+3. `time`        (https://docs.python.org/3/library/time.html)
    - datetime  (https://www.pythoncheatsheet.org/modules/datetime-module)
    - timedelta (https://www.pythoncheatsheet.org/modules/datetime-module)
-4. json        (https://medium.com/analytics-vidhya/json-in-python-163857b00415)
-5. logging     (https://majianglin2003.medium.com/python-logging-6a688fa63587)
-6. requests    (https://medium.com/@stayml/python-requests-a-simple-visual-introduction-1c57a60a7c46)
-7. faker       (https://andsilvadrcc.medium.com/how-to-generate-fake-data-using-the-faker-python-package-b6734b944cb2)
-8. translators (https://pypi.org/project/translators/)
-9. re          (https://docs.python.org/3/library/re.html)
-10. collections  (https://medium.com/this-code/python-collections-the-in-depth-guide-to-those-special-data-structures-8f03d537f9d4)
+4. `json`        (https://medium.com/analytics-vidhya/json-in-python-163857b00415)
+5. `logging`     (https://majianglin2003.medium.com/python-logging-6a688fa63587)
+6. `requests`    (https://medium.com/@stayml/python-requests-a-simple-visual-introduction-1c57a60a7c46)
+7. `faker`       (https://andsilvadrcc.medium.com/how-to-generate-fake-data-using-the-faker-python-package-b6734b944cb2)
+8. `translators` (https://pypi.org/project/translators/)
+9. `re`          (https://docs.python.org/3/library/re.html)
+10. `collections`  (https://medium.com/this-code/python-collections-the-in-depth-guide-to-those-special-data-structures-8f03d537f9d4)
 
 
 ## random
@@ -341,14 +341,48 @@ logging.debug(f'This is warning message')
 > -  RU: datefmt: указывает формат даты / времени части сообщения журнала.
 
 ## requests
+This library is like axios in JS
+```python
+# In js we would do:
+# axios.get('https://...')
+
+# In python we do:
+import requests
+response = requests.get('https://...')
+
+# To get the status code:
+print(response.status_code)
+
+# To get the content:
+print(response.content)
+
+# To get the json:
+print(response.json())
+```
 ## faker
+
+This is a library that generates fake data
+```python
+from faker import Faker
+fake = Faker()
+print(fake.name())
+print(fake.address())
+print(fake.text())
+print(fake.email())
+print(fake.phone_number())
+print(fake.country())
+print(fake.url())
+...
+```
 ## translators
+
 ```python
 import translators as ts
 q_text = 'Какая погода сегодня?'
 print(ts.translate_text(q_text))
 ```
 ## re
+
 ```python
 # Source: https://regexr.com/
 
