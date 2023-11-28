@@ -2,14 +2,14 @@
 
 ---
 
-1. `assert`  =>  allows us to check if the condition is true
+- `assert`  =>  allows us to check if the condition is true
     
 ```python
 assert 1 == 1
 ```
 ---
 
-1. `assert_never`  =>  allows us to check if two values are equal
+- `assert_never`  =>  allows us to check if two values are equal
           
 ```python
 from typing import Union, assert_never
