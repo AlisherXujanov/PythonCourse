@@ -7,6 +7,7 @@ name = "pypi"
 psycopg2-binary = "*"
 requests = "*"
 faker = "*"
+selenium = "*"
 
 [dev-packages]
 

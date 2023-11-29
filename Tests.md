@@ -52,3 +52,33 @@ They need to be used within the context of a unittest.TestCase class.
 
 7. `assertIsInstance(a, b)`: This assertion checks if a is an instance of b.
 
+
+
+```python
+import unittest
+
+class MyTest(unittest.TestCase):
+    def test(self):
+        self.assertEqual(1, 1)
+
+    def test_2(self):
+        self.assertNotEqual(1, 2)
+
+    def test_3(self):
+        self.assertTrue(True)
+
+    def test_4(self):
+        self.assertFalse(False)
+
+    def test_5(self):
+        self.assertIs(1, 1)
+
+    def test_6(self):
+        self.assertIsNone(None)
+
+    def test_7(self):
+        self.assertIn(1, [1, 2, 3])
+
+    def test_8(self):
+        self.assertIsInstance(1, int)
+```
