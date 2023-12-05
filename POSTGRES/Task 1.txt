@@ -2,9 +2,10 @@
 
 # - Create a table called 'cars' with the following columns:
 # it should have unique id always
-# RU: уникальный идентификатор
+# RU: создать таблицу 'cars' со следующими колонками:
+#     у нее должен быть уникальный id
 # it should have a Model of the car (as text no more than 20 characters)
-# RU: модель автомобиля
+# RU: он должен иметь модель автомобиля (как текст не более 20 символов)
 # it should have a Year of the car (as integer)
 # RU: год выпуска автомобиля
 # it should have a Price of the car (as integer)

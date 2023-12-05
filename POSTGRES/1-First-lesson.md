@@ -14,6 +14,13 @@ ___
 ```sql
 INSERT INTO users (name, email, password) 
 VALUES ('John Doe', 'test@gmail.com', '12345');
+
+-- OR
+-- INSERT INTO users (name, email, password)
+-- VALUES 
+--     ('John Doe', 'test2@gmail.com', '12'),
+--     ('Jane Doe 2', 'test3@gmail.com', '123'),
+--     ('Jack Doe 3', 'test4@gmail.com', '1234');
 ```
 ___
 # Select data
