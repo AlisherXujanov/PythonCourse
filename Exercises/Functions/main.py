@@ -20,7 +20,7 @@ def fibonacci(max, first=0, second=1):
         return [first, *fibonacci(max, second, first+second)]
 
 
-print(fibonacci(50))
+print(fibonacci(10))
 # ==============
 # 3. Piramid
 # piramid(10)

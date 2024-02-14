@@ -71,8 +71,6 @@ def vowels_and_constants(sentence):
 # returns the sum of the even numbers.
 # RU: Напишите программу, которая принимает список чисел в качестве входных
 # данных и возвращает сумму четных чисел.
-
-
 def sum_even_nums():
     numbers_as_str = input("Enter numbers separated by comma ',': ").split(',')
     total = []
@@ -133,6 +131,7 @@ def nearest_average(arr):
 
 # ==========================================================================================
 # 2. Print stars (*) in the shape of a pyramid with N number of steps.
+# RU: Напечатайте звезды (*) в форме пирамиды с N количеством ступеней.
 # pyramid(4) =>
 #    *
 #   ***
@@ -168,15 +167,11 @@ def guess_number():
 
 # guess_number()
 # ==========================================================================================
-# 4. Write a Python program to construct the following pattern,
-# using a nested for loop.
-# RU: Напишите программу на Python для построения следующего узора,
-# используя вложенный цикл for.
+# 4. Create a function that takes a number of lines for stars and prints them as this pattern
+# RU: Создайте функцию, которая принимает количество линий для звезд и печатает их в этом шаблоне
 # *
 # * *
 # * * *
-# * * * *
-# * * * * *
 # * * * *
 # * * *
 # * *

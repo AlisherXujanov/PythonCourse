@@ -24,7 +24,7 @@ They are:
 >               CREATE TABLE customers (name CHAR(10), address CHAR(10))
 >       VARCHAR (Variable length)    maximum characters 65535
 >           ex: VARCHAR(10) 'Hello'
->       TEXT (Variable unlimited)    maximum characters 65535
+>       TEXT (Variable unlimited) 
 >           ex: TEXT 'Hello'
 >               CREATE TABLE customers (name TEXT, address TEXT)
 > ------------------------------------------------------------
@@ -51,8 +51,8 @@ They are:
 > ------------------------------------------------------------
 > - **INTERVAL**                (stores periods of time)
 >       SYNTAX:  INTERVAL 'value' unit
->       UNITS:   year, month, day, hour, minute, second, week, decade, century, 
-> millennium
+>       UNITS:   year, month, day, hour, minute, second, week, decade
+> 
 >          ex:  '1 year 2 months 2 days ...'
 >
 > - ex 1:
