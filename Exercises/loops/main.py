@@ -71,6 +71,8 @@ def vowels_and_constants(sentence):
 # returns the sum of the even numbers.
 # RU: Напишите программу, которая принимает список чисел в качестве входных
 # данных и возвращает сумму четных чисел.
+
+
 def sum_even_nums():
     numbers_as_str = input("Enter numbers separated by comma ',': ").split(',')
     total = []
@@ -389,3 +391,26 @@ def guess_letters():
 
 guess_letters()
 # ==========================================================================================
+
+# 10. Given a string of s, find the longest substring without repeating characters.
+# RU: Дана строка s, найти самую длинную подстроку без повторяющихся символов.
+
+s = "ThisIsLoongStringForTestingPurposes"
+
+def find_longest_substring(str) -> str:
+    l = []
+    for letter in str:
+        if len(l) == 0:
+            l.append(letter)
+        else:
+            if letter.lower() not in l[-1].lower():
+                l[-1] += letter
+            else:
+                l.append(letter)
+
+    longest = max(l, key=len)
+    print(longest)
+    return longest
+
+
+find_longest_substring(s)
