@@ -17,14 +17,11 @@ def sum_and_compare(arr):
     even_or_odd = 'even' if difference % 2 == 0 else 'odd'
     return f"Total: {total}, Max: {max_num}, Difference: {difference} and it is {even_or_odd}"
 # print(sum_and_compare([1, 2, 3, 4, 5]))
-
 # =======================================================================================
 
 # 2. Create a function that takes a list of numbers and returns third biggest.
 # RU: Создайте функцию, которая принимает список чисел и возвращает третий по величине.
-
-
-def third_smallest(list):
+def third_biggest_number(list):
     list_copy = list.copy()
     smallest = min(list)
     list_copy.remove(smallest)
@@ -177,7 +174,7 @@ def get_as_nums(arr: list) -> list:
     return list(map(get_as_num, arr))
 
 
-test_arr = ["www", "12345", "qwe", 124, '54321', 'aaaaa']
+test_arr = [3, "12345", "qwe", 124, '54321', 'aaaaa']
 total = get_as_nums(test_arr)
 print(total)
 

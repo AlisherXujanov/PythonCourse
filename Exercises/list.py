@@ -4,13 +4,14 @@
 # of the longest one.
 # RU: Напишите функцию Python, которая принимает список слов и возвращает
 # длину самого длинного слова.
-def longest_word(words):  # самое_длинное_слово
+def longest_word(words: list) -> None:  # самое_длинное_слово
     print(max(words, key=len))
     # return max(words, key=lambda x: len(x))
 
 
 # 2. Write a Python program to count the occurrences of each word in a given sentence.
-# RU: Напишите программу Python, чтобы подсчитать количество вхождений каждого слова в заданном предложении.
+# RU: Напишите программу Python, чтобы подсчитать количество вхождений
+    # каждого слова в заданном предложении.
 def count_occurences(string):  # подсчитать_вхождения
     dict = {}
     for i in string.split():
@@ -18,10 +19,9 @@ def count_occurences(string):  # подсчитать_вхождения
     return dict
     # return {i: string.count(i) for i in string.split()}
 
+
 # 3. Write a Python program to sum all the items in a list.
 # RU: Напишите программу Python, чтобы сложить все элементы в списке.
-
-
 def sum_list(list):  # сложить_список
     return sum(list)
 
@@ -148,9 +148,7 @@ def get_max_using_comprehensio(arr):
 # ones that start with a vowel.
 # RU: Создайте функцию, которая принимает список имен и возвращает те,
 # которые начинаются с гласной буквы.
-
-
-def get_names_starting_with_vowel(arr):
+def get_names_starting_with_vowel(arr:list[str]):
     return [name for name in arr if name[0].lower() in 'aieuo']
 
 
@@ -166,11 +164,11 @@ def check_w_and_get_length(arr: list[str], letter: str = 'w'):
     #         total.append(word)
     # return sum([len(x) for x in total])
     # return sum([len(x) for x in [word for word in arr if letter in word]])
-    return sum([len(x) for x in list(filter(lambda x: letter in x, arr))])
-
+    # return sum([len(x) for x in list(filter(lambda x: letter in x, arr))])
+    return [len(word) for word in arr if letter in word.lower()]
 
 x = ["hello", "world", "whats", "up", "my", "friend"]
-print(check_w_and_get_length(x))
+print(check_w_and_get_length(x))  # [5, 5]
 
 
 # EX: ['waffle', 'wonderful', 'water', 'phone', 'tree', 'wonderland']

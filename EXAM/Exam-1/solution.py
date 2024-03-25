@@ -55,15 +55,9 @@ def take_order():
         order.append(menu[int(item)])
     return order
 
-def main():
+if __name__ == "__main__":
     order = take_order()
-    print_order(order)
+    summary = summarize_order(order)
+    print(f"Your order is: {summary[0]}")
+    print(f"Total cost is: {summary[1]}")
 
-    subtotal = calculate_subtotal(order)
-    print("Subtotal for the order is: " + str(subtotal))
-
-    tax = calculate_tax(subtotal)
-    print("Tax for the order is: " + str(tax))
-
-    items, subtotal = summarize_order(order)
-    print("You have ordered: " + str(items))

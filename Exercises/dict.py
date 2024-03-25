@@ -7,6 +7,7 @@ def count_occurences(string):  # подсчитать_вхождения
     # return dict
     return {буква: string.count(буква) for буква in string}
 
+count_occurences("abaaa")
 # {'a': 4,  "b": 1}
 
 # 2. Write a Python script to concatenate the following dictionaries to create a new one.

@@ -1,5 +1,5 @@
 # 1. Open the script ordering_system.py present inside the project folder.
-# RU: Откройте скрипт ordering_system.py, находящийся внутри папки проекта.
+# RU: Откройте скрипт этот_файл.py, находящийся внутри папки проекта.
 # =============================================================================
 # 2. Run the script and, when requested, enter in the three products of your 
 # choice based on the menu - 1 = espresso, 2 = coffee etc.
@@ -7,9 +7,9 @@
 # на основе меню - 1 = эспрессо, 2 = кофе и т.д.
 # =============================================================================
 # 3. To run the script, open terminal and execute the following command.
-# •	python3 ordering_system.py
+# •	python3 этот_файл.py
 # RU: Чтобы запустить скрипт, откройте терминал и выполните следующую команду.
-# •	python3 ordering_system.py
+# •	python3 этот_файл.py
 # =============================================================================
 # 4. Extend the script to have a new function called calculate_subtotal.
 # It should accept one argument which is the order list and return the sum

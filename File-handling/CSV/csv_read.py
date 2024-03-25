@@ -5,3 +5,4 @@ with open('users.csv', mode='r') as file:
 
     for row in file:
         print(row)
+    file.close()

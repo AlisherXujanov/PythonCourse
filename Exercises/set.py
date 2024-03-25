@@ -119,21 +119,25 @@ k = 5
 
 # =====================================================================================================
 # =====================================================================================================
-
+# def update_last_set(*args:list[set]) -> set:
+#     pass
+# update_last_set({...}, {...}, {...}, {...}, {...}, {...}, {...})
+# =====================================================================================================
+# =====================================================================================================
 # 7. Write a Python program to remove item(s) from set
 # RU: Напишите программу на Python, чтобы удалить элемент(ы) из набора.
 
-
-def remove_item(set1, *args):
-    # for i in args:
-    #     set1.remove(i)
-    # return set1
+def remove_item(set1:set, *args) -> set:
+    for i in args:
+        set1.remove(i)
+    return set1
     # --------------------
     # Comprehension
-    return set1.difference(args)
+    # return set1.difference(args)
 
-
-print(remove_item({'a', 'b', 'c'}, 'c', 'b'))
+x = {'a', 'b', 'c'}
+result = remove_item(x, 'c', 'b')
+print("Result: ", x)
 
 # =====================================================================================================
 # 8. Create a function that takes a list as an argument and creates a set from it

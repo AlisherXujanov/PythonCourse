@@ -2,7 +2,13 @@
 # 1. Write a Python function to find the maximum of three numbers.
 # RU: Напишите функцию Python для поиска максимума из трех чисел.
 def max_of_three(a, b, c):
-    return max(a, b, c)
+    if a > b and a > c:
+        return a
+    elif b > a and b > c:
+        return b
+    else:
+        return c
+    # return max(a, b, c)
 
 # 2. Write a Python function to sum all the numbers in a list.
 # RU: Напишите функцию Python для суммирования всех чисел в списке.

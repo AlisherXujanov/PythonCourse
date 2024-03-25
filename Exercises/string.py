@@ -240,6 +240,12 @@ def check_duplicate_letters(string) -> bool:
 def repeat_first_l_of_last_word(sentence):
     first_l = sentence.split(" ")[-1][0]
     return first_l*5 + sentence + first_l*5
+    # last_w_first_l = sentence[sentence.rindex(" "):][1]
+    # return sentence.center(len(sentence)+10, last_w_first_l)
+
+
+repeat_first_l_of_last_word("Hello world")
+# "wwwwwHello worldwwwww"
 # ====================================================================================================
 
 # 26. Write a code in Python to create a Morse code translator.
@@ -342,7 +348,7 @@ def repeat_middle(sentence):
 
 # 33. Create a function that repeats first and last half of the text n times
 # RU: Создайте функцию, которая повторяет первую и вторую половину текста n раз
-# "Welcome"  =>  "WelWelWelcomecomecomecome"
+# "Welcome"  =>  "WelWelWelWelcomecomecomecome"
 
 
 def repeat_half_n_times(sentence, n):
