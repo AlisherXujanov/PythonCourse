@@ -3,19 +3,15 @@
 # ================================================================
 # 2. Create a tuple with numbers and check if a given element exists in the tuple.
 # RU: Создайте кортеж с числами и проверьте, существует ли в кортеже заданный элемент.
-def check_if_exists(tup, items_arr):
-    obj = {}
-    for item in items_arr:
-        obj[item] = item in tup
-    return all(obj.values())
+from typing import Union
+def check_if_exists(tup, items_arr:Union[int, str, list]) -> bool: ...
 # print(check_if_exists((1, 2, 3, 4, 5), [1, 5, 4]))
 # ================================================================
 # 3. Create a tuple with numbers and find the index of a given element in the tuple.
 # RU: Создайте кортеж с числами и найдите индекс заданного элемента в кортеже.
 
 
-def get_index(tup, item):
-    return tup.index(item) if item in tup else "Not found"
+def get_index(tup:tuple, item): ...    
 # print(get_index((1, 2, 3, 4, 5), 10))
 # ================================================================
 # 4. Create a tuple with numbers and find the number of occurrences
@@ -41,7 +37,7 @@ def count_item(tup, item):
 # order, but with the even numbers before the odd numbers.
 # RU: Напишите функцию Python, которая принимает в качестве входных данных
 # кортеж целых чисел и возвращает новый кортеж с теми же целыми числами,
-# отсортированными в порядке убывания, но с четными числами перед нечетными.
+# отсортированными в порядке убывания, но с четными числами перед нечетными в конце.
 # INPUT:  => (3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5)
 # OUTPUT: => (6, 4, 2, 9, 5, 5, 5, 3, 3, 1, 1)
 

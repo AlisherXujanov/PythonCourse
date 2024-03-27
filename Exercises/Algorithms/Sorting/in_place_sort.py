@@ -12,6 +12,14 @@
 # i is the left pointer
 # j is the right pointer
 
+nums = [3, 2, 2, 3, 1, 5]  # in-place algorithm
+# nums = [3, 2, 2, 3, 1, 5]  =>  3, 5   =?  i==3 yes  switch
+# nums = [5, 2, 2, 3, 1, 3]  =>  5, 1   =?  i==3 no   Do nothing
+# nums = [5, 2, 2, 3, 1, 3]  =>  2, 1   =?  i==3 no   Do nothing
+# nums = [5, 2, 2, 3, 1, 3]  =>  3, 1   =?  i==3 yes  switch
+# nums = [5, 2, 2, 1, 3, 3]  =>  i <= j  finish
+
+
 # Example: Remove all the 3s from the list
 class Solution(object):
     def removeElement(self, nums, val):
@@ -29,14 +37,6 @@ class Solution(object):
             else:
                 i += 1  # move left pointer to the right
         return i  # return the length of the list
-
-
-nums = [3, 2, 2, 3, 1, 5]  # in-place algorithm
-# nums = [3, 2, 2, 3, 1, 5]  =>  3, 5   =?  i==3 yes  switch
-# nums = [5, 2, 2, 3, 1, 3]  =>  5, 1   =?  i==3 no   Do nothing
-# nums = [5, 2, 2, 3, 1, 3]  =>  2, 1   =?  i==3 no   Do nothing
-# nums = [5, 2, 2, 3, 1, 3]  =>  3, 1   =?  i==3 yes  switch
-# nums = [5, 2, 2, 1, 3, 3]  =>  i <= j  finish
 
 val = 3
 s = Solution()

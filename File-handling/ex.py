@@ -74,7 +74,6 @@
 # "a+" - Read and Append - Opens a file for reading and appending, creates the file if it does not exist
 # "w+" - Write and Read - Opens a file for writing and reading, creates the file if it does not exist
 # "r+" - Read and Write - Opens a file for reading and writing, error if the file does not exist
-
 # ===========================================================
 # WORKING WITH DIRECTORIES and os
 # import os
