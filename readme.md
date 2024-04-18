@@ -219,6 +219,7 @@ time.sleep(1) # sleep for 1 second
    Обратите внимание, что поскольку не все функции времени обрабатывают високосные секунды, это не обязательно точная обратная функция к time().
 
 ```python
+# Up to 10 digits
 print(time.localtime(UNIX-time))
 ```
 
