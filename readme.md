@@ -219,6 +219,7 @@ time.sleep(1) # sleep for 1 second
    Обратите внимание, что поскольку не все функции времени обрабатывают високосные секунды, это не обязательно точная обратная функция к time().
 
 ```python
+# Up to 10 digits
 print(time.localtime(UNIX-time))
 ```
 
@@ -343,6 +344,23 @@ logging.debug(f'This is warning message')
 ## requests
 This library is like axios in JS
 ```python
+import requests
+# axios.get()       # get data from server      =>  Получить данные с сервера
+# axios.post()      # send data to server       =>  Отправить данные на сервер
+# axios.put()       # update data on server     =>  Обновить данные на сервере
+# axios.delete()    # delete data from server   =>  Удалить данные с сервера
+# axios.patch()     # partially update data on server  =>  Частично обновить данные на сервере
+
+URL = "https://reqres.in/api/users?page=2"
+response = requests.get(URL)
+
+print("Status:", response)
+print("JSON", (response.json()).get("data", "No data found"))
+
+# {}[key]       # raise error if key not found
+# {}.get(key)   # return None if key not found
+
+# ===================================================================
 # In js we would do:
 # axios.get('https://...')
 
