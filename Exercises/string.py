@@ -237,14 +237,11 @@ def check_duplicate_letters(string) -> bool:
 # последнего слова и повторяет 5 раз в начале предложения и в конце.
 
 
-def repeat_first_l_of_last_word(sentence):
-    first_l = sentence.split(" ")[-1][0]
-    return first_l*5 + sentence + first_l*5
-    # last_w_first_l = sentence[sentence.rindex(" "):][1]
-    # return sentence.center(len(sentence)+10, last_w_first_l)
+# def repeat_first_l_of_last_word(sentence):
+#     last_w_first_l = sentence[sentence.rindex(" "):][1]
+#     # return sentence.center(len(sentence)+10, last_w_first_l)
 
-
-repeat_first_l_of_last_word("Hello world")
+# repeat_first_l_of_last_word("Hello world")
 # "wwwwwHello worldwwwww"
 # ====================================================================================================
 
@@ -336,7 +333,6 @@ def is_valid_regex(string):
 # RU: Создайте функцию, которая принимает текст и повторяет
 # среднюю букву три раза
 # Welcome   =>   Welcccome
-
 
 def repeat_middle(sentence):
     middle = len(sentence) // 2  # 3.5 => 3

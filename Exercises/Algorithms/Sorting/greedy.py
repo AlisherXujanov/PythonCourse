@@ -42,6 +42,7 @@ class Solution(object):
         # METHOD 2
         # GREEDY ALGORITHM (TIME COMPLEXITY O(n))
 
+
         max_profit = 0
         min_price = float('inf')  # set to infinity
         for price in prices:

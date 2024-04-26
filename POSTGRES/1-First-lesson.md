@@ -1,5 +1,5 @@
 1. Introduction and Creating first table
-
+    
 # Create table
 ```sql
 CREATE TABLE users (

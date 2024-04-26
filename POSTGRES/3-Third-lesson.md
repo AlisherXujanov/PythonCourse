@@ -1,7 +1,14 @@
 3. Syntax items - Continue of the second lesson
 
 
+FOREIGN KEY CONSTRAINT
+<!-- ---------------------- -->
 ```sql
+-- One-to-One Relationship  (1:1)
+-- One-to-Many Relationship (1:M)
+-- Many-to-One Relationship (M:1)
+
+
 CREATE TABLE Customers (
   id SERIAL PRIMARY KEY,
   name VARCHAR(255) NOT NULL,
@@ -28,12 +35,45 @@ SELECT * FROM Orders;
 ```
 
 <!-- [==============================================================================] -->
+<!-- MANY TO MANY RELATIONSHIP -->
+Это реализуется с использованием таблицы соединения (также известной как таблица моста, таблица соединения или ассоциативная сущность). Эта таблица включает столбец внешнего ключа (FK) для каждой из связанных таблиц.
+
+Например, если у вас есть Продукты и Заказы и вы хотите создать отношение многие ко многим между ними (поскольку заказ может содержать много продуктов и продукт может быть во многих заказах), вы создадите таблицу соединения Order_Products:
 
 
 ```sql
--- Let's say we have two tables: Students and Courses. 
--- Each student can enroll in multiple courses, so we want to create a 
--- relationship between the two tables using the FOREIGN KEY constraint.
+CREATE TABLE Products (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  price DECIMAL(10,2) NOT NULL
+);
+
+CREATE TABLE Orders (
+  id SERIAL PRIMARY KEY,
+  order_date DATE NOT NULL,
+  customer_id INTEGER NOT NULL,
+  FOREIGN KEY (customer_id) REFERENCES Customers (id)
+);
+
+CREATE TABLE Order_Products (
+  order_id INTEGER NOT NULL,
+  product_id INTEGER NOT NULL,
+  quantity INTEGER,
+  PRIMARY KEY (order_id, product_id),
+  FOREIGN KEY (order_id) REFERENCES Orders (id),
+  FOREIGN KEY (product_id) REFERENCES Products (id)
+);
+```
+В этом примере Order_Products - это таблица соединения, которая позволяет отношению многие ко многим между Продуктами и Заказами. Столбец количества - это пример дополнительных данных, которые могут храниться в таблице соединения.
+
+<!-- [==============================================================================] -->
+
+
+```sql
+-- Например, у нас есть две таблицы: Students и Courses.
+-- Каждый студент может записаться на несколько курсов, поэтому мы хотим создать отношение между двумя таблицами, используя ограничение FOREIGN KEY.
+
+
 
 CREATE TABLE Students (
   id SERIAL PRIMARY KEY,
@@ -73,18 +113,25 @@ VALUES
       (1, 3);
 SELECT * FROM Enrollments;
 
--- This means that the student with an id of 1 is enrolled in the course with an id of 1
+-- Это означает, что студент с id 1 записан на курс с идентификатором 1
 ```
 
 <!-- [==============================================================================] -->
 **MONEY**
-Working with money
-In postgres, the money type is a fixed-point number with two decimal places. It is useful for storing monetary amounts. The money type is not precise, because it rounds to the nearest cent. For example, 
-1.005 is stored as 1.01.
+Creating a table with the money type
+```sql
+CREATE TABLE laptops (
+  id UUID PRIMARY KEY,
+  ip_address INET NOT NULL,
+  price MONEY NOT NULL
+);
+```
+В postgres тип данных money - это число с фиксированной точкой с двумя десятичными знаками. Он полезен для хранения денежных сумм. Тип данных money не является точным, потому что он округляется до ближайшего цента. Например, 1.005 хранится как 1.01.
 
-To use the money type, you must specify the amount in the following format: '$100.00'. The dollar sign is required. You can also use the following format: '100.00 USD'. The currency code is optional.
+Для использования типа данных money необходимо указать сумму в следующем формате: '$100.00'. Знак доллара обязателен. Вы также можете использовать следующий формат: '100.00 USD'. Код валюты необязателен.
 
-To create a table with the money type, you use the following syntax:
+Другие валюты, такие как евро, могут быть использованы, если они поддерживаются вашей версией PostgreSQL. Например, '100.00 EUR'.
+
 ```sql
 -- 1.000001  =>  1.01
 
@@ -180,8 +227,18 @@ SELECT * FROM customers ORDER BY first_name DESC;
 ```
 <!-- -------------------------------------------------------------------------------- -->
 **GROUP BY** - Groups rows that have the same values into summary rows
+In other words, the GROUP BY clause is used to divide the rows in a table into groups based on the values of one or more columns. 
+ex:
 ```sql
-SELECT * FROM customers GROUP BY first_name;
+SELECT COUNT(*), country FROM customers GROUP BY country;
+
+SELECT COUNT(*), country, city FROM customers GROUP BY country, city;
+
+SELECT country, COUNT(*) FROM customers GROUP BY country HAVING COUNT(*) > 1;
+```
+
+
+
 
 <!-- -------------------------------------------------------------------------------- -->
 *Merging two or more columns*
@@ -192,9 +249,9 @@ SELECT * FROM customers GROUP BY first_name;
 -- Customers TABLE
 -- ___________________________________________________
 -- -- id | name  | surname | full_name | email
--- -- 1  | John  | test1   |          | John@test.com
--- -- 2  | Mary  | test2   |          | Mary@test.com
--- -- 3  | Peter | test3   |          | Peter@test.com
+-- -- 1  | John  | test1   |           | John@test.com
+-- -- 2  | Mary  | test2   |           | Mary@test.com
+-- -- 3  | Peter | test3   |           | Peter@test.com
 -- ___________________________________________________
 
 -- We want to add a new column called full_name and populate it with the first name and last name
@@ -202,10 +259,5 @@ SELECT * FROM customers GROUP BY first_name;
 
 -- ALTER TABLE customers ADD COLUMN full_name VARCHAR(255);
 -- UPDATE customers SET full_name = CONCAT(name, ', email: ', email);
-
 ```
-
-
-
-
 

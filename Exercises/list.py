@@ -5,8 +5,13 @@
 # RU: Напишите функцию Python, которая принимает список слов и возвращает
 # длину самого длинного слова.
 def longest_word(words: list) -> None:  # самое_длинное_слово
-    print(max(words, key=len))
+    # print(max(words, key=len))
     # return max(words, key=lambda x: len(x))
+    result = ""
+    for word in words:
+        if len(word) > len(result):
+            result = word
+    return result
 
 
 # 2. Write a Python program to count the occurrences of each word in a given sentence.

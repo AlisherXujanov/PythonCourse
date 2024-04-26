@@ -14,14 +14,13 @@ count_occurences("abaaa")
 # RU: Напишите скрипт Python для объединения следующих словарей, чтобы создать новый.
 
 
-def concatenate_dictionaries(*args):
+def concatenate_dictionaries(*args) -> dict:
     dict = {}
     for i in args:
         dict.update(i)
+        # dict |= i
     return dict
     # return {key: val for dict in args for key, val in dict.items()}
-
-
 x = {'a': 1, 'b': 2}
 x2 = {'c': 3, 'd': 4}
 x3 = {'e': 5, 'f': 6}
@@ -64,7 +63,8 @@ def generate_dict(n):
 # RU: Напишите программу Python для суммирования всех элементов в словаре.
 # x =  {...: "10", ...: 'qwe', ...: 5}  => 15
 def sum_dict(dict):
-    return sum([int(item) for item in dict.values() if str(item).isnumeric()])
+    # return sum([int(item) for item in dict.values() if str(item).isnumeric()])
+    return sum([n for n in dict.values() if type(n) == int])
 
 
 # 7. Write a Python program to multiply all the items in a dictionary.
@@ -79,8 +79,6 @@ def multiply_dict(dict):
 
 # 8. Write a Python program to remove a key from a dictionary.
 # RU: Напишите программу Python для удаления ключа из словаря.
-
-
 def remove_key(dc, _key):
     dc_copy = dc.copy()
     # 1.
@@ -92,20 +90,21 @@ def remove_key(dc, _key):
     # 3.
     return {key: val for key, val in dc_copy.items() if key is not key}
 
+
+
 # 9. Write a Python program to sort a given dictionary by key.
 # RU: Напишите программу Python для сортировки заданного словаря по ключу.
-
-
+# ex: {5:"a",  7:"c",   2:"b"} => {2:"b",   5:"a",   7:"c"}
 def sort_dict_by_key(dict):
     return {key: val for key, val in sorted(dict.items())}
+    # return {key:dict[key] for key in sorted(dict.keys())}
+
 
 # 10. Write a Python program to get the maximum and minimum value in a dictionary.
 # RU: Напишите программу Python, чтобы получить максимальное и минимальное значение в словаре.
 # ex: {'x':500, 'y':5874, 'z': 560, 'a': 7, 'b': 35, 'c': 113}
-
-
 def get_max_min(dict):
-    return max(dict.values()), min(dict.values())
+    return [n for n in sorted(dict.values()) if n == sorted(dict.values())[0] or n == sorted(dict.values())[-1]]
 
 
 # 11. Write a Python program to remove duplicates from the dictionary.
@@ -261,7 +260,6 @@ def del_identical_vals(dict):
         if val in dict_set and val not in total.values():
             total[key] = val
     return total
-
 
 test_dict = {'a': 1, 'b': 2, 'c': 3, 'd': 2, 'e': 3, 'f': 4}
 

@@ -34,7 +34,7 @@ They are:
 >       BIGINT  (Large whole numbers) maximum characters 19
 >           ex: BIGINT 9223372036854775807
 >       DECIMAL (Fixed precision)     maximum characters 131072
->           ex: DECIMAL(3,2) 999.99
+>           ex: DECIMAL(3,2) 999.9
 >       NUMERIC (Variable precision)  maximum characters 131072
 >           ex: NUMERIC(5,2) 999.99
 > ------------------------------------------------------------
@@ -57,7 +57,7 @@ They are:
 >
 > - ex 1:
 ```sql
-SELECT * FROM orders WHERE order_date > NOW() - INTERVAL '30 days';
+SELECT * FROM orders WHERE order_date < NOW() - INTERVAL '30 days';
 -- Заказы, сделанные за последние 30 дней
 ```
 
@@ -83,7 +83,7 @@ VALUES (
 >       Composite types (stores groups of columns) maximum characters 131072
 >           ex: CREATE TYPE address AS (street TEXT, city TEXT, zip INTEGER)   
 >               => we can use this type in a table 
->                  ex: CREATE TABLE customers (name TEXT, address address)
+>                  ex: CREATE TABLE customers (name TEXT, address )
 >                      INSERT INTO customers VALUES ('John Doe', ('123 Main St.', 'Pittsburgh', 15237))
 >           ex: CREATE TABLE customers (name TEXT, address address)
 > ------------------------------------------------------------
@@ -95,8 +95,25 @@ VALUES (
 >                       name TEXT, 
 >                       address DEFAULT TEXT['123 Main St.', 'Pittsburgh', '15237']
 >               )
-> ------------------------------------------------------------
-> - **Network address types**   (INET, CIDR, MACADDR)
+> 
+CREATE TABLE students (
+    id serial PRIMARY KEY,
+    name text,
+    grades int[]
+);
+INSERT INTO students (name, grades) 
+       VALUES ('John Doe', ARRAY[85, 90, 92]);
+
+SELECT * FROM students WHERE grades > 90;
+
+UPDATE students SET grades[1] = 95 WHERE name = 'John Doe';
+<!-- 1 indexed -->
+
+UPDATE students SET grades = grades || 98 WHERE name = 'John Doe';
+<!-- append into list -->
+
+------------------------------------------------------------
+> - **Network address types**   (INET, MACADDR)
     This is used to store network IP addresses and MAC addresses.
 >           ex: CREATE TABLE customers (name TEXT, ip_address INET)  =>  
 >               INET here is the type of the column ip_address
@@ -140,7 +157,7 @@ VALUES (
     
 
 > - **CHECK**       => CREATE TABLE customers (name TEXT, age INTEGER CHECK (age >= 18))
-> - **EXCLUDE**     => SELECT * FROM users EXCLUDE age = 18;
+> - **EXCLUDE**     => SELECT * FROM users EXCLUDE age < 18;
 >                  =>   This constraint is used to exclude data from a table.
 >                       For example, if we have a table of customers and we want to exclude customers with the same name and age.
 > ------------------------------------------------------------
@@ -204,12 +221,3 @@ VALUES (
 > - **OFFSET**	  Skip number of rows before starting to return the rows
 >      ex: SELECT * FROM customers LIMIT 10 OFFSET 10
 >         => this will return 10 rows from the customers table starting from the 10th row
-> --------------------
-> - **FETCH**	  Limit number of rows returned
->          FETCH vs LIMIT
->          LIMIT is the same as FETCH but it is more flexible
->          LIMIT can be used with OFFSET but FETCH cannot 
-> 
->     ex: SELECT * FROM customers FETCH FIRST 10 ROWS ONLY
->        => this will return only 10 rows from the customers table
-> --------------------

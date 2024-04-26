@@ -1,63 +1,28 @@
 # 1. Reverse an integer.
 # RU: Обратный порядок целого числа.
 def reverse_integer(num):
-    return str(num)[::-1]
-
-# 2. Print the Fibonacci series using the recursive method.
-# fibonacci(10)   =>   0, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89 ...
-# RU: Выведите ряд Фибоначчи с помощью рекурсивного метода.
-def fibonacci(max, first:int=0, second:int=1):
-    # ================================================================
-    # FIRST METHOD----------------------------------------------------
-    if max > first:
-        return []
-    return [first] + fibonacci(max, second, first + second)
-    # ================================================================
-    # SECOND METHOD---------------------------------------------------
-    # List comprehension
-    # return [first] + fibonacci(max, second, first + second) if max > first else []
-    # ================================================================
-    # THIRD METHOD----------------------------------------------------
-    # if max <= 1:
-    #     return max
-    # else:
-    #     return fibonacci(max-1) + fibonacci(max-2)
-    
-    
-
-# 3. Return the Nth value from the Fibonacci sequence.
-# fibonacci(10)   =>   0, 1, 1, 2, 3, 5, 8, 13, 21, 34 ...  => 34
-# RU: Вернуть N-е значение из последовательности Фибоначчи.
+    pass
 
 
-# 4. Find an average number of given numbers of the list and return nearest integer
-# from given list
-# RU: Найти среднее число данного списка и вернуть ближайшее целое число
-# из данного списка.
-# INPUT:  [1, 10, 40, 35, 20, 30, 50, 60, 70]
-# OUTPUT: 37.777...  =>  35  =>  index-3
-# =================================================================================
+# 2. Find the middle integer of a big number:  1234567890 => 5
+# RU: Найти среднее число большого числа: 1234567890 => 5
+def middle_integer(num):
+    pass
 
-# 5. Print stars downwards starting from n number
-# RU: Распечатать звезды вниз, начиная с числа n
-def print_stars(max):
-    # for i in range(max):
-    #     print('*' * (max - i))
-    if max==0: 
-        return
-    print(max * '*')
-    return print_stars(max-1)
-print_stars(10)
+# 3. Plus second and latter integers of a big number:  1234567890 => 2+9 => 11
+# RU: Плюсуйте второе и пред-последнее числа большого числа: 1234567890 => 2+9 => 11
+def plus_second_and_latter(num):
+    pass
 
-# =================================================================================
-# 6. Print stars (*) in the shape of a pyramid with N number of steps.
-# pyramid(4) =>
-#    *
-#   ***
-#  *****
-# *******
-# =================================================================================
+# 4. Plus first, last and middle integers of a big number and check if
+# it is an even number or odd number:  1234567890 => 1+0+5 => 6 => even
+# RU: Плюсуйте первое, последнее и среднее числа большого числа и проверьте,
+# это четное число или нечетное число: 1234567890 => 1+0+5 => 6 => even
+def plus_first_last_middle(num):
+    pass
 
 
-# 5. Convert Celsius to Fahrenheit.
-# RU: Преобразование Цельсия в Фаренгейт.
+# 5. Check if a number is a palindrome. 12321 => True,   123 => False
+# RU: Проверьте, является ли число палиндромом. 12321 => True, 123 => False
+def is_palindrome(num):
+    pass
