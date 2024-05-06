@@ -1,4 +1,3 @@
-
 import csv
 
 # we need to install faker by running the following command in the terminal (pip/pipenv install faker)
@@ -27,3 +26,11 @@ with open('users.csv', mode='w') as file:
         file_writer.writerow(
             [fake.first_name(), fake.last_name(), fake.email(), fake.text()])
     file.close()
+
+
+with open('users.csv') as f:
+    for l in f.readlines():
+        el = l.split(",")
+        if not el[0].isspace() and not el == "\n":
+            print("Full name is: ", el[0],  el[1])
+    f.close()

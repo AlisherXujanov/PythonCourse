@@ -1,6 +1,5 @@
 SECOND EXERCISE.
 
-
 ---------------------------------------------------------------------------
 CREATE A TABLE called orders with the following columns:
 

@@ -113,7 +113,7 @@ VALUES
       (1, 3);
 SELECT * FROM Enrollments;
 
--- Это означает, что студент с id 1 записан на курс с идентификатором 1
+-- Это означает, что студент с id 1 записан на курс с id 1, 2, 3
 ```
 
 <!-- [==============================================================================] -->
@@ -139,17 +139,23 @@ INSERT INTO laptops (id, ip_address, price)
 VALUES ('a0eebc99-9c0b-4ef8-bb6d-6bb9bd312a11', '192.168.0.138', '$200');
 
 SELECT * FROM laptops;
--- [==============================================================================] 
+```
+<!-- [==============================================================================]  -->
 
 **SUBSTRING()** - Extracts a substring from a string
+
 ```sql
-SYNTAX:  SELECT SUBSTRING(column_name, start_position, length) FROM table_name;
+-- SYNTAX:  SELECT SUBSTRING(column_name, start_position, length) FROM table_name;
 
 SELECT SUBSTRING(name, 1, 3) AS FirstName FROM students;
-This will return the first 3 characters of the first name column
-So if: first_name = 'John'
-The result will be: 'Joh'
+
+-- This will return the first 3 characters of the first name column
+-- So if: first_name = 'John'
+-- The result will be: 'Joh'
 ```
+
+
+
 <!-- -------------------------------------------------------------------------------- -->
 **MAX()** - Returns the maximum value in a set of values
 ```sql

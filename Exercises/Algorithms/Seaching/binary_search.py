@@ -122,5 +122,4 @@ def binary_search(l: list, n: int) -> bool:
     print(f"За {tries} попыток нашли число {n} в списке {l}")
     return True
 
-
 binary_search(l, number)
