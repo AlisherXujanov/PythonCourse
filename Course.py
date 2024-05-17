@@ -1544,19 +1544,22 @@ _2 = 'Polymorphism and Encapsulation and Decorators'
 ################ Polymorphism
 # Polymorphism allows you define one interface and have multiple implementations.
 # Polymorphism means "many forms", and it occurs when we have many classes that are related to each other by inheritance.
-# class Animal:
-#     def __init__(self, name):
-#         self.name = name
-#     def speak(self):
-#         raise NotImplementedError("Subclass must implement abstract method")
-#
-# class Dog(Animal):
-#     def speak(self):
-#         return self.name+' says Woof!'
-#
-# class Cat(Animal):
-#     def speak(self):
-#         return self.name+' says Meow!'
+
+class Character:
+    def attack(self):
+        raise NotImplementedError("Subclass must implement abstract method")
+
+class Soldier(Character):
+    def attack(self):
+        return 'Soldier shoots a gun!'
+
+class Alien(Character):
+    def attack(self):
+        return 'Alien uses a laser beam!'
+
+class Robot(Character):
+    def attack(self):
+        return 'Robot uses a mechanical arm!'
 
 
 #############################################################################################
@@ -1564,12 +1567,44 @@ _2 = 'Polymorphism and Encapsulation and Decorators'
 # is used to restrict access to methods and variables.
 # This prevents data from direct modification which is called encapsulation.
 
-# class Alpha:
+# class A:
     # def __init__(self):
     #     self._a = 2.  # Protected member ‘a’
     #     self.__b = 2.  # Private member ‘b’
 
+# Real world example
+class BankAccount:
+    def __init__(self):
+        self.__account_number = None
+        self.__pin = None
+        self.__balance = 0
 
+    def set_account_details(self, account_number, pin):
+        self.__account_number = account_number
+        self.__pin = pin
+
+    def get_balance(self, account_number, pin):
+        if self.__account_number == account_number and self.__pin == pin:
+            return self.__balance
+        else:
+            return "Invalid account details"
+
+    def deposit(self, account_number, pin, amount):
+        if self.__account_number == account_number and self.__pin == pin:
+            self.__balance += amount
+            return "Deposit successful"
+        else:
+            return "Invalid account details"
+
+    def withdraw(self, account_number, pin, amount):
+        if self.__account_number == account_number and self.__pin == pin:
+            if amount <= self.__balance:
+                self.__balance -= amount
+                return "Withdrawal successful"
+            else:
+                return "Insufficient balance"
+        else:
+            return "Invalid account details"
 
 
 #############################################################################################

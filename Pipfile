@@ -12,6 +12,7 @@ opencv-python = "*"
 network = "*"
 python-telegram-bot = "*"
 openai = "*"
+django = "*"
 
 [dev-packages]
 
