@@ -345,6 +345,8 @@ logging.debug(f'This is warning message')
 This library is like axios in JS
 ```python
 import requests
+
+# HTTP METHODs
 # axios.get()       # get data from server      =>  Получить данные с сервера
 # axios.post()      # send data to server       =>  Отправить данные на сервер
 # axios.put()       # update data on server     =>  Обновить данные на сервере
@@ -355,7 +357,16 @@ URL = "https://reqres.in/api/users?page=2"
 response = requests.get(URL)
 
 print("Status:", response)
-print("JSON", (response.json()).get("data", "No data found"))
+users = response.json().get("data", "No data found")
+
+for user in users:
+    str = f"""
+    Name: {user["first_name"]} {user["last_name"]}
+    Email: {user["email"]}
+    ------------------------------------------------
+    """
+    print(str)
+
 
 # {}[key]       # raise error if key not found
 # {}.get(key)   # return None if key not found
@@ -365,17 +376,17 @@ print("JSON", (response.json()).get("data", "No data found"))
 # axios.get('https://...')
 
 # In python we do:
-import requests
-response = requests.get('https://...')
+# response = requests.get('https://...')
 
-# To get the status code:
-print(response.status_code)
+# # To get the status code:
+# print(response.status_code)
 
-# To get the content:
-print(response.content)
+# # To get the content:
+# print(response.content)
 
-# To get the json:
-print(response.json())
+# # To get the json:
+# print(response.json())
+
 ```
 ## faker
 
