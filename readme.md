@@ -426,48 +426,80 @@ print("Japanese translation: ", japanese_translation)
 
 ```python
 # Source: https://regexr.com/
-
 import re
-re.findall(pattern, string)  # => It returns a list of all matching patterns.
-re.search(pattern, string)   # => It returns first match's position
-re.split(pattern, string)    # => Works like split() method of strings but can take RE as separator.
-re.sub(pattern, repl, string, count=0, flags=re...)  
-   # => It returns a new string with all matches of the pattern replaced by repl.
-   1. pattern  =>  The regular expression pattern string.
-   2. repl     =>  The replacement string.
-   3. string   =>  The source string.
-   4. count    =>  Maximum number of occurrences that will be replaced. 
-                   If not specified or is 0, all occurrences will be replaced. 
-   5. flags    =>  A combination of re flags.
-re.compile(pattern, flags=0)  # => It returns a regular expression object.
-   # ======= Username pattern =======
-   # re.compile(r'@([A-Za-z0-9_]+)')
-   # @  ->   indicates the start of the username
-   # () ->   indicates the start and end of the username
-   # [] ->   indicates the range of characters that can be used in the username
-   # +  ->   indicates that the username must contain at least one character
-   # A-Za-z0-9_ -> indicates the range of characters that can be used in the username
-   # Ex: @username
-   # Ex: @user_name
-   # To test if it works, use the following code:
-   # username = '@user_name'
-   # print(re.search(r'@([A-Za-z0-9_]+)', username) != None)
 
+# string = "The rain in Spain"
+# pattern = "ai"
+# r_pattern = r'[A-Z]'
+# --------------------------------------
+# re.findall(pattern, string)  # => It returns a list of all matching patterns.
+
+# result = re.findall(pattern, string)
+# print(result)
+# --------------------------------------
+# re.search(pattern, string)   # => It returns first match's position
+# result = re.search(r_pattern, string)
+# print(result)
+# --------------------------------------
+# re.split(pattern, string)
+# => Works like split() method of strings but can take RE as separator.
+# r_pattern = r'[A-Z]'
+# string = "The rain in Spain"
+# result = re.split(r_pattern, string)
+# print(result)
+# --------------------------------------
+# re.sub(pattern, repl, string, count=0, flags=re...)
+# # => It returns a new string with all matches of the pattern replaced by repl.
+# ________________
+# r_pattern = r'[A-Z]'
+# string = "The rain in Spain"
+# result = re.sub(r_pattern, '*', string)
+# print(result)
+# ________________
+# 1. pattern =>  The regular expression pattern string.
+# 2. repl    =>  The replacement string.
+# 3. string  =>  The source string.
+# 4. count   =>  Maximum number of occurrences that will be replaced.
+#                If not specified or is 0, all occurrences will be replaced.
+# 5. flags   =>  A combination of re flags.
+# --------------------------------------
+# re.compile(pattern, flags=0)
+# => It returns a regular expression object.
+# r_pattern = r'[A-Z]'
+# string = "The rain in Spain"
+# pattern = re.compile(r_pattern)
+# result = pattern.findall(string)
+# print(result)
+
+# f''
+# ''.format()
+# ======= Username pattern =======
+# re.compile(r'@([A-Za-z0-9_]+)')
+# @  ->   indicates the start of the username
+# () ->   indicates the start and end of the username
+# [] ->   indicates the range of characters that can be used in the username
+# +  ->   indicates that the username must contain at least one character
+# A-Za-z0-9_ -> indicates the range of characters that can be used in the username
+# Ex: @username
+# Ex: @user_name
+# To test if it works, use the following code:
+# username = '@user_name'
+# print(re.search(r'@([A-Za-z0-9_]+)', username) != None)
 # ============================================================
 # ^ (Caret)    =>  It matches the start of the string.
-string = "Hello World!"
-x = re.findall("^Hello", string)
-print(x)
+# string = "Hello World!"
+# x = re.findall("^Hello", string)
+# print(x)
 # ============================================================
-# $ (Dollar)   =>  It matches the end of the string.
-string = "Hello World!"
-x = re.findall("World!$", string)
-print(x)
-# ============================================================
+# # $ (Dollar)   =>  It matches the end of the string.
+# string = "Hello World!"
+# x = re.findall("World!$", string)
+# print(x)
+# # ============================================================
 # . (Dot)   =>  It matches any character except a newline.
-string = "Hello World!"
-x = re.findall("H.ll.", string)
-print(x)
+# string = "Hello World!"
+# x = re.findall("H.ll.", string)
+# print(x)
 ```
 ## collections
 ```python 
