@@ -30,7 +30,7 @@ SELECT * FROM users;
 ___
 # Update data
 ```sql
-UPDATE users SET name = 'Jane Doe' WHERE id = 1
+UPDATE users SET name = 'Jane Doe' WHERE id = 1;
 ```
 ___
 # Alter table

@@ -238,8 +238,6 @@ def check_duplicate_letters(string) -> bool:
 
 
 # def repeat_first_l_of_last_word(sentence):
-#     last_w_first_l = sentence[sentence.rindex(" "):][1]
-#     # return sentence.center(len(sentence)+10, last_w_first_l)
 
 # repeat_first_l_of_last_word("Hello world")
 # "wwwwwHello worldwwwww"

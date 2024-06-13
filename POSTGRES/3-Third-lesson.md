@@ -125,6 +125,9 @@ CREATE TABLE laptops (
   ip_address INET NOT NULL,
   price MONEY NOT NULL
 );
+-- INSERT INTO laptops(..., ..., price)
+-- VALUES (..., ..., '100.00 USD');
+
 ```
 В postgres тип данных money - это число с фиксированной точкой с двумя десятичными знаками. Он полезен для хранения денежных сумм. Тип данных money не является точным, потому что он округляется до ближайшего цента. Например, 1.005 хранится как 1.01.
 
@@ -213,9 +216,9 @@ SELECT CONCAT(first_name, ' ', last_name) AS Full_Name FROM customers;
 -- SELECT * FROM customers;
 -- SELECT * FROM students;
 
-SELECT name, email FROM customers
+SELECT name, email FROM users
 UNION
-SELECT name, email FROM students;
+SELECT name, email FROM customers;
 ```
 <!-- -------------------------------------------------------------------------------- -->
 **UNION ALL** - Combines the result of two or more SELECT statements, 

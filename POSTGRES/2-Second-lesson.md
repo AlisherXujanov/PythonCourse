@@ -34,9 +34,9 @@ They are:
 >       BIGINT  (Large whole numbers) maximum characters 19
 >           ex: BIGINT 9223372036854775807
 >       DECIMAL (Fixed precision)     maximum characters 131072
->           ex: DECIMAL(3,2) 999.9
+>           ex: DECIMAL(3,2) 999.99
 >       NUMERIC (Variable precision)  maximum characters 131072
->           ex: NUMERIC(5,2) 999.99
+>           ex: NUMERIC(5,2) 99999.99
 > ------------------------------------------------------------
 > - **Date/time types**         (DATE, TIME, TIMESTAMP)
 >       DATE (Stores date only)       maximum characters 10
@@ -53,7 +53,7 @@ They are:
 >       SYNTAX:  INTERVAL 'value' unit
 >       UNITS:   year, month, day, hour, minute, second, week, decade
 > 
->          ex:  '1 year 2 months 2 days ...'
+>          ex:  '1 year 2 months 2 days 2 hours...'
 >
 > - ex 1:
 ```sql
@@ -89,8 +89,8 @@ VALUES (
 > ------------------------------------------------------------
 > > - **Arrays**                  (stores arrays of data)
 >       ARRAY (Stores arrays of data) maximum characters 131072
->           ex: ARRAY[1,2,3]
->               ARRAY['John', 'Jane']
+>           ex: type[1,2,3]
+>               type['John', 'Jane']
 >               CREATE TABLE customers (
 >                       name TEXT, 
 >                       address DEFAULT TEXT['123 Main St.', 'Pittsburgh', '15237']
@@ -102,7 +102,7 @@ CREATE TABLE students (
     grades int[]
 );
 INSERT INTO students (name, grades) 
-       VALUES ('John Doe', ARRAY[85, 90, 92]);
+       VALUES ('John Doe', INT[85, 90, 92]);
 
 SELECT * FROM students WHERE grades > 90;
 

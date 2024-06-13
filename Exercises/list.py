@@ -57,7 +57,7 @@ def multiply_list(list):  # умножить_список
 def smallest_greatest_sum(arr):
     arr2 = sorted(arr)
     largest = arr2[-1]
-    smallest = arr2[0]
+    smallest = arr2[0] 
     sum = largest + smallest
     if sum % 2 == 0:
         print(f'{sum} is even')
