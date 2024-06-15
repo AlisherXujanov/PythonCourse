@@ -101,7 +101,7 @@ CREATE INDEX index_name
 ON table_name (column1, column2, ...);
 
 CREATE INDEX users_names_inx
-ON users (name) WHERE name IS 'Alex%';
+ON users (name) WHERE name LIKE 'Alex%';
 
 By doing this we are telling the database to create an index on the table_name table, and that index will be based on the column1, column2, ... columns.
 ```
