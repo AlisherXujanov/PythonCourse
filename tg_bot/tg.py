@@ -16,6 +16,7 @@ from telegram import (
 )
 import logging
 from env import KEY, RANDOM_IMG_URL
+import requests
 
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -108,7 +109,10 @@ async def handle_responses(update: Update, context: ContextTypes) -> str:
     elif 'send me mp3' in text:
         with open("music.mp3", "rb") as f:
             await update.message.reply_audio(f, caption="Hello world! This is me!")
-
+    elif 'random image' in text:
+        response = requests.get(RANDOM_IMG_URL)
+        img = response.content
+        await update.message.reply_photo(img, caption="Random image")
     elif 'block button' in text:
         await block_button(update, context)
 
