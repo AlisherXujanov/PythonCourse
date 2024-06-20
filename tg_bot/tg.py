@@ -15,18 +15,17 @@ from telegram import (
     ReplyKeyboardMarkup
 )
 import logging
-from openai import AsyncOpenAI
-from env import OPEN_AI_KEY, KEY, RANDOM_IMG_URL
-
-client = AsyncOpenAI(
-    # This is the default and can be omitted
-    api_key=OPEN_AI_KEY,
-)
+from env import KEY, RANDOM_IMG_URL
 
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     level=logging.INFO
 )
+
+
+def test(str):
+    return str.upper()
+
 
 
 async def start(update: Update, context: ContextTypes) -> None:
@@ -56,14 +55,14 @@ async def block_button(update: Update, context: ContextTypes) -> None:
 async def inline_button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Parses the CallbackQuery and updates the message text."""
     query = update.callback_query
-    await query.answer()
+    # await query.answer()
     await query.edit_message_text(text=f"Selected option: {query.data}")
 
     if query.data == "1":
         await query.edit_message_text(text="You pressed button 1")
 
     elif query.data == "2":
-        await query.edit_message_text(text="You pressed button 2")
+        await query.edit_message_text(text=test('hello world'))
     elif query.data == "3":
         await query.edit_message_text(text="You pressed button 3")
     elif query.data == "4":
@@ -72,11 +71,12 @@ async def inline_button_handler(update: Update, context: ContextTypes.DEFAULT_TY
         return await query.answer(text="You pressed button 4")
 
     # If we want to answer the button by using another button we can use this:
-    return await query.edit_message_text(
-        text=f"Selected option: {query.data}",
-        reply_markup=InlineKeyboardMarkup(
-            [[InlineKeyboardButton("Answer", callback_data="4")]])
-    )
+    # await query.edit_message_text(
+    #     text=f"Selected option: {query.data}",
+    #     reply_markup=InlineKeyboardMarkup(
+    #         [[InlineKeyboardButton("Answer", callback_data="4")]])
+    # )
+
 
 
 async def help(update: Update, context: ContextTypes) -> None:
@@ -86,18 +86,6 @@ async def help(update: Update, context: ContextTypes) -> None:
 """)
 
 
-async def generate_response(message: str):
-    chat_completion = await client.create_chat_completion(
-        model="davinci",
-        messages=[
-            {"role": "system", "content": "You are a helpful assistant."},
-            {"role": "user", "content": message},
-        ],
-    )
-    return chat_completion.choices[0].message.content
-
-
-# Response
 async def handle_responses(update: Update, context: ContextTypes) -> str:
     text: str = update.message.text.lower()
     username = update.message.from_user.username
@@ -123,13 +111,12 @@ async def handle_responses(update: Update, context: ContextTypes) -> str:
 
     elif 'block button' in text:
         await block_button(update, context)
-    else:
-        response = generate_response(text)
 
     await update.message.reply_text(response)
 
 
-async def main():
+# Run the bot
+if __name__ == "__main__":
     app = ApplicationBuilder().token(KEY).build()
     print("Bot is running...")
 
@@ -137,9 +124,9 @@ async def main():
     app.add_handler(CommandHandler("start", start))
     app.add_handler(CommandHandler("help", help))
 
-    # # Inline button
+    # Inline button
     app.add_handler(CallbackQueryHandler(inline_button_handler))
-    # # Block button
+    # Block button
     app.add_handler(CommandHandler("bbutton", block_button))
 
     # Messages
@@ -148,8 +135,3 @@ async def main():
     # Run the bot
     print("Polling...")
     app.run_polling(poll_interval=1)
-
-
-# Run the bot
-if __name__ == "__main__":
-    main()
