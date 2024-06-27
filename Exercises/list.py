@@ -100,6 +100,8 @@ def remove_duplicates(arr):
         if item not in result:
             result.append(item)
     return result
+    # Comprihension
+    # return [x for i, x in enumerate(arr) if x not in arr[:i]]
 
 
 # =========================================================================
