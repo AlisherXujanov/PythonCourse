@@ -1,46 +1,48 @@
 # 1. Write a function to count the occurrences of each character in a string.
-# RU: Напишите функцию, чтобы подсчитать количество вхождений каждого символа в строку.
+# RU: Напишите функцию для подсчета вхождений каждого символа в строке.
 def count_occurences(string):  # подсчитать_вхождения
-    # dict = {}
-    # for i in string:
-    #     dict[i] = string.count(i)
-    # return dict
-    return {буква: string.count(буква) for буква in string}
+    ...
+
 
 count_occurences("abaaa")
 # {'a': 4,  "b": 1}
 
-# 2. Write a Python script to concatenate the following dictionaries to create a new one.
-# RU: Напишите скрипт Python для объединения следующих словарей, чтобы создать новый.
 
+# =================================================================================
+# =================================================================================
+# 2. Write a Python script to concatenate the following dictionaries to create a new one.
+# RU: Напишите скрипт Python для объединения следующих словарей для создания нового.
 
 def concatenate_dictionaries(*args) -> dict:
-    dict = {}
-    for i in args:
-        dict.update(i)
-        # dict |= i
-    return dict
-    # return {key: val for dict in args for key, val in dict.items()}
+    ...
+
+
 x = {'a': 1, 'b': 2}
 x2 = {'c': 3, 'd': 4}
 x3 = {'e': 5, 'f': 6}
 x4 = {'g': 7, 'h': 8}
+# {'a': 1, 'b': 2, 'c': 3, 'd': 4, 'e': 5, 'f': 6, 'g': 7, 'h': 8}
 concatenate_dictionaries(x, x2, x3, x4)
 
+# =================================================================================
+# =================================================================================
 # 3. Write a Python script to check whether a given key already exists in a dictionary.
-# RU: Напишите скрипт Python, чтобы проверить, существует ли в словаре заданный ключ.
+# RU: Напишите скрипт Python для проверки, существует ли данный ключ уже в словаре.
 
 
 def check_key(dict, key):
-    print("Yes" if key in dict.keys() else "No")
+    ...
 
 
+check_key({"a": 1, "b": 2}, "a")  # True
+# =================================================================================
+# =================================================================================
 # 4. Write a Python program to iterate over dictionaries using for loops.
-# RU: Напишите программу Python, чтобы перебирать словари с помощью циклов for.
+# RU: Напишите программу Python для итерации по словарям с помощью циклов for.
+
+
 def iterate_over_dict(dict):
-    # for key, val in dict.items():
-    #     print(key, val)
-    return {print(key, val) for key, val in dict.items()}
+    ...
 
 
 iterate_over_dict({
@@ -48,64 +50,136 @@ iterate_over_dict({
     'age': 26,
     'address': 'London',
 })
-
-
+# name: John
+# age: 26
+# address: London
+# =================================================================================
+# =================================================================================
 # 5. Write a Python script to print a dictionary where the keys are numbers
 # between 1 and 15 (both included) and the values are square of keys.
 # RU: Напишите скрипт Python для печати словаря, где ключи - числа
-# от 1 до 15 (оба включены), а значения - квадрат ключей.
+# от 1 до n (оба включены), а значения - квадрат ключей.
 # ex: {1: 1, 2: 4, 3: 9, 4: 16, 5: 25, 6: 36, 7: 49, 8: 64, 9: 81, 10: 100}
+
+
 def generate_dict(n):
-    return {i: i*i for i in range(n+1)}
+    ...
 
 
+generate_dict(5)
+# {1: 1, 2: 4, 3: 9, 4: 16, 5: 25}
+# =================================================================================
+# =================================================================================
 # 6. Write a Python program to sum all the items in a dictionary.
+# !!! NOTE: values could be int or str, if str, convert to int
+# But, if the value is not convertible to int, skip it.
+# ----------------
 # RU: Напишите программу Python для суммирования всех элементов в словаре.
-# x =  {...: "10", ...: 'qwe', ...: 5}  => 15
+# !!! ПРИМЕЧАНИЕ: значения могут быть int или str, если str, преобразуйте в int
+# Но, если значение нельзя преобразовать в int, пропустите его.
+# ----------------
+# ex:  x =  {...: "10", ...: 'qwe', ...: 5}  => 15
+# ----------------
+
+
 def sum_dict(dict):
-    # return sum([int(item) for item in dict.values() if str(item).isnumeric()])
-    return sum([n for n in dict.values() if type(n) == int])
+    ...
 
 
+sum_dict({
+    'a': 1,
+    'b': 2,
+    'c': 3,
+    'd': 4,
+})
+# 10
+
+# =================================================================================
+# =================================================================================
 # 7. Write a Python program to multiply all the items in a dictionary.
+# !!! NOTE: values could be int or str, if str, convert to int
+# But, if the value is not convertible to int, skip it.
+# ----------------
 # RU: Напишите программу Python для умножения всех элементов в словаре.
+# !!! ПРИМЕЧАНИЕ: значения могут быть int или str, если str, преобразуйте в int
+# Но, если значение нельзя преобразовать в int, пропустите его.
+# ----------------
 # {...: "10", ...: 'qwe', ...: 5}  => 50
-def multiply_dict(dict):
-    result = 1
-    for i in dict.values():
-        result *= i
-    return result
-    # return reduce(lambda x, y: x*y, dict.values())
 
+
+def multiply_dict(dict):
+    ...
+
+
+multiply_dict({
+    'a': 1,
+    'b': 2,
+    'c': 3,
+    'd': 4,
+})
+# 24
+# =================================================================================
+# =================================================================================
 # 8. Write a Python program to remove a key from a dictionary.
 # RU: Напишите программу Python для удаления ключа из словаря.
+
+
 def remove_key(dc, _key):
-    dc_copy = dc.copy()
-    # 1.
-    # dc_copy.pop(_key)
-    # return dc_copy
-    # 2.
-    # del dc_copy[_key]
-    # return dc_copy
-    # 3.
-    return {key: val for key, val in dc_copy.items() if key is not key}
+    ...
 
 
+remove_key({
+    'a': 1,
+    'b': 2,
+    'c': 3,
+    'd': 4,
+}, 'b')
+# {'a': 1, 'c': 3, 'd': 4}
+
+# =================================================================================
+# =================================================================================
 
 # 9. Write a Python program to sort a given dictionary by key.
 # RU: Напишите программу Python для сортировки заданного словаря по ключу.
+# ------------
 # ex: {5:"a",  7:"c",   2:"b"} => {2:"b",   5:"a",   7:"c"}
+# ------------
+
+
 def sort_dict_by_key(dict):
-    return {key: val for key, val in sorted(dict.items())}
-    # return {key:dict[key] for key in sorted(dict.keys())}
+    ...
 
 
+sort_dict_by_key({
+    5: "a",
+    7: "c",
+    2: "b",
+})
+# {2: 'b', 5: 'a', 7: 'c'}
+# =================================================================================
+# =================================================================================
 # 10. Write a Python program to get the maximum and minimum value in a dictionary.
-# RU: Напишите программу Python, чтобы получить максимальное и минимальное значение в словаре.
+# RU: Напишите программу Python для получения максимального и минимального значения в словаре.
+# ------------
 # ex: {'x':500, 'y':5874, 'z': 560, 'a': 7, 'b': 35, 'c': 113}
-def get_max_min(dict):
-    return [n for n in sorted(dict.values()) if n == sorted(dict.values())[0] or n == sorted(dict.values())[-1]]
+# ------------
 
+
+def get_max_min(dict):
+    ...
+
+
+get_max_min({
+    'x': 500,
+    'y': 5874,
+    'z': 560,
+    'a': 7,
+    'b': 35,
+    'c': 113,
+})
+# 5874, 7
+# =================================================================================
+# =================================================================================
 
 # 11. Write a Python program to remove duplicates from the dictionary.
 # First, leave at least one item from duplicates
@@ -113,6 +187,8 @@ def get_max_min(dict):
 # RU: Напишите программу Python для удаления дубликатов из словаря.
 # Во-первых, оставьте хотя бы один элемент из дубликатов
 # Во-вторых, удалите все дубликаты
+
+
 def remove_duplicates(dict):
     # Using Loop
     for key, val in dict.items():
@@ -194,9 +270,9 @@ def sum_numeric_values(arr_of_dicts: list[dict]) -> int:
 # =============================================================================
 # =============================================================================
 
-# 17. Write a function that takes a dictionary as an argument and 
+# 17. Write a function that takes a dictionary as an argument and
 # returns a new dictionary that contains only the key-value pairs where the key is a string.
-# RU: Напишите функцию, которая принимает словарь в качестве аргумента и 
+# RU: Напишите функцию, которая принимает словарь в качестве аргумента и
 # возвращает новый словарь, который содержит только пары ключ-значение, где ключ - строка.
 def string_vals_of_dict(d: dict) -> dict:
     result = {}
@@ -210,14 +286,17 @@ def string_vals_of_dict(d: dict) -> dict:
 # =============================================================================
 # =============================================================================
 
-# 18. Write a function that takes two dictionaries as arguments and returns a 
+
+# 18. Write a function that takes two dictionaries as arguments and returns a
 # new dictionary that contains only the key-value pairs that are common to both dictionaries.
-# RU: Напишите функцию, которая принимает два словаря в качестве аргументов и 
-# возвращает новый словарь, который содержит только пары ключ-значение, которые 
+# RU: Напишите функцию, которая принимает два словаря в качестве аргументов и
+# возвращает новый словарь, который содержит только пары ключ-значение, которые
 # присутствуют в обоих словарях.
 a = {'a': 1, 'b': 2, 'c': 3}
 b = {'a': 1, 'b': 2, 'd': 4}
 result = {'a': 1, 'b': 2}
+
+
 def del_identical_pairs(dict1, dict2) -> dict:
     total = {}
     for key1, val1 in dict1.items():
@@ -260,6 +339,7 @@ def del_identical_vals(dict):
         if val in dict_set and val not in total.values():
             total[key] = val
     return total
+
 
 test_dict = {'a': 1, 'b': 2, 'c': 3, 'd': 2, 'e': 3, 'f': 4}
 
