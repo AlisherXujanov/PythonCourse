@@ -134,6 +134,96 @@ result = change_vowel_into_next("Hello") # "Hillu"
 
 # ==========================================================
 # ------------------------ ADVANCED ------------------------
+# 1. Напишите функцию для извлечения уникальных символов или 
+# букв (которые только 1 раз указаны) из строки
+
+"Hello world"
+# H   ello world        -> unique
+# e   H llo world       -> unique
+# l   He lo world       -> NOT unique
+# ...
+def get_uniques(text:str) -> str:
+    result = ""
+    current_index = 0
+    for letter in text:
+        before = text[0:current_index]
+        after = text[current_index+1:]
+        if letter not in before and letter not in after:
+            result += letter
+        current_index += 1
+    return result
+
+r = get_uniques("Hello world") # "He wrd"
+# print("Result:", r)
+# ----------------------------------------------------------
+# 2. Напишите функцию для генерации строки ID (указанной длины) из случайных символов
+import random
+def generate_ID(length:int) -> str:
+    alphabet = 'abcdefghijklmnopqrstuvwxyz'
+    alpha_upper = alphabet.upper()
+    numbers = '1234567890'
+
+    total = alphabet + alpha_upper + numbers
+    result = ''
+
+    for i in range(length):
+        random_index = random.randrange(0, len(total))
+        letter = total[random_index]
+        result += letter
+
+    return result
+
+r1 = generate_ID(10) # "aBcD1234eF"
+r2 = generate_ID(5)  # "aBcD1"
+# print(r1)
+# print(r2)
+# ----------------------------------------------------------
+# 3. Напишите функцию, которая принимает строку на вход и возвращает 
+# новую строку, в которой первая буква каждого слова написана с заглавной буквы. 
+# Предположим, что все символы в строке - это строчные буквы и только пробелы.
+pass
+
+# ----------------------------------------------------------
+# 4. Напишите функцию, которая принимает массив строк. 
+# Функция должна вернуть новый массив, в котором каждая строка перевернута.
+def reverse_each_string(arr:list[str]) -> list[str]:
+    result = []
+    for item in arr:
+        result.append(item[::-1])
+
+    return result
+
+r = reverse_each_string(["Hello", "world"]) # ["olleH", "dlrow"]
+# print(r)
+# ----------------------------------------------------------
+# 5. Напишите функцию, которая принимает строку слов и возвращает 
+# строку, отсортированную по длине слов
+
+def sort_by_len(text:str) -> str:
+    result = []
+    splitted_text = text.split(" ")  # =>  ["Hello", "my", "name", "is", "John"]
+    for i in range(len(text.split(" "))):
+        shortest = min(splitted_text, key=len)
+        result.append(shortest)
+        splitted_text.remove(shortest)
+    return " ".join(result)
+
+r = sort_by_len("Hello my name is John") # "my is name John Hello"
+print(r)
+
+
+# ----------------------------------------------------------
+# 6. Напишите функцию, которая принимает строку и возвращает 
+# символ, который появляется больше всего раз.
+def find_most_frequent(string:str) -> str:
+    ...
+
+
+r = find_most_frequent("Hello world") # "l"
+print(r)
+
+
+# ----------------------------------------------------------
 # 7. Напишите функцию, которая принимает строку и возвращает новую строку,
 # в которой каждая гласная заменена на следующую гласную в алфавите.
 
