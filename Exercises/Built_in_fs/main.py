@@ -32,8 +32,8 @@ def third_biggest_number(list):
     # return min([x for x in list if x != highest and x != second_highest])
 
 # =======================================================================================
-# 3. Write a program that takes a list of strings as input and returns the longest string.
 # RU: Напишите программу, которая принимает список строк в качестве входных
+# 3. Write a program that takes a list of strings as input and returns the longest string.
 # данных и возвращает самую длинную строку.
 
 
@@ -81,8 +81,10 @@ def words_without_vowels():
 
 
 # =======================================================================================
-# 7. Write a program that takes a list of strings as input and returns a new list with all strings capitalized.
-# RU: Напишите программу, которая принимает список строк в качестве входных данных и возвращает
+# 7. Write a program that takes a list of strings as input and 
+# returns a new list with all strings capitalized.
+# RU: Напишите программу, которая принимает список строк в 
+# качестве входных данных и возвращает
 # новый список со всеми строками прописными.
 words = ['AbsAbs', "ObsOO", "PstqR"]
 
@@ -110,7 +112,8 @@ print(count_caps(words))
 
 # =======================================================================================
 # 8. Write a program that takes a list of numbers as input and returns the largest number.
-# RU: Напишите программу, которая принимает список чисел в качестве входных данных и возвращает
+# RU: Напишите программу, которая принимает список чисел в 
+# качестве входных данных и возвращает
 # самое большое число.
 
 
@@ -123,7 +126,8 @@ def largest_number():
 # =======================================================================================
 # 9. Write a program that takes a list of strings as input and returns a new list with
 # all strings of length 4 or greater.
-# RU: Напишите программу, которая принимает список строк в качестве входных данных и возвращает
+# RU: Напишите программу, которая принимает список 
+# строк в качестве входных данных и возвращает
 # новый список со всеми строками длиной 4 или больше.
 
 

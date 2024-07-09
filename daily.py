@@ -1,24 +1,13 @@
-import os
-# ========================================================
-# To write a code "pg_dump -U postgres -h localhost -p 5432 -F c -f база.psql postgres"
-# to create a backup of the database with the help of python
+# Provided is a list of data about a store’s inventory where each item in the list represents the name of an item, how much is in stock, and how much it costs. Print out each item in the list with the same formatting, using the .format method(not string concatenation). For example, the first print statment should read The store has 12 shoes, each for 29.99 USD.
 
 
-def save_db_at_this_point():
-    os.system('pg_dump -U postgres -h localhost -p 5432 -F c -f db.psql postgres')
-
-def read_db():
-    os.system("pg_restore -U postgres -h localhost -p 5432 -d postgres db.psql")
+inventory = ["shoes, 12, 29.99", "shirts, 20, 9.99",
+             "sweatpants, 25, 15.00", "scarves, 13, 7.75"]
 
 
-# save_db_at_this_point()
-# read_db()
-# ========================================================
-# .com - commercial
-# .org - organization
-# .net - network
-# .gov - government
-# .ru  - Russia
-# .ua  - Ukraine
-# .uz  - Uzbekistan
-# .us  - United States
+for item in inventory:
+    item = item.split(", ")
+    print("The store has {} {}, each for {} USD.".format(
+        item[1], item[0], item[2]))
+    
+# Output:
