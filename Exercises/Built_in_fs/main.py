@@ -192,10 +192,15 @@ def remove_odd_numbers(arr: list) -> list:
 
 # =======================================================================================
 # 13. Use map() and filter() together to convert a list of
-# strings to a list of integers and then remove all odd numbers.
-# RU: Используйте map() и filter() вместе, чтобы преобразовать
-# список строк в список целых чисел, а затем удалить
-# все нечетные числа.
+# strings and numbers to a list of only integers and then remove all odd numbers.
+# NOTE: If the item is str then get the length of the string
+# if the item is int in quotes "..." then convert it to int
+# RU: Используйте map() и filter() вместе, чтобы преобразовать список
+# строк и чисел в список только целых чисел, а затем удалите все нечетные числа.
+# ПРИМЕЧАНИЕ. Если элемент - это строка, то получите длину строки
+# если элемент - это int в кавычках "...", то преобразуйте его в int
+
+
 def map_and_filter(arr: list) -> list:
 
     def get_as_num(val) -> int:
@@ -210,7 +215,8 @@ def map_and_filter(arr: list) -> list:
 
 
 test_arr = [22, "wwww", "12345", "qwe", 124, '54321', 'aaaaa']
-# print(map_and_filter(test_arr))
+print(map_and_filter(test_arr))
+
 
 # =======================================================================================
 # 14. Write a function that takes an input from user and deletes all duplicate

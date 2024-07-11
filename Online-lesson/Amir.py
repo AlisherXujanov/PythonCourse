@@ -8,4 +8,6 @@ b = 2
 c = 3
 r = get_max(a,b,c)
 print(r)
-
+ 
+text = "Hello, this is 3rd task 9 1 2"
+result = [num for num in text if num.isnumeric()]
