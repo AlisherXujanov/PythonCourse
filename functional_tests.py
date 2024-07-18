@@ -14,6 +14,18 @@ HALF_SECOND = 0.5
 def my_function(a, b):
     return a + b
 
+
+def exam_function(arr, target):
+    max_number = 0
+    for number in arr:
+        if target == "even_numbers":
+            if number % 2 == 0 and number > max_number:
+                max_number = number
+        elif target == "odd_numbers":
+            if number % 2 != 0 and number > max_number:
+                max_number = number
+    return max_number
+
 class Fullstack(unittest.TestCase):
 
     def setUp(self):

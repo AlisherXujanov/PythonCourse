@@ -1,13 +1,25 @@
-# Provided is a list of data about a store’s inventory where each item in the list represents the name of an item, how much is in stock, and how much it costs. Print out each item in the list with the same formatting, using the .format method(not string concatenation). For example, the first print statment should read The store has 12 shoes, each for 29.99 USD.
-
-
-inventory = ["shoes, 12, 29.99", "shirts, 20, 9.99",
-             "sweatpants, 25, 15.00", "scarves, 13, 7.75"]
-
-
-for item in inventory:
-    item = item.split(", ")
-    print("The store has {} {}, each for {} USD.".format(
-        item[1], item[0], item[2]))
-    
-# Output:
+import cv2
+# Load the pre-trained face detection model
+face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
+# Open default camera
+cap = cv2.VideoCapture(0)
+while True:
+	# Read frame
+	ret, frame = cap.read()
+	if not ret:
+		break
+	# Convert to grayscale for face detection
+	gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+	# Detect faces
+	faces = face_cascade.detectMultiScale(gray, 1.1, 4)
+	# Draw rectangles around faces
+	for (x, y, w, h) in faces:
+		cv2.rectangle(frame, (x, y), (x+w, y+h), (255, 0, 0), 2)
+	# Display the frame
+	cv2.imshow('Testing emotion detection', frame)
+	# Break loop with 'q' key
+	if cv2.waitKey(1) & 0xFF == ord('q'):
+		break
+# Release the camera and close windows
+cap.release()
+cv2.destroyAllWindows()
