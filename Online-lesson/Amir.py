@@ -1,13 +1,8 @@
 
-def get_max(a,b,c) -> int:
-    return a if a > b and a > c else (b if b > c and b > a else c)
 
-
-a = 1
-b = 2
-c = 3
-r = get_max(a,b,c)
-print(r)
- 
-text = "Hello, this is 3rd task 9 1 2"
-result = [num for num in text if num.isnumeric()]
+counter = 0
+while counter < 10:
+    counter += 1
+    spaces = " " * (levels - i)
+    stars = "*" * (2 * i - 1)
+    print("*" * counter)
