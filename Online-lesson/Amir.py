@@ -1,8 +1,11 @@
+print("================================================")
+names = ["Вася", "Петя", "Коля", "Ваня", "Amir"]
+# {"Name": "Ва", "Surname": "ся"}
+# {"Name": "Пе", "Surname": "тя"}
 
 
-counter = 0
-while counter < 10:
-    counter += 1
-    spaces = " " * (levels - i)
-    stars = "*" * (2 * i - 1)
-    print("*" * counter)
+# {"Name": "Вася", "Surname": "Вася-ov"}
+dicts = []
+for name in names:  # Каждый элемент в списке принимает называние name
+    d = dict(name=name, surname=  ) 
+print(dicts)  # Выводим список dicts
