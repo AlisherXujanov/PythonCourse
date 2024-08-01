@@ -243,3 +243,54 @@ r = repeat_half_n_times("Exercise", 3)
 print(r)  # =>  "ExeExeExerciserciseercise"
 # ================================================================================================
 # ================================================================================================
+# 5-from-intermediate. 
+# Напишите логику, которая проверяет, содержит ли строка определенный символ.
+
+
+def check_inside(sentence: str, symbol: str) -> bool:
+    return symbol in sentence
+
+
+r = check_inside("Hello World", "o")  # True
+# print(r)
+
+r = check_inside("Moon", "j")  # False
+# print(r)
+# ================================================================================================
+# ================================================================================================
+
+# 6-from-intermediate. 
+# Напишите логику, которая проверяет, начинается ли строка с определённого символа.
+
+def check_starts_with(sentence: str, symbol: str) -> bool:
+    return sentence.startswith(symbol)
+
+
+r = check_starts_with('Hello, world!', 'H')     # True
+r = check_starts_with('Hello, world!', 'Hello')  # True
+# print(r)  # True
+
+r = check_starts_with('Hello, world!', 'h')
+# print(r)  # False
+# ================================================================================================
+# ================================================================================================
+# 3-from-advanced:
+# PRIME NUMBER(Простое число) - EASIEST LEVEL
+# У вас есть число между 1-20. Проверьте, простое это число или нет.
+# Простое число это - всегда больше 1 и делится без остатка только на себя или на 1
+# НАПРИМЕР: 2, 3, 5, 7, 13 ...
+def is_prime(num: int) -> bool:
+    if num == 2 or num == 3 or num == 5 or num == 7:
+        return True
+    elif num % 2 == 0 or num % 3 == 0 or num % 5 == 0 or num % 7 == 0:
+        return False
+    else:
+        return True
+
+# print(is_prime(13))  # True
+# print(is_prime(7))   # True
+# print(is_prime(20))  # False
+# print(is_prime(25))  # False
+# print(is_prime(14))  # False
+# ================================================================================================
+# ================================================================================================
