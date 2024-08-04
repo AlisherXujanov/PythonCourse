@@ -93,10 +93,7 @@
 #     This one is 3x3 (like in tic tac toe). Obviously, they come in many other sizes (8x8 for chess, 19x19 for Go, and many more).
 #     Ask the user what size game board they want to draw, and draw it for them to the screen using Python’s print statement.
 # def draw_board(size):
-#     for i in range(size):
-#         print(" ---" * size)
-#         print("|   " * (size+1))
-#     print(" ---" * size)
+#     ...
 #
 # 21. Guessing Game Two
 #     In a previous exercise, we’ve written a program that “knows” a number and asks a user to guess it.
@@ -113,16 +110,7 @@
 #     and tell me which player won, if any. A Tic Tac Toe win is 3 in a row - either in a row, a column, or a diagonal.
 #     Don’t worry about the case where TWO people have won - assume that in every board there will only be one winner.
 # def check_tic_tac_toe(board):
-#     for i in range(3):
-#         if board[i][0] == board[i][1] == board[i][2]:
-#             return board[i][0]
-#         elif board[0][i] == board[1][i] == board[2][i]:
-#             return board[0][i]
-#     if board[0][0] == board[1][1] == board[2][2]:
-#         return board[0][0]
-#     elif board[0][2] == board[1][1] == board[2][0]:
-#         return board[0][2]
-#     return False
+#     ...
 # 23. Max Of Three
 #     Implement a function that takes as input three variables, and returns the largest of the three.
 #     Do this without using the Python max() function!
@@ -136,9 +124,7 @@
 #     Hint: use the Python random library for picking a random word.
 # import random
 # def pick_word():
-#     with open("sowpods.txt", "r") as f:
-#         words = f.readlines()
-#     return random.choice(words).strip()
+#     ...
 
 # 25. Guess Letters
 # Let’s continue building Hangman. In the game of Hangman, a clue word is given by the program that the player has to guess,
@@ -162,25 +148,4 @@
 # E _ _ _ _ _ _ _ E
 # ...
 # def guess_letters():
-#     word = "EVAPORATE"
-#     guessed = "_" * len(word)
-#     word = list(word)
-#     guessed = list(guessed)
-#     lstGuessed = []
-#     letter = input("guess letter: ")
-#     while True:
-#         if letter.upper() in lstGuessed:
-#             letter = ''
-#             print("Already guessed!!")
-#         elif letter.upper() in word:
-#             index = word.index(letter.upper())
-#             guessed[index] = letter.upper()
-#             word[index] = '_'
-#         else:
-#             print(''.join(guessed))
-#             if letter is not '':
-#                 lstGuessed.append(letter.upper())
-#             letter = input("guess letter: ")
-#         if '_' not in guessed:
-#             print("You won!!")
-#             break
+#     ...

@@ -130,6 +130,7 @@ if __name__ == "__main__":
 
     # Inline button
     app.add_handler(CallbackQueryHandler(inline_button_handler))
+
     # Block button
     app.add_handler(CommandHandler("bbutton", block_button))
 

@@ -54,6 +54,10 @@ def multiply_list(list):  # умножить_список
 # После этого проверьте, является ли число уравнения четным или нечетным
 # UZ: Ro'yxatning eng katta va eng kichik sonlarini oling va ularni yig'ing.
 # Keyin, tenglamani soni juft yoki toq ekanligini tekshiring
+# ex: [2, 123, 3, 32, 22, 15] => 125 is odd
+# OUTPUT: 125 is odd
+
+
 def smallest_greatest_sum(arr):
     arr2 = sorted(arr)
     largest = arr2[-1]

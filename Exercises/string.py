@@ -1,5 +1,8 @@
 # 1. Write a function to swap the first and last characters in a string.
 # RU: Напишите функцию, чтобы поменять местами первый и последний символы в строке.
+# ex:
+# swap_first_last("Hello") => "oellH"
+
 def swap_first_last(string):   # поменять_первый_последный
     return string[-1] + string[1:-1] + string[0]
 
@@ -12,7 +15,7 @@ def reverse_string(string):  # перевернуть_строку
 
 
 # 3. Write a function to remove the nth index character from a n onempty string.
-# RU: Напишите функцию, чтобы удалить символ с индексом n из непустой строки.
+# RU: Напишите функцию, чтобы удалить символ или букву с индексом n из непустой строки.
 def remove_nth_index(string, index):  # удалить_с_индексом
     # if len(string)<index  or  index<0:
     #     print("Incorrect logic")
