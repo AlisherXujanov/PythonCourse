@@ -13,6 +13,8 @@ network = "*"
 python-telegram-bot = "*"
 openai = "*"
 django = "*"
+pillow = "*"
+ipython = "*"
 
 [dev-packages]
 
