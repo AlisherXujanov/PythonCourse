@@ -160,23 +160,27 @@ class Bot:
         self.unused_letters = set()  # set of letters that are not in the word
 
     def make_guess(self) -> str:
+        # Check if the word list is empty
+        if not self.word_list:
+            return ""  # Return an empty string if the word list is empty
+
         # Generate a list of possible words based on known letters and unused letters
         possible_words = [
             word for word in self.word_list
             if all((self.known_letters[i] is None or self.known_letters[i] == word[i]) and
                    word[i] not in self.unused_letters for i in range(5))
         ]
-        # If there are no possible words, handle the situation appropriately
+
+        # If there are no possible words, return a random word from the full word list
         if not possible_words:
-            # Handle the case where no possible words are found
-            # For example, return a random word from the full word list
-            return random.choice(self.word_list) if self.word_list else "NO_VALID_GUESS"
+            return random.choice(self.word_list)
+
         # Sort the possible words based on the number of correct letters in the correct positions
         possible_words.sort(key=lambda word: sum(
             self.known_letters[i] == word[i] for i in range(5)), reverse=True)
+
         # Return the word with the highest number of correct letters in the correct positions
         return possible_words[0]
-
 
     def record_guess_results(self, guess: str, results: list[Letter]) -> None:
         self.prev_guesses.append(guess)
