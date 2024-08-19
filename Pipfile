@@ -11,10 +11,12 @@ selenium = "*"
 opencv-python = "*"
 network = "*"
 python-telegram-bot = "*"
-openai = "*"
 django = "*"
 pillow = "*"
 ipython = "*"
+openai = "*"
+transformers = "*"
+torch = "*"
 
 [dev-packages]
 

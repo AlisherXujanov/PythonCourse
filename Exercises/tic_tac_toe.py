@@ -14,8 +14,6 @@ def print_board(board):
             
 
 # Function to check if the board is full
-
-
 def is_full(board):
     for i in range(9):
         if board[i] == " ":
@@ -23,8 +21,6 @@ def is_full(board):
     return True
 
 # Function to check if the game is over
-
-
 def is_game_over(board):
     if board[0] == board[1] == board[2] != " ":
         return True
@@ -46,8 +42,6 @@ def is_game_over(board):
         return False
 
 # Function to check if the player|computer has won
-
-
 def wins(board, target):
     if board[0] == board[1] == board[2] == target:
         return True
@@ -69,8 +63,6 @@ def wins(board, target):
         return False
 
 # Function to check if the move is valid
-
-
 def is_valid_move(board, move):
     if board[move] == " ":
         return True
@@ -78,8 +70,6 @@ def is_valid_move(board, move):
         return False
 
 # Function to get the player's move
-
-
 def get_player_move(board):
     while True:
         move_index = int(input("Enter your move (1-9): ")) - 1
