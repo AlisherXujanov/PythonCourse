@@ -123,12 +123,12 @@
 # x.islower()       # => False   является ли строка в нижнем регистре
 # x.isalpha()       # => False   является ли строка буквенной
 # x.isalnum()       # => False   является ли строка буквенно-цифровой
-# x.isdecimal()       # False    является ли строка десятичной
-# x.isdigit()         # False    является ли строка цифровой
-# x.isnumeric()       # False    является ли строка числовой
-# x.isprintable()     # True     можно ли напечатать строку
-# x.isspace()         # False    является ли строка пробелом
-# x.isascii()         # True     является ли строка ASCII
+# x.isdecimal()     # False    является ли строка десятичной
+# x.isdigit()       # False    является ли строка цифровой
+# x.isnumeric()     # False    является ли строка числовой
+# x.isprintable()   # True     можно ли напечатать строку
+# x.isspace()       # False    является ли строка пробелом
+# x.isascii()       # True     является ли строка ASCII
 #                       American Standard Code for Information Interchange
 #                       Американский стандартный код для обмена информацией
 # =================================================================
