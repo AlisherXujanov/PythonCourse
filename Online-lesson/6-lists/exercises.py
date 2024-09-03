@@ -46,3 +46,22 @@ print(sum(pool))
 
 # ---------------------------------------------------------------------
 # ---------------------------------------------------------------------
+# Создайте массив чисел. Найдите максимальное число (например, 12345), затем сложите каждую цифру в числе (например, 1 + 2 + 3 + 4 + 5 = 15).
+def get_max_and_sum_digits(numbers:list) -> int:
+    max_number = max(numbers)
+
+    max_number_str = str(max_number) # f"{max_number}"
+    # SEQUENCE TYPES
+    # 1. []
+    # 2. ()
+    # 3. ""
+    # 4. range()
+
+    pool = 0
+    for num in max_number_str:
+        pool = pool + int(num)
+    return pool
+
+arr = [23, 1, 55, 153, 22, 51, 32, 99]
+r = get_max_and_sum_digits(arr) # 9
+print(r)
