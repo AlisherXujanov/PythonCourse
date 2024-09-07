@@ -1,6 +1,6 @@
 # DICTIONARY  => Словарь
 # x = {
-#     "key":"value",    
+#     "key": "value",    
 #     "key2":"value2",    
 #     "key3":"value3",
 # }
@@ -9,7 +9,7 @@
 # print(x.get("key4", "Не найдено"))
 # print("-----------------------------")
 # user = {
-#     id: 1,
+#     "id": 1,
 #     "username": "admin",
 #     "email": "test@gmail.com",
 #     "password": "123456",
@@ -19,12 +19,12 @@
 # print("-----------------------------")
 # print(email)
 # print("-----------------------------")
-user = {
-    id: 1,
-    "username": "Вася",
-    "email": "test@gmail.com",
-    "password": "123456",
-}
+# user = {
+#     "id": 1,
+#     "username": "Вася",
+#     "email": "test@gmail.com",
+#     "password": "123456",
+# }
 # print("================================")
 # Добавление нового ключа
 # user["surname"] = "Petrov"
@@ -55,14 +55,8 @@ user = {
 # Ваня .... Email: ..... Password: ....
 # Amir .... Email: ..... Password: ....
 
-
-print("================================================")
-names = ["Вася", "Петя", "Коля", "Ваня", "Amir"]
-# {"Name": "Ва", "Surname": "ся"}
-# {"Name": "Пе", "Surname": "тя"}
-
-
 # {"Name": "Вася", "Surname": "Вася-ov"}
+names = ["Вася", "Петя", "Коля", "Ваня", "Amir"]
 dicts = []
 for name in names:  # Каждый элемент в списке принимает называние name
     # d = dict(name=name, surname=f"{name}ov")  # Создаем словарь с ключами name и surname
@@ -71,4 +65,4 @@ for name in names:  # Каждый элемент в списке принима
     d = dict(name=name[:2], surname=name[2:])  # Создаем словарь с ключами name и surname
     dicts.append(d)  # Добавляем словарь d в список dicts
 
-print(dicts)  # Выводим список dicts
+# print(dicts)  # Выводим список dicts
