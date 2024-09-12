@@ -408,19 +408,36 @@ print(fake.url())
 ```python
 import translators as ts
 
-q_text = 'Какая погода сегодня?'
-arabic_lang = 'ar'
-english_lang = 'en'
-japanese_lang = 'ja'
 
-simple_translation = ts.translate_text(q_text, to_language=arabic_lang)
-print("Simple translation: ", simple_translation)
+ARABIC = 'ar'
+UZBEK = 'uz'
+ENGLISH = 'en'
+RUSSIAN = 'ru'
+JAPANESE = 'ja'
 
-english_translation = ts.translate_text(q_text, to_language=english_lang)
-print("English translation: ", english_translation)
 
-japanese_translation = ts.translate_text(q_text, to_language=japanese_lang)
-print("Japanese translation: ", japanese_translation)
+original_text = "Hello, what a beautiful weather it is today!"
+# ----------------------------------------------------------------------
+arabic_translation = ts.translate_text(original_text, to_language=ARABIC)
+print("ARABIC translation: ", arabic_translation)
+# ----------------------------------------------------------------------
+uzbek_translation = ts.translate_text(original_text, to_language=UZBEK)
+print("UZBEK translation: ", uzbek_translation)
+# ----------------------------------------------------------------------
+russian_translation = ts.translate_text(original_text, to_language=RUSSIAN)
+print("RUSSIAN translation: ", russian_translation)
+# ----------------------------------------------------------------------
+japanese_translation = ts.translate_text(original_text, to_language=JAPANESE)
+print("JAPANESE translation: ", japanese_translation)
+# ----------------------------------------------------------------------
+# ----------------------------------------------------------------------
+# ----------------------------------------------------------------------
+# OUTPUT:
+# ARABIC translation:  مرحبا ، يا له من طقس جميل اليوم!
+# UZBEK translation:  Assalomu alaykum bugungi kun qanday go'zal ob-havo!
+# RUSSIAN translation:  Здравствуйте, какая сегодня прекрасная погода!
+# JAPANESE translation:  こんにちは、今日はなんと美しい天気でしょう!
+
 ```
 ## re
 
