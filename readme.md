@@ -29,11 +29,11 @@
 https://semver.org/
 
 > - ex: 3.11.0
-> - 1. "3"  => Patch version
+> - 1. "3"  => Major
 > -         (Bug fixes) (Big changes that affect everything inside our project)
-> - 2. "11" => Major version
+> - 2. "11" => Minor
 > -         (Major changes that affect something inside our project)
-> - 3. "0"  => Minor version
+> - 3. "0"  => Path
 > -         (Changes that don't affect anything inside our project)
 
 
