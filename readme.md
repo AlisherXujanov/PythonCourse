@@ -1,10 +1,15 @@
+This is a repository that contains all the resources that I have used to learn Python.
+Down below, you will find a table of contents that will help you navigate through the resources.
+
 <h1>TABLE OF CONTENTS</h1>
 
+- Lessons 
+   - [1. Introduction and Variables](MD/1.Intro_and_vars.md)
 - [Exercises](#exercises)
-- [Semantic versioning:](#semantic-versioning)
-- [Install pipenv](#install-pipenv)
-- [To create requirements.txt file](#to-create-requirementstxt-file)
-- [Modules](#modules)
+- [✅ Semantic versioning:](#-semantic-versioning)
+- [✅ Install pipenv](#-install-pipenv)
+- [✅ To create requirements.txt file](#-to-create-requirementstxt-file)
+- [✅ Modules](#-modules)
   - [random](#random)
   - [math](#math)
   - [time / datetime / timedelta](#time--datetime--timedelta)
@@ -25,30 +30,28 @@
 4. Codewars (https://www.codewars.com/kata/search/python)
 
 
-# Semantic versioning: 
+# ✅ Semantic versioning: 
 https://semver.org/
 
 > - ex: 3.11.0
-> - 1. "3"  => Major
-> -         (Bug fixes) (Big changes that affect everything inside our project)
-> - 2. "11" => Minor
-> -         (Major changes that affect something inside our project)
-> - 3. "0"  => Path
-> -         (Changes that don't affect anything inside our project)
+> - 1. "3"  - Major version
+> - 2. "11" - Minor version
+> - 3. "0"  - Patch version
 
 
+# ✅ Install pipenv
+```bash
+pip install pipenv
+pipenv --version  
+``` 
+If it did not work, try the following:
 
-# Install pipenv
 1. python -m pip uninstall virtualenv pipenv -y
 2. py -m pip uninstall virtualenv pipenv -y
 3. python3 -m pip uninstall virtualenv pipenv -y
 4. python -m pip install --upgrade setuptools wheel
 5. python -m pip install --user pipenv
 
-- -- or -- 
-```bash
-python -m pip install pipenv
-``` 
 
 - If you however get 
 ```
@@ -64,27 +67,15 @@ Path > Edit > New > C:\Users\drgabrielharris\AppData\Roaming\Python\Python37\Scr
 ```
 
 
-# To create requirements.txt file
+# ✅ To create requirements.txt file
 1. ```pipenv lock -r > requirements.txt```  - is outdated
 2. 🎯 New version is: ```pipenv run pip freeze  > requirements.txt``` 
 ___
 
-# Modules
-<span>
-   <a  style="background:linear-gradient(to right, black, blue, black);  padding:10px;  border-radius:10px; color:snow;"
-      href="https://codete.com/blog/10-built-in-modules-in-python-you-should-know#overview">
-      **Codete**
-   </a>
-   - 10 Built-in Modules in Python You Should Know
-   <br>
-   <a  style="background:linear-gradient(to right, black, blue, black);  padding:10px;  border-radius:10px; margin-left:10px; color:snow;"
-      href="https://levelup.gitconnected.com/11-most-useful-built-in-python-modules-you-might-not-know-yet-eff3e0e6f586">
-      **Levelup**
-   </a>
-   - 11 Most Useful Built-in Python Modules You Might Not Know Yet
-   <br>
-   <br>
-</span>
+# ✅ Modules
+- [**Codete**](https://codete.com/blog/10-built-in-modules-in-python-you-should-know#overview) - 10 Built-in Modules in Python You Should Know
+- [**Levelup**](https://levelup.gitconnected.com/11-most-useful-built-in-python-modules-you-might-not-know-yet-eff3e0e6f586) - 11 Most Useful Built-in Python Modules You Might Not Know Yet
+
 
 1. `random`      (https://docs.python.org/3/library/random.html)
 2. `math` 
