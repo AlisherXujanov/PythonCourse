@@ -5,6 +5,7 @@ Down below, you will find a table of contents that will help you navigate throug
 
 - Lessons 
    - [1. Introduction and Variables](MD/1.Intro_and_vars.md)
+   - [2. Integers and Operators](MD/2.Integers_and_operators.md)
 - [Exercises](#exercises)
 - [✅ Semantic versioning:](#-semantic-versioning)
 - [✅ Install pipenv](#-install-pipenv)
