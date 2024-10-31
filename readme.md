@@ -7,6 +7,7 @@ Down below, you will find a table of contents that will help you navigate throug
    - [1. Introduction and Variables](MD/1.Intro_and_vars.md)
    - [2. Integers and Operators](MD/2.Integers_and_operators.md)
    - [3. Bool and If/Else](MD/3.bool_and_if_else.md)
+   - [4. String methods](MD/4.String-methods.md)
 - [Exercises](#exercises)
 - [✅ Semantic versioning:](#-semantic-versioning)
 - [✅ Install pipenv](#-install-pipenv)
