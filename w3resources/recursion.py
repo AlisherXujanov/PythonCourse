@@ -31,14 +31,14 @@ def int_to_string(num, base):
 def sum_recursion_list(lst):
     # ============================================================
     # ------------------------- METHOD 1 -------------------------
-    # return sum(sum_recursion_list(x) if isinstance(x, list) else x for x in lst)
+    # return sum(sum_recursion_list(x) if type(x)==list else x for x in lst)
 
     # ============================================================
     # ------------------------- METHOD 2 -------------------------
     # total = 0
     # for element in lst:
-    #     total += sum_recursion_list(element) if isinstance(element,
-    #                                                        list) else element
+    #     total += sum_recursion_list(element) \
+    #             if isinstance(element, list) else element
     # return total
 
     # ============================================================
@@ -52,11 +52,15 @@ def sum_recursion_list(lst):
     return total
 
 # ex:
-# print(sum_recursion_list([1, 2, [3, 4], [5, 6]))  # 21
+print(sum_recursion_list([1, 2, [3, 4], [5, 6]]))  # 21
 
 
 # ---------------------------------------------------------
-# 4. Write a Python program to get the factorial of a non-negative integer using recursion.
+# 4. Write a Python program to get the factorial 
+# of a non-negative integer using recursion.
+# !5  -->>  1*2*3*4*5 = 120
+# !10 -->>  1*2*3*4*5*6*7*8*9*10 = 3628800
+
 def factorial(n: int) -> int:
     """Calculate the factorial of a given number using recursion.
 
@@ -91,8 +95,11 @@ def factorial(n: int) -> int:
 # print(factorial(5))  # 120
 
 # ---------------------------------------------------------
-# 5. Write a Python program to solve the Fibonacci sequence using recursion.
-def fibonacci(n: int) -> int:
+# 5. Write a Python program to solve the 
+# Fibonacci sequence using recursion.
+# [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, ...]
+
+def fibonacci(n:int, a:int=0, b:int=1) -> int:
     """Calculate the nth number in the Fibonacci sequence.
     The Fibonacci sequence is a series of numbers where each number is the sum
     of the two preceding ones, usually starting with 0 and 1.
@@ -118,8 +125,13 @@ def fibonacci(n: int) -> int:
         raise TypeError("n must be an integer")
     elif n < 1:
         raise ValueError("n must be a positive integer greater than 0")
-
-    return n * factorial(n - 1)
+    if a > n:
+        return a
+    NEXT = a + b
+    # use list
+    # use spread operator as *
+    # ex:  [a, b, *[...]]
+    return 
 
 
 # ex:

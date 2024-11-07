@@ -46,6 +46,9 @@ def multiply_list(list):  # умножить_список
 
 # 5.  Write a Python program to get the largest number from a list.
 # RU: Напишите программу Python, чтобы получить наибольшее число из списка.
+def largest_number(arr):
+    return max(arr)
+    # return sorted(arr)[-1]
 
 
 # 6. Get the largest and smallest numbers of the list and sum both.
@@ -190,3 +193,15 @@ print(check_w_and_get_length(x))  # [5, 5]
 # only the lengths of strings that are divisible by 5.
 # RU: Создайте функцию, которая принимает список строк и возвращает список с
 # только длины строк, которые делятся на 5.
+
+def get_length_divisible_by_5(arr: list[str]):
+    # return [len(word) for word in arr if len(word) % 5 == 0]
+    # return list(map(len, filter(lambda x: len(x) % 5 == 0, arr))
+    lengths = []
+    for word in arr:
+        if len(word) % 5 == 0:
+            lengths.append(len(word))
+    return lengths
+
+# EX: ['hello', 'world', 'whats', 'up', 'my', 'friend']
+#      => ['hello', 'world', 'friend']  => [5, 5, 6]  => 16

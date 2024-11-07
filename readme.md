@@ -9,6 +9,7 @@ Down below, you will find a table of contents that will help you navigate throug
    - [3. Bool and If/Else](MD/3.bool_and_if_else.md)
    - [4. String methods](MD/4.String-methods.md)
    - [5. Functions](MD/5.Functions.md)
+   - [6. Exceptions and error handling](MD/6.Exceptions_and_error_handling.md)
 - [Exercises](#exercises)
 - [✅ Semantic versioning:](#-semantic-versioning)
 - [✅ Install pipenv](#-install-pipenv)
@@ -95,12 +96,12 @@ Follow these steps to resolve it:
 
 ___
 
-## ✅ Modules
+# ✅ Modules
 
 - [**Codete**](https://codete.com/blog/10-built-in-modules-in-python-you-should-know#overview) - 10 Built-in Modules in Python You Should Know
 - [**Levelup**](https://levelup.gitconnected.com/11-most-useful-built-in-python-modules-you-might-not-know-yet-eff3e0e6f586) - 11 Most Useful Built-in Python Modules You Might Not Know Yet
 
-### random
+## random
 
 - [Documentation](https://docs.python.org/3/library/random.html)
 
@@ -135,7 +136,7 @@ ___
    print(x)
    ```
 
-### math
+## math
 
 - [Documentation](https://docs.python.org/3/library/math.html)
 
@@ -195,7 +196,7 @@ ___
    print(math.pi)
    ```
 
-### time / datetime / timedelta
+## time / datetime / timedelta
 
 1. `time.time()`: 
    - Return the time in seconds since the epoch as a floating point number.
@@ -275,7 +276,7 @@ print(now + datetime.timedelta(days=365))
 >>> datetime.datetime(*2024*, 7, 30, 12, 30, 10, 999999)
 ```
 
-### json
+## json
 
 - [Documentation](https://docs.python.org/3/library/json.html)
 
@@ -293,7 +294,7 @@ print(now + datetime.timedelta(days=365))
    print(json.loads("{}"))
    ```
 
-### logging
+## logging
 
 - [Documentation](https://docs.python.org/3/library/logging.html)
 
@@ -320,7 +321,7 @@ logging.basicConfig(
 logging.debug('This is a debug message')
 ```
 
-### requests
+## requests
 
 - [Documentation](https://docs.python-requests.org/en/master/)
 
@@ -371,7 +372,7 @@ for user in users:
 # print(response.json())
 ```
 
-### faker
+## faker
 
 - [Documentation](https://faker.readthedocs.io/en/master/)
 
@@ -390,7 +391,7 @@ print(fake.country())
 print(fake.url())
 ```
 
-### translators
+## translators
 
 - [Documentation](https://pypi.org/project/translators/)
 
@@ -421,7 +422,7 @@ print("JAPANESE translation:", japanese_translation)
 # JAPANESE translation:  こんにちは、今日はなんと美しい天気でしょう!
 ```
 
-### re
+## re
 
 - [Documentation](https://docs.python.org/3/library/re.html)
 
@@ -503,7 +504,7 @@ import re
 # print(x)
 ```
 
-### collections
+## collections
 
 - [Documentation](https://docs.python.org/3/library/collections.html)
 
