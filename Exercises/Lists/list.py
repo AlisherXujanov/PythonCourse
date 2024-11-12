@@ -154,7 +154,7 @@ def second_last(list):
 # using list comprehension
 # RU: Создайте функцию, которая принимает список чисел и возвращает максимальное
 # значение с использованием генератора списка
-def get_max_using_comprehensio(arr):
+def get_max_using_comprehension(arr):
     pass
 
 # ==========================================================================

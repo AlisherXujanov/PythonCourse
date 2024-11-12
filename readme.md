@@ -10,6 +10,7 @@ Down below, you will find a table of contents that will help you navigate throug
    - [4. String methods](MD/4.String-methods.md)
    - [5. Functions](MD/5.Functions.md)
    - [6. Exceptions and error handling](MD/6.Exceptions_and_error_handling.md)
+   - [7. Sequence-1](MD/7.Sequence_1.md)
 - [Exercises](#exercises)
 - [✅ Semantic versioning:](#-semantic-versioning)
 - [✅ Install pipenv](#-install-pipenv)
