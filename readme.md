@@ -12,6 +12,7 @@ Down below, you will find a table of contents that will help you navigate throug
    - [6. Exceptions and error handling](MD/6.Exceptions_and_error_handling.md)
    - [7. Sequence-1](MD/7.Sequence_1.md)
    - [8. Sequence-2](MD/8.Sequence_2.md)
+   - [9. Loops](MD/9.Loops.md)
 - [Exercises](#exercises)
 - [✅ Semantic versioning:](#-semantic-versioning)
 - [✅ Install pipenv](#-install-pipenv)
