@@ -136,7 +136,7 @@ def remove_item(set1:set, *args) -> set:
     # return set1.difference(args)
 
 x = {'a', 'b', 'c'}
-result = remove_item(x, 'c', 'b')
+result = remove_item(x, 'c', 'b')   
 print("Result: ", x)
 
 # =====================================================================================================
