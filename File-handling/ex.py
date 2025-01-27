@@ -4,6 +4,9 @@ import os
 FILENAME = sys.argv[1]
 text = sys.argv[2:]
 
+print("FILENAME: ", FILENAME)
+print("TEXT: ", text)
+
 # if os.path.exists(FILENAME):
 #     with open(FILENAME, "w") as file:
 #         file.write(" ".join(text))
@@ -58,8 +61,8 @@ text = sys.argv[2:]
 # DELETE A FILE
 # To delete a file, we use os.remove() function
 # ex:
-import os
-os.remove("text.txt")
+# import os
+# os.remove("text.txt")
 
 # ===========================================================
 # "r" - Read - Default value. Opens a file for reading, error if the file does not exist

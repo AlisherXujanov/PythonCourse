@@ -90,21 +90,23 @@ VALUES (
 > > - **Arrays**                  (stores arrays of data)
 >       ARRAY (Stores arrays of data) maximum characters 131072
 >           ex: type[1,2,3]
->               type['John', 'Jane']
+>               TEXT['...', '...']
 >               CREATE TABLE customers (
 >                       name TEXT, 
 >                       address DEFAULT TEXT['123 Main St.', 'Pittsburgh', '15237']
 >               )
 > 
 CREATE TABLE students (
-    id serial PRIMARY KEY,
+    id SERIAL PRIMARY KEY,
     name text,
     grades int[]
 );
 INSERT INTO students (name, grades) 
-       VALUES ('John Doe', INT[85, 90, 92]);
+VALUES ('John Doe', ARRAY[85, 90, 92]);
 
-SELECT * FROM students WHERE grades > 90;
+<!-- INDEXES always start by 1 -->
+
+SELECT * FROM students WHERE 90 < ANY (grades);
 
 UPDATE students SET grades[1] = 95 WHERE name = 'John Doe';
 <!-- 1 indexed -->
@@ -115,6 +117,7 @@ UPDATE students SET grades = grades || 98 WHERE name = 'John Doe';
 ------------------------------------------------------------
 > - **Network address types**   (INET, MACADDR)
     This is used to store network IP addresses and MAC addresses.
+<!-- MAC  ->  Media Access Control -->
 >           ex: CREATE TABLE customers (name TEXT, ip_address INET)  =>  
 >               INET here is the type of the column ip_address
 >               and it can store IPv4 and IPv6 addresses
@@ -122,8 +125,11 @@ UPDATE students SET grades = grades || 98 WHERE name = 'John Doe';
 >               where we need to store the IP address of a customer because
 >               we want to track where they are coming from.
 > ------------------------------------------------------------
+<!-- https://www.mysite.com/products/13245238-3245-3245-3245-324523452345 -->
+
 > - **UUID**                    (stores Universally Unique Identifiers)
     [8 digits]-[4 digits]-[4 digits]-[4 digits]-[12 digits]
+>   13245238-3245-3245-3245-324523452345
     
     The difference between SERIAL and UUID is that SERIAL is a sequential number and UUID is a random number.
     For example, if we have a table of customers and we want to assign a unique ID to each customer, we can use SERIAL.
@@ -135,6 +141,18 @@ UPDATE students SET grades = grades || 98 WHERE name = 'John Doe';
     XML is used to store data and HTML is used to display data.
     HTML is designed to be read by humans, while XML is designed to be read by machines.
 >           ex: CREATE TABLE customers (name TEXT, info XML)
+>
+<!-- 
+<person>
+    <name>John Doe</name>
+    <age>30</age>
+    <address>
+        <street>123 Main St.</street>
+        <city>Pittsburgh</city>
+        <zip>15237</zip>
+    </address>
+</person> 
+-->
 > ------------------------------------------------------------
 
 # Constraints
@@ -155,6 +173,12 @@ UPDATE students SET grades = grades || 98 WHERE name = 'John Doe';
     PRIMARY KEY is used to uniquely identify a row in a table.
     FOREIGN KEY is used to reference a column in ANOTHER TABLE.
     
+<!-- 
+OTO  -> One To One relationship   ->  1:1
+MTM  -> Many To Many relationship ->  M:N
+ -->
+
+
 
 > - **CHECK**       => CREATE TABLE customers (name TEXT, age INTEGER CHECK (age >= 18))
 > - **EXCLUDE**     => SELECT * FROM users EXCLUDE age < 18;

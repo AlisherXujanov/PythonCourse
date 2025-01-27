@@ -14,6 +14,7 @@ CREATE TABLE Customers (
   name VARCHAR(255) NOT NULL,
   email VARCHAR(255) NOT NULL
 );
+
 CREATE TABLE Orders (
   id SERIAL PRIMARY KEY,
   order_date DATE NOT NULL,
@@ -21,6 +22,7 @@ CREATE TABLE Orders (
   customer_id INTEGER NOT NULL,
   FOREIGN KEY (customer_id) REFERENCES Customers (id)
 );
+
 INSERT INTO Customers (name, email)
 VALUES ('John Doe', 'test@mail.com');
 

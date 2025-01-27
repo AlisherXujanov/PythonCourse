@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "fasthtml"
+version = "0.1.0"
+description = ""
+authors = ["Alisher <alisherxujanov163@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+python-fasthtml = "^0.12.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

@@ -116,13 +116,13 @@ import psycopg2
 import requests
 
 # Connecting to the database
-conn = psycopg2.connect(
+**conn = psycopg2.connect(
     user="postgres",
     password="qweqweqwe",
     host="localhost",
     port="5432",
     database="postgres"
-)
+)**
 # This is for autocommiting the changes
 # It means that we don't need to commit every time
 # to save the changes in the database
