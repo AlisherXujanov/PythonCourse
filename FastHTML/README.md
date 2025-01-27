@@ -89,19 +89,23 @@ def post(profile: Profile):  # FastHTML auto-converts form data to Profile insta
 
 ### 3. WebSocket Chat
 ```python
+# Create a FastHTML app with WebSocket extension enabled
 app, rt = fast_app(exts='ws')
 
+# GET route to display the chat interface
 @rt('/')
 async def get():
     return Titled("Chat", 
-        Div(id='messages'),
-        Form(Input(id='msg'), ws_send=True),
-        hx_ext='ws', 
-        ws_connect='/ws'
+        Div(id='messages'),  # Container for chat messages
+        Form(Input(id='msg'), ws_send=True),  # Form with input that sends via WebSocket
+        hx_ext='ws',  # Enable HTMX WebSocket extension
+        ws_connect='/ws'  # WebSocket endpoint to connect to
     )
 
+# WebSocket route to handle messages
 @app.ws('/ws')
 async def ws(msg: str, send):
+    # When message received, send back a div containing the message
     await send(Div(f"Message: {msg}", id='messages'))
 ```
 
@@ -110,11 +114,15 @@ async def ws(msg: str, send):
 Create reusable UI components:
 
 ```python
+# Add tailwind to the app
+app, rt = fast_app(exts='tw')
+
+# Define a hero component
 def hero(title, statement):
     return Div(
-        H1(title),
-        P(statement),
-        cls="hero"
+        H1(title, cls="text-5xl font-bold mb-4 text-indigo-600"),  # Large, bold title in indigo with margin bottom
+        P(statement, cls="text-xl text-gray-600 max-w-2xl"),  # Larger paragraph text in gray with max width
+        cls="flex flex-col items-center justify-center min-h-[50vh] py-12 px-4"  # Center content vertically and horizontally with padding
     )
 
 @rt("/")

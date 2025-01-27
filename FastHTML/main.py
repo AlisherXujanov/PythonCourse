@@ -2,6 +2,13 @@
 # Example of a FastHTML app using Tailwind CSS
 ###
 
+### SHORTHAND KEYWORDS before starting to read the code
+# FT = FastHTML
+# RT = Route
+# APP = FastHTML
+# DB = Database
+
+
 # This fasthtml app includes functionality from fastcore, starlette, fastlite, and fasthtml itself.
 # Run with: `python adv_app.py`
 # Importing from `fasthtml.common` brings the key parts of all of these together.
