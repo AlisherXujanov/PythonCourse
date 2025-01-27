@@ -164,17 +164,7 @@ app, rt = fast_app(before=bware)
 
 - [Official Documentation](https://docs.fastht.ml/)
 - [HTMX Documentation](https://htmx.org/)
-- [PicoCSS Documentation](https://picocss.com/)
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## 📄 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-
+- [Tailwind Documentation](https://tailwindcss.com/)
 
 
 
