@@ -1,4 +1,4 @@
-# 🚀 FastHTML
+*# 🚀 FastHTML
 
 FastHTML is a powerful Python library that brings together Starlette, Uvicorn, HTMX, and fastcore's `FT` "FastTags" to create server-rendered hypermedia applications with minimal code and maximum productivity.
 
@@ -168,3 +168,4 @@ app, rt = fast_app(before=bware)
 
 
 
+*

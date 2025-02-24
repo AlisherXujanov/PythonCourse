@@ -1,10 +1,12 @@
-# CRUD  ->  Create, Read, Update, Delete
+a = 5
+b = 5
+print(a is b)  # True
 
-# 1. Non-relational databases
-# Ex: MangoDB, Cassandra, Redis, CouchDB
 
-# 2. Relational databases
-# Ex: SQL, SQLite, MySQL, PostgreSQL, Oracle
+x = [1, 2]
+y = [1, 2]
+print(x is y)  # False
 
-# SQL -> Structured Query Language
-# ------------------------------------------
+
+
+
