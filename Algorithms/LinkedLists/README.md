@@ -73,9 +73,12 @@ def add_end(head, data):
     if not head:
         return new_node
     
+    # Loop through the list until the last node
     current = head
     while current.next:
         current = current.next
+
+    # Add the new node to the end of the list
     current.next = new_node
     return head
 
@@ -102,9 +105,10 @@ Linked List: 1→2→3→4      → Just attach new node at front
 
 ### Problems with Arrays Only:
 
-1. **Memory Waste**: Create array of size 1000, use only 10 slots
+1. **Memory Waste**: The array is created with a fixed size, but if the array is not full, it will waste memory.
 2. **Slow Insertions**: Adding at beginning requires moving all elements
-3. **Fixed Size**: Can't grow beyond initial capacity
+3. **Fixed Size**: The size of the array is fixed, so if the array is full, it will not be able to add new elements. Total size of array is around 1000 elements. If we need more than 1000 elements, we need to create a new array with a larger size.
+
 
 ## When to Use What?
 
