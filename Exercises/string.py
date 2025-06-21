@@ -65,9 +65,8 @@ def is_palindrome(string):  # является_палиндромом
 # qwert  => NOT polindrome
 
 
-# 9. Write a Python program to get a string made of the first 2 and last 2 characters of a given string.
-# If the string length is less than 2, return the empty string instead.
-# RU: Напишите программу на Python, чтобы получить строку, состоящую из первых 2 и последних 2 символов заданной строки.
+# 9. Напишите программу на Python, чтобы получить строку, состоящую из 
+# первых 2 и последних 2 символов заданной строки.
 # Если длина строки меньше 2, вместо этого верните пустую строку.
 def first_last_two(string):  # первые_2_последние_2
     if len(string) < 2:
@@ -106,9 +105,8 @@ def swap_first_two(string1, string2):  # поменять_первые_два
     return string2[:2] + string1[2:] + ' ' + string1[:2] + string2[2:]
 
 
-# 12. Write a Python program to add 'ing' at the end of a given string (length should be at least 3). If the given string
-# already ends with 'ing', add 'ly' instead. If the string length of the given string is less than 3, leave it unchanged.
-# RU: Напишите программу на Python, чтобы добавить 'ing' в конец заданной строки (длина должна быть не менее 3).
+# 12. Напишите программу на Python, чтобы добавить 'ing' в 
+# конец заданной строки (длина должна быть не менее 3).
 # Если заданная строка уже заканчивается на 'ing', вместо этого добавьте 'ly'.
 # Если длина строки заданной строки меньше 3, оставьте ее без изменений.
 def add_ing(string):  # добавить_ing
@@ -119,29 +117,17 @@ def add_ing(string):  # добавить_ing
     return string + 'ing'
 
 
-# 13. Write a Python program to find the first appearance of the substrings 'not' and 'poor' in a given string.
-# If 'not' follows 'poor', replace the whole 'not'...'poor' substring with 'good'. Return the resulting string.
-# RU: Напишите программу на Python, чтобы найти первое появление подстрок «не» и «плохо» в заданной строке.
-# Если «не» следует за «плохо», замените всю подстроку «не» ... «плохо» на «хорошо». Вернуть полученную строку.
-def replace_not_poor(string):  # заменить_не_плохо
-    not_index = string.find('not')
-    poor_index = string.find('poor')
-    if not_index != -1 and poor_index != -1 and poor_index > not_index:
-        return string.replace(string[not_index:poor_index+4], 'good')
-    else:
-        return string
 
-
-# 14. Write a Python function to create an HTML string with tags around the word(s)
-# RU: Напишите функцию Python для создания HTML-строки с тегами вокруг слова (слов).
+# 13. Напишите функцию Python для создания HTML-строки с тегами вокруг слова (слов).
 def add_tags(tag, string):  # добавить_теги
     return f'<{tag}>{string}</{tag}>'
+
+
+add_tags('b', "Hello") # <b>Hello</b>
 
 # 15. Write a Python function to insert a string in the middle of a string.
 # RU: Напишите функцию Python для вставки строки посередине строки.
 # вставить_строку_посередине
-
-
 def insert_string_middle(string, string_to_insert):
     return string[:len(string)//2] + string_to_insert + string[len(string)//2:]
 

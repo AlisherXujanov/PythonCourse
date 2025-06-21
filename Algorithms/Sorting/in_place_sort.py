@@ -24,23 +24,21 @@ target = 3
 
 
 # Example: Remove all the 3s from the list
-class Solution(object):
-    def removeElement(self, nums, val):
-        """
-        :type nums: List[int]
-        :type val: int
-        :rtype: int
-        """
-        i = 0  # left pointer
-        j = len(nums) - 1  # right pointer
-        while i <= j:  # when left is less than or equal to right
-            if nums[i] == val:  # if left pointer is equal to val
-                nums[i], nums[j] = nums[j], nums[i]  # switch left and right
-                j -= 1  # move right pointer to the left
-            else:
-                i += 1  # move left pointer to the right
-        return i  # return the length of the list
+def removeElement( nums, val):
+    """
+    :type nums: List[int]
+    :type val: int
+    :rtype: int
+    """
+    i = 0  # left pointer
+    j = len(nums) - 1  # right pointer
+    while i <= j:  # when left is less than or equal to right
+        if nums[i] == val:  # if left pointer is equal to val
+            nums[i], nums[j] = nums[j], nums[i]  # switch left and right
+            j -= 1  # move right pointer to the left
+        else:
+            i += 1  # move left pointer to the right
+    return i  # return the length of the list
 
-s = Solution()
-k = s.removeElement(nums, target)
+k = removeElement(nums, target)
 print(k)

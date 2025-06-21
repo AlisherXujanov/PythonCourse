@@ -12,12 +12,12 @@ def max_of_three(a, b, c):
 
 # 2. Write a Python function to sum all the numbers in a list.
 # RU: Напишите функцию Python для суммирования всех чисел в списке.
-def sum_of_list(lst):
+def sum_of_list(lst:list[int]):
     return sum(lst)
 
 # 3. Write a Python function to multiply all the numbers in a list.
 # RU: Напишите функцию Python для умножения всех чисел в списке.
-def multiply_of_list(lst):
+def multiply_of_list(lst:list[int]):
     result = 1
     for i in lst:
         result *= i
@@ -29,8 +29,9 @@ def unique_elements(lst):
     return list(set(lst))
 
 # 5. Write a Python function to calculate the factorial of a number (a non-negative integer). The function accepts the number as an argument.
-# RU: Напишите функцию Python для вычисления факториала числа (неотрицательное целое число). Функция принимает число в качестве аргумента.
-def factorial(n):
+# RU: Напишите функцию Python для вычисления факториала числа (неотрицательное целое число). 
+# Функция принимает число в качестве аргумента.  5  =>  1*2*3*4*5  =>  120
+def factorial(n:int):
     if n == 1:
         return 1
     return n * factorial(n - 1)
@@ -48,21 +49,8 @@ def factorial(n):
 # =====================================================================================================
 
 # Advanced LEVEL
-# 1. Factorial      =>   !5  =  5*4*3*2*1
-# factorial(10)   =>   !10 =  10*9*8*7*6*5*4*3*2*1
-def factorial(n):
-    if n == 1:
-        return 1
-    return n * factorial(n - 1)
-
-
-print(factorial(5))
-
-# ==============
 # 2. Fibonacci  =>   0, 1  =  0, 1, 1, 2, 3, 5, 8, 13, 21, 34, ...
 # fibbo(50)     =>   0, 1, 1, 2, 3, 5, 8, 13, 21, 34
-
-
 def fibonacci(max, first=0, second=1):
     if first > max:
         return []
@@ -94,8 +82,6 @@ print(fibonacci(10))
 #   !!!!!!!!!!!!!!!
 #  ?????????????????
 # !!!!!!!!!!!!!!!!!!!
-
-
 def piramid_recursion(n_times):
     if n_times == 1:
         return "*"
@@ -113,7 +99,6 @@ piramid_recursion(10)
 
 # ====================================================================
 # ! USE RECURSION
-
 
 def rotate_string_recursively(string, remaining_str=""):
     if len(remaining_str) == 0:

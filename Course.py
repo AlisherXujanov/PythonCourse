@@ -2,27 +2,7 @@
 #   _
 #  /_|  /  *   _ /_  _  __
 # /  | /_  | _) / / (- /
-# --------------------------
 # ------------------------------------------------------
-# NOTE: IMPORTANT
-# 1. Understand the task (50% solution)
-# RU: Понять задачу (50% решения)
-# 2. Identify the type of the last result
-# RU: Определить тип конечного результата
-# 3. Identify methods of current result type
-# RU: Определить методы типа конечного результата
-#   - it will help us to gether information
-#     RU: это поможет нам собрать информацию
-# 4. Think about the login (depends on the issue)
-#    RU: Подумать о логике (зависит от задачи)
-#    - would you need a loop        (RU: нужен ли цикл ?)
-#    - would you need a condition   (RU: нужно ли условие ?)
-#    - would you need a variable    (RU: нужна ли переменная ?)
-# 5. Name it correctly!!!
-# RU: Назовите это правильно !!!
-# ------------------------------------------------------
-
-
 lesson = 'Introduction'
 """
 # IN Python
@@ -294,6 +274,29 @@ print(is_polindrome(input('Guess a polindrome: ')))
 
 lesson = 'strings'
 """
+# Primitives: None, int, str, bool, float (простые типы данных)
+
+# a = "Hello"
+# print(a[0]) # "H"
+# print(a[-1]) # "o"
+# a[0] = 'w'  # TypeError
+
+# print("-"*20)
+
+# l = ['a', 'b', 'c']
+# print(l[0]) # "a"
+
+# l[0] = 'w'
+# print(l)
+
+
+# -------------------------------------------
+# s = "\nHello world"
+# \   =>  escape character
+# \n  =>  new line  ( == <br> in HTML)
+# \t  =>  tab (4 spaces)
+
+# -------------------------------------------
 # INPUT   =>   is identical to prompt() in JS
 # RU:  идентичен prompt() в JS
 # -----------------------------------
@@ -302,93 +305,67 @@ lesson = 'strings'
 # 'Hello'[0:2]  # He
 # 'Hello'[0:5:2]  # Hlo
 # 'Hello'[::2]  # Hlo
-# 'Hello'[::-1] # olleH
+# 'Hello'[::-1] # olleH 
+
+
+# len(...)  => length  =>  длина элемента
+
+# s = "Sobirjon is the best"
+# char = "is the best"
+# symbol_length = "*"*len(char)
+
+# index_of_char = s.index(char) 
+# start = s[0:index_of_char] 
+# end = s[index_of_char+len(char):]
+
+# result = "Result: " + start + symbol_length + end
+# print("-"*len(result))
+# print(result)
+# print("-"*len(result))
+
+# =======================================================
+# Problem no:1
+# First-last exchange
+# --------------------
+# s = "Hello World"
+# first = s[0]
+# last = s[-1]
+# middle = s[1:-1]
+# result = "Result: " + last + middle + first
+# print("-"*len(result))
+# print(result)
+# print("-"*len(result))
+# =======================================================
+
 # -----------------------------------
 # INCLUDES
 # len('Hello')  # 5
 # "..." in "..."  => checks if the other string is 
 #                    included in the string
+# a = "Hello"
+# b = "Hello, is this some test?"
+# print(a in b) # True
+# print(b in a) # False
 
 # -----------------------------------
 # REPLACE
-# .replace('...', '...')  (==> .replaceAll())
-# import re  # Regular Expressions
-# x = "I love an Apple but sometimes I eat an orange or BANANA"
-# y = ["apple", "orange", "banana"] # "apple|orange|banana"
-# # [..., ..., ...].join("|")  is in JS
-# y = "|".join(y)
-# print("BEFORE:  => ", x)
-# x = re.sub(
-#     "apple|orange|banana",
-#     "***",
-#     x,
-#     flags=re.IGNORECASE
-# )
-# print("AFTER:  => ", x)
+# x = "Hello world again"
+# result = x.replace("a", "*", 1)
+# print(result)
+# ====================================
+import re  # Regular Expressions  =>  Регулярные выражения
+original_text = "I love an Apple but sometimes I eat an orange or BANANA"
+items_we_want_to_replace = ["apple", "orange", "banana"]
+joined_items_to_replace = "|".join(items_we_want_to_replace) # "apple|orange|banana"
+print("BEFORE:  => ", original_text)
+result = re.sub(
+    joined_items_to_replace, # what we want to replace => Что мы хотим заменить
+    "***", # To WHAT we want to replace => На что мы хотим заменить
+    original_text, # FROM WHERE we want to replace => Откуда мы хотим заменить
+    flags=re.IGNORECASE # flags => флаги
+)
+print("AFTER:  => ", result)
 
-# re.sub(
-#     #   '...'   or    r'[^a-z]'   or    '...|...|...',  
-#     #   replacement,
-#     #   original_string
-#     #   flags=re.IGNORECASE
-# ) 
-# EXAMPLES:
-    # text = "Mentioning of reD, GrEen and BLUE is prohibited"
-    # words_to_replace = ["red", "green", "blue"]
-    # new_text = re.sub(f'{"|".join(words_to_replace)}',
-    #                 "***",
-    #                 text,
-    #                 flags=re.IGNORECASE)
-    # print(new_text)
-# ----------------------------------------------------------------------------------
-# name = input("What is your name? ")
-
-
-# INPUT   =>   is identical to prompt() in JS
-# RU:  идентичен prompt() в JS
-# -----------------------------------
-# GETTING STRING PARTS (==> .slice())
-# '...'[start:end:step] [начало:конец:шаг]
-# 'Hello'[0:2]  # He
-# 'Hello'[0:5:2]  # Hlo
-# 'Hello'[::2]  # Hlo
-# 'Hello'[::-2] # olleH
-# -----------------------------------
-# INCLUDES
-# len('Hello')  # 5
-# "..." in "..."  => checks if the other string is 
-#                    included in the string
-
-# -----------------------------------
-# REPLACE
-# .replace('...', '...')  (==> .replaceAll())
-# import re  # Regular Expressions
-# x = "I love an Apple but sometimes I eat an orange or BANANA"
-# y = ["apple", "orange", "banana"] # "apple|orange|banana"
-# # [..., ..., ...].join("|")  is in JS
-# y = "|".join(y)
-# print("BEFORE:  => ", x)
-# x = re.sub(
-#     y,
-#     "***",
-#     x,
-#     flags=re.IGNORECASE
-# )
-# print("AFTER:  => ", x)
-# re.sub(
-#     #   '...'   or    r'[a-z]'   or    '...|...|...',  
-#     #   replacement,
-#     #   original_string
-#     #   flags=re.IGNORECASE
-# ) 
-# EXAMPLES:
-    # text = "Mentioning of reD, GrEen and BLUE is prohibited"
-    # words_to_replace = ["red", "green", "blue"]
-    # new_text = re.sub(f'{"|".join(words_to_replace)}',
-    #                 "***",
-    #                 text,
-    #                 flags=re.IGNORECASE)
-    # print(new_text)
 # ----------------------------------------------------------------------------------
 # =========================================================
 # MODIFYING STRINGS
@@ -672,25 +649,142 @@ fib = fibonacci(10)
 
 lesson = 'functions  &&  lambda  &&  Exercises'
 """
-# def func_name(arg1, arg2, arg3):
-#     print(arg1, arg2, arg3)
-# func_name(1, 2, 3)
+# There are 2 types of functions:
+# --------------------------------------------------------
+# 1. function that does not give or take anything
+# RU: функция, которая ничего не возвращает и не принимает
+# --------------------------------------------------------
+
+# x = 1
+# z = 2
+# def multiply_by_10():
+#     global x, z
+#     x = x * 10
+#     z = z * 10
+#     return x, z
+# print("-"*20)
+# print("X: ", x)
+# print("Z: ", z)
+# print("-"*20)
+# multiply_by_10()
+# print("--------- 1st call ---------")
+# print("X: ", x)
+# print("Z: ", z)
+# print("-"*20)
+# multiply_by_10()
+# print("--------- 2nd call ---------")
+# print("X: ", x)
+# print("Z: ", z)
+# print("-"*20)
+
+# --------------------------------------------------------
+# 2. function that always require arguments
+# RU: функция, которая всегда требует аргументы
+# --------------------------------------------------------
+
+# x = 1
+# z = 2
+# def multiply_by_10(x, z):
+#     x = x * 10
+#     z = z * 10
+#     return x, z
+
+# print("-"*20)
+# r = multiply_by_10(x, z)
+# print("X: ", x)
+# print("Z: ", z)
+# print("-"*20)
+# print("R: ", r)
+# print("-"*20)
+
+
+# ==========================================================
+# ----------------------------------------------------------
+# ARGS  =>  arguments
+# ----------------------------------------------------------
+
+# def sum_up(a, b=10, *args):
+#     # sum  =>  built-in function
+#     # RU:  Встроенная функция которая суммирует все аргументы
+#     # args == [..., ..., ...]
+#     return a + b + sum(args)
+# # ---------------------
+# r = sum_up(1, 2)
+# print(r) # 3
+# # ---------------------
+# r2 = sum_up(1)
+# print(r2) # 11
+# # ---------------------
+# r3 = sum_up(10)
+# print(r3) # 20
+# # ---------------------
+# r4 = sum_up(1, 2, 3, 4)
+# print(r4) # 10
+# # ---------------------
+# r5 = sum_up(10, 10, 10, 10)
+# print(r5) # 40
+# # ---------------------
+# r6 = sum_up(1**99, 2*2, 3*3)
+# print(r6) # 14
+
+# ==========================================================
+# ----------------------------------------------------------
+# KWARGS  =>  keyword arguments
+# ----------------------------------------------------------
+# def blender(fr1, fr2=None, fr3=None, *args, **kwargs):
+#     if kwargs:
+#         print("Extra keywords: ", kwargs)
+
+#     if fr2 and fr3:
+#         return f"Fruits-3: {fr1}, {fr2}, {fr3}"
+#     elif fr2:
+#         return f"Fruits: 1st and 2nd: {fr1}, {fr2}"
+#     elif fr3:
+#         return f"Fruits: 1st and 3rd: {fr1}, {fr3}"
+#     else:
+#         return f"ONLY 1st fruit: {fr1}"
+    
+# -------------------------------------
+# r0 = blender("Apple", random1="Banana", random2="Cherry")    
+# print("Result-0: ", r0)
+
+# -------------------------------------
+# r = blender("Apple", "Banana", "Cherry")    
+# print(r)
+# -------------------------------------
+# r2 = blender("Apple", "Banana")    
+# r2 = blender("Apple", fr2="Banana")    
+# print(r2)
+# -------------------------------------
+# r3 = blender("Apple", "Charry")    
+# print("Result-1: ", r3)
+# r3 = blender("Apple", fr3="Charry")    
+# print("Result-2: ", r3)
+
+# ==========================================================
+# ----------------------------------------------------------
+# FUNCTION DECORATIONS
 # ----------------------------------------------------------
 # from typing import Union
-# def func_name(arg1:Union[str, int]) -> type:
-#     return arg1
-# print(func_name(1))
-# ----------------------------------------------------------
-# default value
+# def show_message(msg:Union[str, int]="...") -> str:
+#     # Это функция, которая принимает строку и возвращает её.
+#     return "Message: " + msg
+# # -----------------------------
+# r = show_message("Hello world")
+# print(r)
+# # -----------------------------
+# r2 = show_message()
+# print(r2)
+# # -----------------------------
+
 # ----------------------------------------------------------
 # Lambda
-# func_name = lambda arg1, arg2: arg1 + arg2
-# print(func_name(1, 2))
+# def func_name(arg1, arg2):
+#     return arg1 + arg2
+
+# func_name = lambda arg1, arg2, *args: arg1 + arg2 + sum(args)
+# print(func_name(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))
 # ----------------------------------------------------------
-# def show_message(*children):
-#     # This function needs to be finished in near future!
-#     # return NotImplementedError()  =>  не было создано!
-#     pass
 # """
 
 
@@ -1433,67 +1527,111 @@ _1 = 'Abstract and Inheritance'
 
 # this == self
 
-# class User:
-#     def __init__(self, name):
-#         print(f"User {name} is created")
-#         self.name = name
+class Animal:
+    # initialize the class constructor
+    def __init__(self, name: str, age: int) -> None:
+        self.name: str = name
+        self.age: int = age
 
-# user1 = User("John")
-# print(user1)
-# print(user1.name)
+    def __str__(self) -> str:
+        return f"{self.name} is {self.age} years old!"
 
+    def get_info(self) -> str:
+        # Gets all information about current animal
+        return f"{self.name} is {self.age} years old!"
+
+
+lion = Animal("White Lion", 20)
+# print(lion)
+
+crocodile = Animal("Black Long Crocodile", 10)
+# print(crocodile.get_info())
+
+# =================================================================================
+# =================================================================================
+
+
+class Book:
+    # THIS IS ABSTRACT CLASS THAT SHOULD BE INHERITED
+    def __init__(self, pages: int, title: str, author: str, lang: str):
+        self.pages = pages
+        self.title = title
+        self.author = author
+        self.lang = lang
+
+    def __str__(self) -> str:
+        return f"The {self.title} book has {self.pages} and is written in language: {self.lang} by {self.author}"
+
+
+class PaperBook(Book):
+    def __init__(self,  pages: int, title: str, author: str, lang: str, weight: float):
+        super().__init__(pages, title, author, lang)
+        self.weight = weight
+
+
+class EBook(Book):
+    def __init__(self,  pages: int, title: str, author: str, lang: str, link: str):
+        super().__init__(pages, title, author, lang)
+        self.link = link
+
+
+pBook = PaperBook(150, "Harry Potter", "Rown Kings", "English", 0.85)
+eBook = EBook(200, "Brothers Grimm", "Sobirjon",
+              "Tadjik", "https://www.sobirjon.uz")
+
+# print(pBook)
+# print(eBook)
+##############################################################
+##############################################################
 
 # __init__  => is a constructor method which is used to initialize the attributes of a class
 # it is called automatically when an object is created
 
-#############################################################################################
-################ Abstraction
+##############################################################
+##############################################################
+# Abstraction
 
-# "abc" here stands for abstract base class. It is first imported and then used as 
-# a parent class for some class that becomes an abstract class. Its simplest implementation 
+# "abc" here stands for abstract base class. It is first imported and then used as
+# a parent class for some class that becomes an abstract class. Its simplest implementation
 # can be done as below.
+from abc import ABC, abstractmethod
+
+class AbcAnimal(ABC):
+    def __init__(self, name, food):
+        self.name = name
+        self.food = food
+
+    @abstractmethod # decorator
+    def get_description(self):
+        pass
 
 
-# from abc import ABC, abstractmethod
-# class AbcAnimal(ABC):
-#     def __init__(self, name, food):
-#         self.name = name
-#         self.food = food
+class Pets(AbcAnimal):
+    def __init__(self, name, food, speed):
+        super().__init__(name, food)
+        self.speed = speed
 
-#     @abstractmethod
-#     def get_description(self):
-#         pass
-#         # raise NotImplementedError
+    # NOTE: WE MUST HAVE get_description() method
+    #       We will get an ERROR otherwise!
 
+p = Pets("Alpha", "Corn", 1)
+# print(p)
 
-# class Pets(AbcAnimal):
-#     def __init__(self, name, food, speed):
-#         super().__init__(name, food)
-#         self.speed = speed
-
-#     def get_description(self):
-#         return f"{self.name} eats {self.food}"
-
-
-# dog = Pets("Dog", "Meat", 10)
+dog = Pets("Dog", "Meat", 10)
 # print(dog)
 # print(dog.get_description())
 
 
-
 # abs module is used to create abstract classes
-# it is helpful when we want to create a class that will be used as a base class
-# abstractmethod is used to declare abstract methods which will be implemented by the child classes
-# is it used to ensure that the child classes will have the same method as the parent class
-# and returns an error if the child class does not have the same method as the parent class
-# RU: абстрактный класс - это класс, который не предназначен для создания экземпляров,
+# абстрактный класс - это класс, который не предназначен для создания экземпляров,
 # а предназначен для использования в качестве родительского класса для других классов
 # абстрактный метод - это метод, который объявлен, но не реализован в базовом классе.
 
-#############################################################################################
-################ Inheritence
+#####################################################
+#####################################################
+# Inheritence
 
-# Inheritance allows us to define a class that inherits all the methods 
+# Inheritance allows us to define a class that inherits all the methods
 # and properties from another class.
 # Parent class is the class being inherited from, also called base class.
 # Child class is the class that inherits from another class, also called derived class.
@@ -1502,41 +1640,72 @@ _1 = 'Abstract and Inheritance'
 # The newly formed class is a derived class (or child class).
 # Similarly, the existing class is a base class (or parent class).
 
-# class Parent:
-#     def __init__(self, name):
-#         self.name = name
+#####################################################
+#####################################################
+
+class Bank:
+    def __init__(self, bank_name: str, account_id: int, pin: int):
+        self._bank_name = bank_name
+        self._account_id = account_id
+        self._pin = pin
+        self._balance = 0
+
+    def __str__(self):
+        return f"You have an account on the bank - '{self._bank_name}'"
+
+    def print_msg(self, msg:str) -> None:
+        print(msg)
+        print("-"*20)
+
+
+    def get_balance(self) -> None:
+        self.print_msg(f"Your balance is: {self._balance}")
+
+    def validate_account_exist(self, account_id:int, pin:int) -> bool:
+        # Проверяет на существования аккаунта
+        if self._account_id == account_id and self._pin == pin:
+            return True
+        
+        self.print_msg(f'NO account exists on id: {account_id}')
+        return False
+
+
+    def invest(self, amount:float, account_id:int, pin:int) -> bool:
+        # Вклад в личный счёт
+        if self.validate_account_exist(account_id, pin):
+            self._balance = self._balance + amount
+            self.print_msg(f'SUCCESSFULLY INVESTED - ${amount}!')
+            self.get_balance()
+            return True
+        return False
+
+
+    def withdraw(self, amount: float, account_id: int, pin: int) -> bool:
+        # Вывод из баланса
+        if self.validate_account_exist(account_id, pin):
+            self._balance = self._balance - amount
+            self.print_msg(f'SUCCESSFULLY WITHDRAWN - ${amount}')
+            self.get_balance()
+            return True
+        return False
+
+
+
+class HamkorBank(Bank):
+    def __init__(self,  bank_name: str, account_id: int, pin: int, location:str):
+        super().__init__(bank_name, account_id, pin)
+        self.location = location
     
-#     def test(self):
-#         print("Hello world")
-
-# class Child(Parent, ABC):
-# #     Inherited members from parent class
-# #     Additional members of the child class
-#     def __init__(self, name, age):
-#         super().__init__(name)  # => calls the parent class constructor
-#         self.age = age
-
-#     def test(self):
-#         print("Hello world from child")
-
-#     def __repr__(self) -> str:
-#         '''
-#             Is used to represent the object with a string.
-#             It is used for debugging and logging.
-#         '''
-#         return f"{self.name} is {self.age} years old"
-
-#     def __str__(self) -> str:
-#         '''
-#             Is used to represent the object with a string.
-#             It is used for the end user.
-#         '''
-#         return f"{self.name} is {self.age} years old"
 
 
-# child = Child("John", 20)
-# print(child)
-# print(child.test())
+ACCOUNT_ID = "qwdoj129-e12e012he01hied2-d923r"
+PIN = "opdj9-1j2-19jd329dj30-d10"
+bank_balance = HamkorBank("Hamkor Bank", ACCOUNT_ID, PIN, "Amir Temur St: 30. Samarkand")
+print(bank_balance)
+
+
+bank_balance.invest(10000.00, ACCOUNT_ID, PIN)
+bank_balance.withdraw(1900, ACCOUNT_ID, PIN)
 """
 
 _2 = 'Polymorphism and Encapsulation and Decorators'

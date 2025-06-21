@@ -128,15 +128,6 @@
 # x = any(mylist)  # => True
 # print(x)
 # ------------------------------------------------------------------------------
-# 9. ascii()	    Returns a readable version of an object. Replaces none-ascii characters with escape character
-#       American Standard Code for Information Interchange
-#           RU: Возвращает читаемую версию объекта. Заменяет символы, не являющиеся ASCII-символами, символом экранирования
-#               ASCII - американский стандартный код для обмена информацией
-# #           EX:
-# x = ascii("My name is Ståle")  # => 'My name is St\xe5le'
-# print(x)
-
-# ------------------------------------------------------------------------------
 """
 # 0 = 0
 # 1 = 1
@@ -155,7 +146,7 @@
 # 14 = 1110
 # 15 = 1111
 """
-# 10. bin()	        Returns the binary version of a number
+# 9. bin()	        Returns the binary version of a number
 #           RU: Возвращает двоичную версию числа
 #           EX:
 #               x = bin(36)  =>  0b100100
@@ -183,13 +174,6 @@
 #           RU: Возвращает словарь (массив)
 #           EX:
 # x = dict(name = 'John', age = 36, country = 'Norway')
-# ------------------------------------------------------------------------------
-# 14. dir()	        Returns a list of the specified object's properties and methods
-#           RU: Возвращает список свойств и методов указанного объекта
-#           EX:
-# x = dir(bool)
-# print(x)
-# [print(z) for z in x]
 # ------------------------------------------------------------------------------
 # 15. enumerate()	Takes a collection (e.g. a tuple) and returns it as an enumerate object
 #           RU: Принимает коллекцию (например, кортеж) и возвращает ее в виде объекта перечисления
@@ -220,8 +204,6 @@
 # print(id(list))
 # ------------------------------------------------------------------------------
 # 19. input()	    Allowing user input
-# ------------------------------------------------------------------------------
-# 20. int()	        Returns an integer number
 # ------------------------------------------------------------------------------
 # 21. isinstance()	Returns True if a specified object is an instance of a specified object
 #           RU: Возвращает True, если указанный объект является экземпляром указанного объекта

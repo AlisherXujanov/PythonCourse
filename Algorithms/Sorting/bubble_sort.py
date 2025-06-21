@@ -15,3 +15,4 @@ def bubble_sort(numbers):
 
 n = [5, 3, 8, 2, 1]
 bubble_sort(n)
+print(n)
